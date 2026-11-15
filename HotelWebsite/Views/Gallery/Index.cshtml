@@ -1,0 +1,539 @@
+﻿
+@{ ViewBag.Title = "Hotel Gallery | Maisonette Firhill Murree Hotel Room Photos";
+
+    ViewBag.keywords = "hotel gallery, hotel food pictures, hotel lobby pictures, Murree best hotel, murree hotel room booking, murree hotel rates, maisonette murree, hotel murree, murree hotel, hotel at murree, murree hotels, hotel booking murree, murree hotel room booking, murree resorts, murree hotel price, luxury hotel in murree, murree hotel booking online, ";
+    ViewBag.canonical = "https://maisonettefirhillmurree.com/maisonette-hotel-room-photos";
+    ViewBag.Description = "Explore Maisonette Firhill Murree Hotel room photos. Discover luxury rooms, stunning views & amenities in Murree's finest hotel. Browse Murree hotel Gallery."; }
+
+@*<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">*@
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<style>
+    .gallery-title {
+        font-size: 36px;
+        color: teal;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+        .gallery-title:after {
+            content: "";
+            position: absolute;
+            width: 7.5%;
+            left: 46.5%;
+            height: 45px;
+            border-bottom: 1px solid teal;
+        }
+
+    .filter-button {
+        margin: 5px;
+        background-color: #f6ae00;
+        border-radius: 5px;
+    }
+
+        .filter-button:hover {
+            background-color: #0073b7;
+            border-radius: 5px;
+        }
+
+    .btn-default:active .filter-button:active {
+        background-color: #f6ae00;
+        color: white;
+    }
+
+    .port-image {
+        width: 100%;
+    }
+
+    .gallery_product {
+        margin-bottom: 30px;
+    }
+
+    .img1 {
+        vertical-align: middle;
+        border-style: none;
+        border-radius: 5px;
+    }
+</style>
+
+<script>
+    // Gallery
+    $(document).ready(function () {
+        $(".filter-button").click(function () {
+            var value = $(this).attr("data-filter");
+
+            if (value == "all") {
+                //$('.filter').removeClass('hidden');
+                $(".filter").show("1000");
+            } else {
+                //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                $(".filter")
+                    .not("." + value)
+                    .hide("3000");
+                $(".filter")
+                    .filter("." + value)
+                    .show("3000");
+            }
+        });
+
+        if ($(".filter-button").removeClass("active")) {
+            $(this).removeClass("active");
+        }
+        $(this).addClass("active");
+    });
+
+</script>
+
+<main>
+
+    <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
+        <img class="jarallax-img" src="../content/paradise/img/masionette_about.png" alt="best hotel in murree">
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+            <div class="container" style="margin-top:13%">
+                <small class="slide-animated one">
+                    Discover Your Next Getaway
+                </small>
+                <h1 class="slide-animated two" style="font-size:35px">Maisonette Firhill Hotel Murree Room Photos</h1>
+            </div>
+        </div>
+    </div>
+    <!-- /Background Img Parallax -->
+    @*<div class="container mt-5">
+            <div class="row justify-content-between">
+                <div class="title text-center mb-5">
+                    <p>Welcome to the Hotel Gallery page of <a href="https://hotelhome.com/about-hotel-home-murree">Hotel Home murree!</a> Here, we invite you to indulge in a visual feast of stunning photos of our murree Hotel and the delectable dishes that we serve. Get a glimpse of murree's picturesque scenery, our rooms and suites' elegant interiors, and our impeccable hospitality. But that's not all – we also have pictures of our mouthwatering cuisines that will whet your appetite. From irresistible desserts to savory mains, your taste buds are in for a treat at Hotel Home murree. So indulge in our gallery, and let the images do the talking. Experience the splendor of Hotel Home murree today!</p>
+                </div>
+            </div>
+        </div>*@
+
+
+
+    <div class="pattern_3" style="background-color:#fff; background-image:none">
+        <div class="container margin_120_95" style="padding-top:90px" id="first_section">
+            <div class="title text-center mb-5">
+                <small data-cue="slideInUp">Maisonette Firhill Hotel & Resort Murree</small>
+                <h2 data-cue="slideInUp" data-delay="100">Hotel Gallery </h2>
+                <p>
+                    Welcome to the Gallery of Maisonette Firhill Hotel & Resort Murree, where you can explore captivating
+                    views and luxurious interiors that define your perfect stay. From our spacious rooms with cozy furnishings
+                    to the scenic beauty that surrounds, each photo offers a glimpse of the exceptional experience awaiting you
+                    here. Whether you’re planning a family trip, a romantic escape, or a business retreat, our gallery
+                    showcases the comfort, elegance,
+                    and warmth you can expect in every corner of Maisonette Firhill Hotel.
+                </p>
+            </div>
+            <div class="tabs_menu" data-cue="slideInUp" data-delay="200">
+
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class=" filtr-button active nav-link active" data-filter="all">All</li>
+                    <li class="nav-link filtr-button" data-filter="1">Studio Room</li>
+                    <li class="nav-link  filtr-button" data-filter="2">Executive Room</li>
+                    <li class="nav-link filtr-button" data-filter="3">Honeymoon Suite</li>
+                    <li class="nav-link filtr-button" data-filter="4">Queen Suite</li>
+                    <li class="nav-link filtr-button" data-filter="5">Presidential Room</li>
+                    <li class="nav-link filtr-button" data-filter="6">Cafe</li>
+                    <li class="nav-link filtr-button" data-filter="7">Restuarant</li>
+                </ul>
+
+                <div class="row justify-content-center mt-3">
+
+
+
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="1">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Executiv/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="1">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Executiv/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="1">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Executiv/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="1">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Executiv/6.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="1">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Executiv/7.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="2">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Exucutiveee/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="2">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Exucutiveee/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="2">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Exucutiveee/7.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="2">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Exucutiveee/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="2">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Exucutiveee/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="2">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Exucutiveee/6.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="3">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/HoneyMoon/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="3">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/HoneyMoon/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="3">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/HoneyMoon/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="3">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/HoneyMoon/6.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="3">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/HoneyMoon/7.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="3">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/HoneyMoon/8.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/presedential/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/presedential/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/presedential/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/presedential/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Presedential_2/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Presedential_2/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Presedential_2/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Presedential_2/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Presedential_2/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="5">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Presedential_2/6.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Queen/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/twinRoom/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/twinRoom/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Queen/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/queenOutside/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/queenOutside/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Queen/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="4">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Queen/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/6.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Sweets/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Sweets/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Sweets/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Sweets/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/Sweets/5.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/8.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="6">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/cafe/9.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/3.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/4.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/9.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/6.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/7.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/RestaurantGallery/8.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/nashta/1.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                    <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4 filtr-item" data-category="7">
+                        <div class="item-img" data-cue="slideInUp">
+                            <img src="../content/paradise/img/nashta/2.png" alt="hotel in murree" />
+
+                        </div>
+                    </div>
+                </div>
+                <!--/row -->
+
+            </div>
+            <!-- /tab-content -->
+        </div>
+        <!-- /tabs_menu-->
+
+
+    </div>
+    <!-- /container -->
+    <!--/container -->
+</main>
+<script>
+    $(document).ready(function () {
+        $(".filtr-button").on("click", function () {
+            var filterValue = $(this).attr("data-filter");
+
+            // Update active class
+            $(".filtr-button").removeClass("active"); // Remove active class from all buttons
+            $(this).addClass("active"); // Add active class to clicked button
+
+            if (filterValue === "all") {
+                $(".filtr-item").show();
+            } else {
+                $(".filtr-item").hide();
+                $('.filtr-item[data-category="' + filterValue + '"]').show();
+            }
+        });
+    });
+</script>

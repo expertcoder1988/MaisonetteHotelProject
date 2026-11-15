@@ -1,0 +1,469 @@
+@using HotelWebsite.Models;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    List<HotelWebsite.Models.PropertySearch> results = new List<HotelWebsite.Models.PropertySearch>();
+    HotelWebsite.Models.RoomDetails result = (HotelWebsite.Models.RoomDetails)ViewBag.room;
+
+    int? TotalAmount = 0;
+    List<HotelWebsite.Models.Pictures> roomPictures = (List<HotelWebsite.Models.Pictures>)TempData["roomPictures"];
+
+    // for thank You page Image code
+    //if (ViewBag.RoomCategory != null && ViewBag.RoomCategory.Picture != null)
+    //{
+    //    Session["RoomPicture"] = ViewBag.RoomCategory.Picture;
+    //}
+    //var pics = roomPictures.Select(x => x.title).ToList()
+    DateTime _CheckIn = DateTime.Now;
+    DateTime _CheckOut = DateTime.Now;
+    int? _RoomCatCode = 0;
+    int? _adults = 0;
+    int? _children = 0;
+    int? _NoOfRooms = 0;
+    int? _adultsRate = 0;
+    int? _childrenRate = 0;
+    int? roomPrice = 0;
+
+    int? _TotalPax = 0;
+
+    if (Session["results"] != null)
+    {
+
+        _adults = ViewBag.Adults;
+        _children = ViewBag.Children;
+        _NoOfRooms = ViewBag.NoOfRooms;
+        results = (List<HotelWebsite.Models.PropertySearch>)Session["results"];
+
+        _TotalPax = _adults + _children;
+
+        if (_TotalPax == 0)
+        {
+            _TotalPax = 1;
+        }
+
+        TotalAmount = ViewBag.TotalAmount; ; //results.Where(x => x.RoomCateCode == result.RoomCategoryId).Select(x => x.TotalAmount).FirstOrDefault();
+                                             // string[] sDate = ViewBag.checkIn;
+                                             // string startDate = ViewBag.checkIn; // sDate[1] + "/" + sDate[0] + "/" + sDate[2];
+
+        //sDate = ViewBag.TotalAmount;
+        //string endDate = sDate[1] + "/" + sDate[0] + "/" + sDate[2];
+
+        _CheckIn = ViewBag.checkIn; // Convert.ToDateTime(startDate);
+        _CheckOut = ViewBag.checkOut; // Convert.ToDateTime(endDate);
+    }
+    int totalDays = (int)(_CheckOut - _CheckIn).TotalDays;
+
+    // Step 1: Fetch values from ViewBag
+    string _roomCateRoomNums = ViewBag.RoomCateRoomNums;
+    string RatePlanIDs = ViewBag.RatePlanIDs;
+    long RoomRate = Convert.ToInt64(ViewBag.RoomRate ?? 0);
+    long TotalAmmount = Convert.ToInt64(ViewBag.TotalAmount ?? 0);
+    long NoOfDays = Convert.ToInt64(ViewBag.totalDays ?? 1); // default 1 if null
+
+    // Step 2: Calculate correct amounts based on room quantity
+    int roomQuantity = Convert.ToInt32(_roomCateRoomNums ?? "1");
+
+    // Step 3: Get dynamic tax value from controller
+    long Taxes = Convert.ToInt64(ViewBag.TotalTax ?? 0);
+
+    // Step 4: Calculate AmountWithoutTaxes (Total - Tax)
+    long AmountWithOutTaxes = TotalAmmount - Taxes;
+
+    // Now you can use AmountWithOutTaxes and Taxes wherever needed
+}
+
+<style>
+    .reservation-summary img {
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 15px;
+        padding: 15px 20px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        outline: none;
+    }
+
+    .submit-btn, #submit-contact {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 15px;
+        padding: 18px 40px;
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .submit-btn:hover, #submit-contact:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+</style>
+
+<main>
+    <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
+        <img class="jarallax-img" src="../content/paradise/img/masionette_about.png" alt="best hotel in Murree">
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+            <div class="container" style="margin-top:10%">
+                <small class="slide-animated one">Luxury Hotel Experience</small>
+                <h1 class="slide-animated two">
+                    Booking Form
+                </h1>
+            </div>
+        </div>
+    </div>
+    <!-- /Background Img Parallax -->
+
+    <div class="container margin_120_95">
+        <div class="row justify-content-between">
+
+            <div class="col-md-4 card p-3 m-2 order-md-2" style="background-color: #252422">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted" style="color:white !important">Your Reservation</span>
+                    <span class="badge badge-secondary badge-pill"></span>
+                </h4>
+                <div class="justify-content-between mx-auto mb-3">
+                    @{
+                        var roomImages = ViewBag.RoomImages as List<string>;
+                        if (roomImages != null && roomImages.Count > 0)
+                        {
+                            <img src="@Url.Content(roomImages[0])" alt="Room Image" class="img-fluid" style="height:180px;width:302px" />
+                        }
+                    }
+
+                    @*<img src="../uploads/@ViewBag.RoomCategory.Picture" style="height:180px;width:302px" />*@
+                </div>
+                <div class="">
+                    <h2 style="color:white">Maisonette Firhill Hotel & Resort</h2>
+                    <p class="p-2" style="font-size:13px;color:white">
+                        Governor House Road, Daultana House Kashmir point, Murree, Rawalpindi, Punjab
+                        <a href="tel:+923111122168" style="color: #fff !important"> +923111122168</a>
+                    </p>
+                </div>
+
+                <div class="row p-2" style="color:white">
+                    <div class="col-12">
+                        <label>Room Category :</label>
+                        <label>@ViewBag.Category.Category</label>
+                    </div>
+                </div>
+
+                <div class="row p-2" style="color:white">
+                    <div class="col-6">
+                        <label>CheckIn:</label>
+                        @_CheckIn.ToShortDateString()
+                        @*<label>After 14:00</label>*@
+                    </div>
+                    <div class="col-6">
+                        <label>CheckOut:</label>
+                        @_CheckOut.ToShortDateString()
+                        @*<label>Before 12:00</label>*@
+                    </div>
+                </div>
+                <div class="row p-2" style="color:white">
+                    <div class="col-6">
+
+                        <label>After 14:00</label>
+                    </div>
+                    <div class="col-6">
+
+                        <label>Before 12:00</label>
+                    </div>
+                </div>
+
+                <div class="row p-2" style="color:white">
+                    <div class="col-6">
+                        <label>No Of Rooms:</label>
+                        <label>@ViewBag.NoOfRooms</label>
+                    </div>
+                    <div class="col-6">
+                        <label>No Of Guests:</label>
+                        <label>@_TotalPax</label>
+                    </div>
+                </div>
+                <div class="row p-2" style="color:white">
+                    <div class="col-6">
+                        <label>No Of Nights:</label>
+                        <label>@totalDays</label>
+
+                    </div>
+                    <div class="col-6">
+                        <label>Best Rate,Flexible</label>
+
+                    </div>
+                </div>
+
+                <div class="row  p-2" style="color:white">
+                    <div class="col-6">
+                        <label>Taxes:</label>
+                        <label>@Taxes</label>
+                    </div>
+                    <div class="col-6">
+                        <label>Amount:</label>
+                        <label>@AmountWithOutTaxes</label>
+                    </div>
+
+                </div>
+
+
+                <hr />
+
+                <div class="row pt-3" style="color:white">
+                    <div class="col-8">
+                        <label style="font-size:18px;font-weight:700">Total Amount <span style="font-size:13px;font-weight:200">(incl Tax)</span> </label>
+                    </div>
+                    <div class="col-4">
+                        <label style="font-size:16px;font-weight:700" id="totalPriceCell">@TotalAmmount<span>.PKR</span> </label>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-xl-7 card p-4 col-lg-7 order-1">
+                <h3 class="mb-3">Personal Information</h3>
+                <div id="message-contact"></div>
+                @using (Html.BeginForm("SaveBooking", "SearchResult", FormMethod.Post, new { @class = "needs-validation", id = "myForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <select class="form-control" name="PaxTitle" id="PaxTitle">
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Miss">Miss</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-floating mb-4">
+                                <input class="form-control" type="text" id="PaxFName" required name="PaxFName" placeholder="First Name">
+                                <label for="name_contact">Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-floating mb-4">
+                                <input class="form-control" type="text" id="PaxLName" name="PaxLName" placeholder="Last Name">
+                                <label for="lastname_contact">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-floating mb-4">
+                                <input class="form-control" type="email" required id="PaxEmail"
+                                       name="PaxEmail" placeholder="Email">
+                                <label for="email_contact">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-floating mb-4">
+                                <input class="form-control" type="text" id="PaxPhoneNumber" required name="PaxPhoneNumber" placeholder="Telephone">
+                                <label for="phone_contact">Telephone</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-4">
+                                <input id="voucherCode" class="form-control" name="Code" type="text" placeholder="Coupon">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-4">
+                                <button type="button" class="btn btn-primary" onclick="applyVoucher()">Apply Voucher</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control" placeholder="Message" id="PaxDescription" name="PaxDescription"></textarea>
+                        <label for="message_contact">Special Message</label>
+                    </div>
+                    <div class="row" style="display:none">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-4">
+                                <input class="form-control" type="text" id="verify_contact" name="verify_contact" placeholder="Are you human? 3 + 1 =">
+                                <label for="verify_contact">Are you human? 3 + 1 =</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <section class="section questions">
+
+                            <div class="section__inner">
+                                <div class="form__tab active">
+
+                                    <h3 class="mb-3">Payment Method</h3>
+
+                                    <fieldset class="form__group">
+                                        <!--<label class="form__label"  style="display:none"  for="purchase">-->
+
+                                            <!-- tabindex="0" -->
+                                            <!--<input class="form__input" required type="radio" name="loanType" id="purchase" value="2" >
+
+                                            <span class="form__label-name" style="line-height:30px">Online Payment <br /></span>
+
+                                            <span class="form__label-text">
+                                                <img src="~/content/paradise/img/mastercard.svg" alt="Visa Card" style="width: 30px; height: 35px;">
+                                                <img src="~/content/paradise/img/visa.svg" alt="Visa Card" style="width: 30px; height: 35px;">
+                                                <img src="~/content/paradise/img/easypaisa.svg" alt="Visa Card" style="width: 30px;height: 35px;">
+                                                <img src="~/content/paradise/img/jazzcash.svg" alt="Visa Card" style="width: 50px;height: 35px;">
+                                                <img src="~/content/paradise/img/upasia.svg" alt="Visa Card" style="width: 50px;height: 35px;">
+
+                                            </span>
+                                            <svg class="form__label-check" viewBox="0 0 512 512" title="check-circle">
+                                                <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+                                            </svg>
+                                        </label>-->
+                                        <!-- </button> -->
+                                        <label class="form__label" style="width:48%" for="refinance">
+                                            <!-- tabindex="0" -->
+                                            <input class="form__input" required type="radio" name="loanType" id="refinance" value="1" checked>
+                                            <span class="form__label-name">50% Deposit</span> <br />
+                                            <span class="form__label-text">To confirm your booking.</span>
+                                            <svg class="form__label-check" viewBox="0 0 512 512" width="100" title="check-circle">
+                                                <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+                                            </svg>
+                                            <!-- </button> -->
+                                        </label>
+                                    </fieldset>
+
+                                </div>
+
+
+                            </div>
+                        </section>
+                    </div>
+
+                    <hr class="mb-4" />
+                    <div class="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox"
+                                   class="custom-control-input"
+                                   id="same-address" />
+                            <label class="custom-control-label" for="same-address">
+                                I have read and agree to the <a href="@Url.Action("Index","TermsandConditions")">Terms & Conditions</a> and
+                                <a href="@Url.Action("Index","PrivacyPolicy")">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+                    <hr class="mb-4" />
+                    <p class="mt-3"><input type="submit" value="Submit" class="btn_1 outline" id="submit-contact"></p>
+
+                    <input type="hidden" name="CheckIn" value="@_CheckIn" />
+                    <input type="hidden" name="CheckOut" value="@_CheckOut" />
+                    <input type="hidden" name="RoomCatCode" value="@ViewBag.RoomCatCodes" />
+                    <input type="hidden" name="Adults" value="@_adults" />
+                    <input type="hidden" name="Children" value="@_children" />
+                    <input type="hidden" name="NoOfRooms" value="@_NoOfRooms" />
+                    <input type="hidden" name="RoomRate" value="@roomPrice" />
+                    <input type="hidden" name="TotalAmount" value="@TotalAmount" />
+                    <input type="hidden" name="RoomCateRoomNums" value="@_roomCateRoomNums" />
+                    <input type="hidden" name="RatePlanIDs" value="@RatePlanIDs" />
+                    <input type="hidden" name="RoomRates" value="@ViewBag.RoomRates" />
+                    <input type="hidden" name="VoucherCode" id="hiddenVoucherCode" value="" />
+                }
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!--/container -->
+
+    <div class="map_contact">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13243.929917702526!2d73.4062154!3d33.9158505!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfd771d7df38f5%3A0x4fe61e6b429f0998!2sMaisonette%20Firhill%20Villas%20Murree!5e0!3m2!1sen!2s!4v1731653569969!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!--/map_contact -->
+
+
+
+</main>
+<hr class="mb-12" />
+@*<script>
+         document.addEventListener('DOMContentLoaded', function () {
+             var form = document.getElementById('myForm');
+             var submitButton = document.getElementById('submit-contact');
+
+             form.addEventListener('submit', function (event) {
+                // Disable the submit button
+                 submitButton.disabled = true;
+            });
+        });
+    </script>*@
+<script>
+    // Function to toggle the check icons
+    document.querySelectorAll('.form__input').forEach(input => {
+        input.addEventListener('change', function () {
+            document.querySelectorAll('.form__label-check').forEach(svg => svg.style.display = 'none');
+            if (input.checked) {
+                input.closest('.form__label').querySelector('.form__label-check').style.display = 'inline';
+            }
+        });
+    });
+
+    // Initialize by showing the checked icon for the default checked radio button
+    document.querySelector('.form__input:checked').closest('.form__label').querySelector('.form__label-check').style.display = 'inline';
+</script>
+
+<script>
+    var isVoucherApplied = false; // Flag to check if the voucher is already applied
+
+    function applyVoucher() {
+        if (isVoucherApplied) {
+            alert('Voucher has already been applied.');
+            return;
+        }
+
+        var voucherCode = document.getElementById('voucherCode').value;
+        var totalAmountField = document.getElementById('totalPriceCell');
+        var hiddenVoucherCodeField = document.getElementById('hiddenVoucherCode');
+
+        if (!totalAmountField || !hiddenVoucherCodeField) {
+            console.error('Total Amount or Hidden Voucher Code field is not found');
+            return;
+        }
+
+        $.ajax({
+            url: '/SearchResult/GetDiscountAmount',
+            type: 'POST',
+            data: { code: voucherCode },
+            success: function (response) {
+                if (response.success) {
+                    var totalAmount = parseFloat(totalAmountField.innerText.replace('Rs. ', '').replace(',', ''));
+                    var discountAmount = response.discountAmount;
+                    var newTotalAmount = totalAmount - discountAmount;
+
+                    totalAmountField.innerText = newTotalAmount + '.PKR';
+
+                    isVoucherApplied = true; // Set the flag to true after applying the voucher
+                    // Set the hidden field value to the applied voucher code
+                    hiddenVoucherCodeField.value = voucherCode;
+                } else {
+                    alert('Invalid voucher code');
+                }
+            },
+            error: function () {
+                alert('An error occurred while applying the voucher code.');
+            }
+        });
+    }
+</script>

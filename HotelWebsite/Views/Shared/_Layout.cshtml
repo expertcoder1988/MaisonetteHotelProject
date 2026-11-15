@@ -1,0 +1,1546 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title</title>
+    <meta name="Keyword" content="@ViewBag.keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+
+    <meta property="og:title" content="Maisonette Firhill Hotels & Resort" />
+    <meta property="og:url" content="https://maisonettefirhillmurree.com/" />
+    @*<meta property="og:image" content="https://maisonettefirhillmurree.com/favicon.ico" />*@
+
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Maisonette Firhill Hotels offers comfort and convenience in the heart of the beautiful Murree. Surrounded by stunning views of the breathtaking mountain ranges." />
+    <meta property="og:locale" content="en_US" />
+    <meta name="theme-color" content="#ffffff">
+    <!-- Favicons-->
+
+    <link rel="shortcut icon" href="~/favicon.png" type="image/x-icon">
+    <link rel="icon" href="~/favicon.png" type="image/x-icon">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- GOOGLE WEB FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="~/content/paradise/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/content/paradise/css/style.css" rel="stylesheet">
+    <link href="~/content/paradise/css/vendors.min.css" rel="stylesheet">
+    <link href="~/content/paradise/css/carosa.css" rel="stylesheet">
+    <!-- YOUR CUSTOM CSS -->
+    <link href="~/content/paradise/css/custom.css" rel="stylesheet">
+    <link href="~/content/paradise/css/flex_slider.css" rel="stylesheet">
+
+
+    <link rel="canonical" href="@ViewBag.canonical" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .float {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 10px;
+            right: 10px !important;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .floatp {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 70px;
+            right: 10px !important;
+            background-color: #25d366;
+            color: #ffffff;
+            background-color: black;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        .my-floatp {
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        .float {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 10px;
+            right: 10px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .floatp {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 70px;
+            right: 10px;
+            background-color: #25d366;
+            color: #ffffff;
+            background-color: black;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        .my-floatp {
+            margin-top: 10px;
+            color: #ffffff;
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "Hotel",
+            "name": "Maisonette Firhill Hotels Murree",
+            "description": "Maisonette Firhill Hotels offers comfort and convenience in the heart of the beautiful Murree. Surrounded by stunning views of the breathtaking mountain ranges.",
+            "address": {
+                "@@type": "PostalAddress",
+                "addressCountry": "Pakistan",
+                "addressLocality": "Murree",
+                "addressRegion": "Daultana House Kashmir point",
+                "postalCode": "47150",
+                "streetAddress": "Daultana House Kashmir point, Gov House Rd, Murree, Rawalpindi, Punjab"
+            },
+            "telephone": "+92 311 1122168",
+            "photo": "https://maisonettefirhillmurree.com/Content/paradise/img/maisonRed.png",
+            "starRating": {
+                "type": "Rating",
+                "ratingValue": "4"
+            },
+            "priceRange": "$50 - $150"
+        }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11520884941"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-11520884941');
+    </script>
+
+
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NKBJPDBK');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '945558684353342');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=945558684353342&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+@{
+    var blogs = new HotelWebsite.Controllers.BlogsController().GetAllBlogs();
+}
+
+<body class="datepicker_mobile_full">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKBJPDBK"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a href="https://wa.me/+923111122168? text=Hi! Maisonette Firhill Villas Murree."
+       class="float"
+       target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+    <a href="tel:+923111122168" class="floatp" target="_blank">
+        <i class="bi bi-telephone my-floatp"></i>
+    </a>
+    <a style="top:55%; position: fixed; bottom: 70px; right: 1px; color: #ffffff; text-align: center; font-size: 30px; z-index: 100;">
+        <img id="myBtn" src="~/Content/paradise/img/feeback.png" width="26" height="88" alt="Maisonette" style="cursor: pointer; display: block; margin: 0 auto;">
+    </a>
+    <header class="reveal_header header-initial" id="header-initial">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <div class="col-3" style="display: inline-flex;">
+                    <nav>
+                        <ul>
+
+
+                            <li>
+                                <div class="hamburger_2 open_close_nav_panel" id="toggle-nav">
+                                    <div class="hamburger__box">
+                                        <div class="hamburger__inner"></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-6" style="text-align: center; margin-top:1%">
+                    <a href="@Url.Action("Index", "Home")" class="logo_normal"><img src="../Content/paradise/img/massionatewhite.png" width="135" height="75" alt="Maisonette"></a>
+                    <a href="@Url.Action("Index", "Home")" class="logo_sticky"><img src="../Content/paradise/img/maisonRed.png" width="135" height="75" alt="Maisonette"></a>
+                </div>
+
+
+                <div class="col-3">
+                    <nav>
+                        <ul>
+
+                            <li class="objext-lang sign-lang" style="margin-left: 0px">
+
+                                <div class="dropdown">
+                                    <!-- Sign In / My Account Button -->
+                                    <button class="btn-outline-secondary dropdown-toggle"
+                                            style="color: #141414; cursor: pointer; background: 0 0; border: none; align-items: center; padding-right: 10px; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; display: flex; position: relative; color: white; border: none; background-color: transparent; --bs-btn-padding-x: 2px"
+                                            type="button" id="authDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="not-auth">Sign In</span>
+                                        <span class="is-auth d-none">My Account</span>
+
+                                    </button>
+
+                                    <!-- Not Authenticated Dropdown -->
+                                    <div class="dropdown-menu p-3" style="width: 300px" aria-labelledby="authDropdown">
+                                        <div class="d-flex justify-content-between align-items-center mt-2" style="letter-spacing: 1.2px; text-transform: uppercase; color: #3c3c3c; margin-bottom: 24px; font-family: Montserrat; font-size: 12px; line-height: 18px; position: relative;">
+                                            <span>MY ALL ACCOUNT</span>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="mt-3">
+                                            <button class=" btn-primary w-100 mb-2"
+                                                    style=" color: white; letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; text-align: center; background: 0 0; border: 1px solid #727c74; font-weight: 700; justify-content: center; height: 42px; margin-bottom: 12px; padding: 12px 24px; font-family: Montserrat; font-size: 12px; line-height: 18px; text-decoration: none; display: flex; background-color: black; border: none; border-radius: 0px">
+                                                LOGIN
+                                            </button>
+                                            <button class=" btn-secondary w-100"
+                                                    style="background-color: white; border: 1px solid black; color: black; border-radius: 0px; color: #3d4a48; letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; text-align: center; background: 0 0; border: 1px solid #727c74; justify-content: center; height: 42px; margin-bottom: 12px; padding: 12px 24px;
+                             font-family: Montserrat; font-size: 12px;
+                             line-height: 18px; text-decoration: none; display: flex; border-radius:0px; font-weight:700">
+                                                CREATE AN ACCOUNT
+
+                                            </button>
+                                        </div>
+                                        <div class="mt-3" style=" color: #3c3c3c; border-bottom: 1px solid #0c1f1e66; margin-bottom: 16px; padding-bottom: 16px; font-family: Montserrat, sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; }">Create an account to take advantage of the member rate.</div>
+                                        <a href="#" class=" btn-link p-0" style="color: #3c3c3c; text-transform: capitalize;
+     border-bottom: 1px solid #0c1f1e; padding-bottom: 6px; font-family: Montserrat; font-size: 14px;
+     line-height: 20px; text-decoration: none;">My Bookings</a>
+                                    </div>
+
+                                    <!-- Authenticated Dropdown -->
+                                    <div class="dropdown-menu p-3 is-auth-dropdown d-none" aria-labelledby="authDropdown">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                Hello, <br>
+                                                <span class="fw-bold">User Name</span>
+                                            </div>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p>Member status: <span class="text-muted">Gold</span></p>
+                                            <p>Reward points: <span class="text-muted">1500</span></p>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#" class="dropdown-item" style="">My ALL Account</a></li>
+                                            <li><a href="#" class="dropdown-item">My Bookings</a></li>
+                                            <li><a href="#" class="dropdown-item">My Points History</a></li>
+                                        </ul>
+                                        <a href="#" class=" btn-danger w-100">Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+                            <li class="objext-lang contact-lang" style="margin-left: 0px">
+                                <div class="dropdown">
+                                    <!-- Contact Button -->
+                                    <button class="btn-outline-secondary dropdown-toggle"
+                                            style="color: white; cursor: pointer; background: transparent; border: none; align-items: center; padding-right: 10px; text-transform: capitalize; font-family: Montserrat, sans-serif; font-size: 14px; font-weight: 400; line-height: 21px; display: flex; position: relative; --bs-btn-padding-x: 2px"
+                                            type="button" id="contactDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Contact
+
+                                    </button>
+
+                                    <!-- Contact Dropdown Menu -->
+                                    <div class="dropdown-menu p-3" style="width: 310px" aria-labelledby="contactDropdown">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h5 class="mb-0"
+                                                style="color: #3c3c3c;font-size:12px; text-align: left; letter-spacing: 1.2px;
+               text-transform: uppercase; font-family: Montserrat ">
+                                                CONCIERGE
+                                            </h5>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <ul class="list-unstyled mb-1">
+                                            <li class="dropdown-item">
+                                                <a href="tel:0513411327" class="dropdown-link d-flex align-items-center" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex;">
+                                                    <i class="bi bi-telephone me-2"></i> <!-- Bootstrap Icons for a phone icon -->
+                                                    (051) 3411327
+
+                                                </a>
+                                            </li>
+                                            @*<li class="dropdown-item" style="margin-left:0px;">
+                                                    <a class="dropdown-link d-flex align-items-center" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex;">
+                                                        <i class="bi bi-envelope me-2"></i>
+                                                        info@maisonettefirhillmurree.com
+                                                    </a>
+                                                </li>*@
+                                        </ul>
+
+                                        <h5 class="mb-1" style="color: #3c3c3c; font-size: 12px; text-align: left; letter-spacing: 1.2px; text-transform: uppercase; font-family: Montserrat">RESERVATION</h5>
+                                        <ul class="list-unstyled mb-1">
+
+                                            <li class="dropdown-item">
+                                                <a href="tel:+92 311 1122168" class="dropdown-link d-flex align-items-center" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex; border-bottom: 1px solid #96969666">
+                                                    <i class="bi bi-telephone me-2"></i> <!-- Bootstrap Icons for a phone icon -->
+                                                    +92 311 1122168
+                                                </a>
+                                            </li>
+
+                                            <li class="dropdown-item" style="margin-left:0px;  border-bottom: 1px solid #96969666 ">
+                                                <a class="dropdown-link d-flex align-items-center" href="mailto:info@maisonettefirhillmurree.com" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex;">
+                                                    <i class="bi bi-envelope me-2"></i> <!-- Bootstrap Icons for envelope -->
+                                                    info@maisonettefirhillmurree.com
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-item" style="margin-left:0px;">
+                                                <a class="dropdown-link d-flex align-items-start" href="https://www.google.com/maps/place/Maisonette+Firhill+Villas+Murree/33.9158549,73.4036405,17z/data=!3m1!4b1!4m9!3m8!1s0x38dfd771d7df38f5:0x4fe61e6b429f0998!5m2!4m1!1i2!8m2!3d33.9158505!4d73.4062154!16s%2Fg%2F11_f0jch8?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D"
+                                                   target="_blank" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex; text-align: justify">
+                                                    <i class="bi bi-map me-2"></i> <!-- Bootstrap Icons for map -->
+                                                    <div>
+                                                        @*<p class="mb-0">51C 2 Gulberg III Ghalib Rd</p>
+                                                            <p class="mb-0">54000 Pakistan</p>*@
+                                                        <p class="mb-0">Governor House Road, Daultana</p>
+                                                        <p class="mb-0">House Kashmir point, Murree, Punjab</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                        <div>
+                                            <a href="#" class=""
+                                               style="color: #3d4a48; letter-spacing: 1.2px; text-transform: uppercase; text-align: center; background: 0 0; border: 1px solid #727c74; justify-content: center; height: 42px; margin-bottom: 12px; padding: 12px 24px; font-family: Montserrat,sans-serif; display: flex; font-size: 12px; text-decoration: none; border-radius: 0px; "
+                                               data-bs-target="#modal_id456">
+                                                Contact Us
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li style="margin-left: 0px">
+                                <a href="" class="btn_1 btn_scrollto obj-book"
+                                   style="padding: 11px 11px 11px 11px; border-radius: 0px; background: 0 0; color: white; border: 1px solid white; ">BOOK NOW</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <hr class="line-break" />
+            <div class="container last-bar " style=" opacity: 1; visibility: visible; justify-content: center; align-items: center; display: flex;margin-top:20px">
+                <ul style=" justify-content: center; align-items: center; margin: 0; padding-left: 0; list-style: none; display: flex;gap:5px">
+                    <li class="items_olist" style=" color: #fff; text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="text-decoration-none" href="@Url.Action("Index", "Home")" style="color:#fff">Home</a>
+                    </li>
+                    <li class="items_olist" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="text-decoration-none" href="@Url.Action("Index", "AboutUs")" style="color:#fff">About</a>
+                    </li>
+
+                    <li class="dropdown dropdown-restuarant" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="nav-link dropdown-toggle text-decoration-none" style="color:#fff" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Rooms & Suits
+                        </a>
+                        <ul class="dropdown-menu restuarant-drop">
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;"
+                                   href="@Url.Action("Executive", "Rooms")">Executive Room</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;"
+                                   href="@Url.Action("Studio", "Rooms")">Studio Room</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;"
+                                   href="@Url.Action("Honeymoonsuite", "Rooms")">Honeymoon Suite</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;"
+                                   href="@Url.Action("QueenSuite", "Rooms")">Queen Suite</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;"
+                                   href="@Url.Action("Presidentialsuite", "Rooms")">Presidential Suite</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="items_olist" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="text-decoration-none" href="@Url.Action("Index", "Gallery")" style="color:#fff">Gallery</a>
+                    </li>
+
+                    <li class="dropdown dropdown-restuarant" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="nav-link dropdown-toggle text-decoration-none" style="color:#fff" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cafe & Restuarant
+                        </a>
+                        <ul class="dropdown-menu restuarant-drop">
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;"
+                                   href="@Url.Action("Index", "Restaurant")">Spice Wadi</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none;" href="@Url.Action("Cafe", "Restaurant")">The Cloud Walk</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <li class="items_olist" style=" color: #fff; text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="text-decoration-none" style="color:#fff" href="@Url.Action("Index", "Activities")">Places & Acivities</a>
+                    </li>
+
+
+                    <li class="items_olist" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="text-decoration-none" style="color: #fff" href="@Url.Action("Index", "Blogs")">Blog</a>
+                    </li>
+
+                    <li class="items_olist" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin: 0px 5px;">
+                        <a class="text-decoration-none" style="color:#fff" href="@Url.Action("Index", "Contact")">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+        </div><!-- /container -->
+    </header><!-- /Header -->
+
+    <div class="nav_panel" style="background: #fff;">
+        <a href="#0" class="closebt open_close_nav_panel"><i class="bi bi-x"></i></a>
+        <div class="logo_panel" style=" background: #fff;"><img src="~/Content/paradise/img/maisonRed.png" width="135" height="75" alt="Maisonette"></div>
+        <div class="sidebar-navigation">
+            <nav>
+                <ul class="level-1" style=" background: #fff;">
+                    <li style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0; display: flex;">
+                        <a href="@Url.Action("Index", "Home")" style="color: #252422; font-size: 16px; font-weight: 300; font-family: Montserrat; text-transform: capitalize">Home</a>
+                    </li>
+                    <li style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0; display: flex;">
+                        <a href="@Url.Action("Index", "AboutUs")" style="color: #252422; font-size: 16px; font-weight: 300; font-family: Montserrat; text-transform: capitalize">About Us</a>
+                    </li>
+                    <li class="drawer-item" style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0">
+                        <!-- Dropdown Toggle -->
+                        <button class="drawer-dropdown-toggle button_restuarant" onclick="toggleDropdown()" style="font-size:16px;font-weight:300;">
+                            Rooms & Suits
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <ul class="drawer-dropdown-menu" id="dropdownMenu">
+
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("Executive", "Rooms")" class="drawer-dropdown-item">Executive Room</a>
+                            </li>
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("Studio", "Rooms")" class="drawer-dropdown-item">Studio Room</a>
+                            </li>
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("Honeymoonsuite", "Rooms")" class="drawer-dropdown-item">Honeymoon Suite</a>
+                            </li>
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("QueenSuite", "Rooms")" class="drawer-dropdown-item">Queen Suite</a>
+                            </li>
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("Presidentialsuite", "Rooms")" class="drawer-dropdown-item">Presidential Suite</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0; display: flex;">
+                        <a href="@Url.Action("Index", "Gallery")" style="color: #252422; font-size: 16px; font-weight: 300; font-family: Montserrat; text-transform: capitalize">Gallery</a>
+                    </li>
+
+
+
+                    <li style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0; display: flex;">
+                        <a href="@Url.Action("Index", "Activities")" style="color: #252422; font-size: 16px; font-weight: 300; font-family: Montserrat; text-transform: capitalize">Places & Activities</a>
+                    </li>
+
+                    <li style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0; display: flex;">
+                        <a href="@Url.Action("Index", "Blogs")" style="color: #252422; font-size: 16px; font-weight: 300; font-family: Montserrat; text-transform: capitalize">Blog</a>
+                    </li>
+
+
+                    <li style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0; display: flex;">
+                        <a href="@Url.Action("Index", "Contact")" style="color: #252422; font-size: 16px; font-weight: 300; font-family: Montserrat; text-transform: capitalize">Contact Us</a>
+
+                    </li>
+
+                    <li class="drawer-item" style=" cursor: pointer; background: 0 0; border: none; justify-content: space-between; width: 100%; padding: 0">
+                        <!-- Dropdown Toggle -->
+                        <button class="drawer-dropdown-toggle button_restuarant" onclick="toggleDropdown()" style="font-size:16px;font-weight:300;">
+                            Cafe & Restaurant
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <ul class="drawer-dropdown-menu" id="dropdownMenu">
+
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("Index", "Restaurant")" class="drawer-dropdown-item">Spice Wadi</a>
+                            </li>
+                            <li>
+                                <a style="font-size:14px;font-weight:300;" href="@Url.Action("Cafe", "Restaurant")" class="drawer-dropdown-item">The Cloud Walk</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <div class="panel_footer">
+                    <div class="phone_element"><a href="tel:+92 311 1122168"><i class="bi bi-telephone"></i><span><em>Info and bookings</em> +92 311 1122168</span></a></div>
+                </div>
+                <!-- /panel_footer -->
+            </nav>
+        </div>
+        <!-- /sidebar-navigation -->
+    </div>
+    <!-- /nav_panel -->
+
+    <header class="header header--scroll" id="header-scroll" style="padding:0px 0px">
+
+        <nav class="row mx-auto  navbar navbar-expand-xl navbar-custom navbar-transparent sticky-top p-1" id="mynavbar-1" style="background-color: #fff; height: 100px;">
+
+
+            <div class="navbar-brand col-2 " style="display:flex;align-items:center; justify-content:center">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/paradise/img/maisonRed.png" width="135" height="75" alt="Maisonette">
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="col-7">
+                <ul style="text-align: center;margin-top:1%">
+                    <li style=" color: #fff; text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a href="@Url.Action("Index", "Home")" class="text-decoration-none" style="color: #141414">Home</a>
+                    </li>
+                    <li style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a href="@Url.Action("Index", "AboutUs")" class="text-decoration-none" style="color: #141414">About</a>
+                    </li>
+
+                    <li class="dropdown dropdown-restuarant" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a class="nav-link dropdown-toggle text-decoration-none" style="color: #141414" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Rooms & Suits
+                        </a>
+                        <ul class="dropdown-menu restuarant-drop">
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;"
+                                   href="@Url.Action("Executive", "Rooms")">Executive Room</a>
+                            </li>
+                            <hr class="dropdown-divider" />
+                            <li style="margin-left:0px">
+                                <a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;"
+                                   href="@Url.Action("Studio", "Rooms")">Studio Room</a>
+                            </li>
+                            <hr class="dropdown-divider" />
+                            <li style="margin-left:0px">
+                                <a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;"
+                                   href="@Url.Action("Honeymoonsuite", "Rooms")">Honeymoon Suite</a>
+                            </li>
+                            <hr class="dropdown-divider" />
+                            <li style="margin-left:0px">
+                                <a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;"
+                                   href="@Url.Action("QueenSuite", "Rooms")">Queen Suite</a>
+                            </li>
+                            <hr class="dropdown-divider" />
+                            <li style="margin-left:0px">
+                                <a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;"
+                                   href="@Url.Action("Presidentialsuite", "Rooms")">Presidential Suite</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+
+
+                    <li style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a class="text-decoration-none" href="@Url.Action("Index", "Gallery")" style="color: #141414">Gallery</a>
+                    </li>
+
+
+                    <li class="dropdown dropdown-restuarant" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a class="nav-link dropdown-toggle text-decoration-none" style="color: #141414" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cafe & Restuarant
+                        </a>
+                        <ul class="dropdown-menu restuarant-drop">
+                            <li>
+                                <a class="dropdown-item items_olist"
+                                   style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;"
+                                   href="@Url.Action("Index", "Restaurant")">Spice Wadi</a>
+                            </li>
+                            <hr class="dropdown-divider" />
+                            <li style="margin-left:0px"><a class="dropdown-item" style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;" href="@Url.Action("Cafe", "Restaurant")">The Cloud Walk</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li style="color: #fff; text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px; ">
+                        <a class="text-decoration-none" href="@Url.Action("Index", "Activities")" style="color: #141414">Places & Activities</a>
+                    </li>
+
+
+
+                    <li style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a class="text-decoration-none" style="color: #141414" href="@Url.Action("Index", "Blogs")">Blog</a>
+                    </li>
+
+                    <li style="text-transform: uppercase; font-family: Montserrat; font-size: 13px; font-weight: 400; line-height: 1.2; text-decoration: none; margin-left: 6px;">
+                        <a class="text-decoration-none" href="@Url.Action("Index", "Contact")" style="color: #141414">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-3">
+                <ul style="list-style: none; margin: 0; padding: 0; text-align: center;">
+                    <li class="objext-lang" style="margin-left: 0px">
+                        <div class="dropdown">
+                            <!-- Contact Button -->
+                            <button class="btn-outline-secondary dropdown-toggle"
+                                    style="color: #141414; cursor: pointer; background: transparent; border: none; align-items: center; padding-right: 10px; font-family: Montserrat; font-size: 16px; font-weight: 400; line-height: 21px; display: flex; position: relative; --bs-btn-padding-x: 2px; text-transform: capitalize"
+                                    type="button" id="contactDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Contact
+
+                            </button>
+
+                            <!-- Contact Dropdown Menu -->
+                            <div class="dropdown-menu p-3" style="width: 310px; margin-left:-260%" aria-labelledby="contactDropdown">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h5 class="mb-0"
+                                        style="color: #3c3c3c;font-size:12px; text-align: left; letter-spacing: 1.2px;
+           text-transform: uppercase; font-family: Montserrat">
+                                        CONCIERGE
+                                    </h5>
+                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                </div>
+                                <ul class="list-unstyled mb-1">
+                                    <li class="dropdown-item">
+                                        <a href="tel:0513411327" class="dropdown-link d-flex align-items-center" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex;">
+                                            <i class="bi bi-telephone me-2"></i> <!-- Bootstrap Icons for a phone icon -->
+                                            (051) 3411327
+
+                                        </a>
+                                    </li>
+                                    @*<li class="dropdown-item" style="margin-left:0px;">
+                                            <a class="dropdown-link d-flex align-items-center" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex;">
+                                                <i class="bi bi-envelope me-2"></i>
+                                                info@maisonettefirhillmurree.com
+                                            </a>
+                                        </li>*@
+                                </ul>
+
+                                <h5 class="mb-1" style="color: #3c3c3c; font-size: 12px; text-align: left; letter-spacing: 1.2px; text-transform: uppercase; font-family: Montserrat ">RESERVATION</h5>
+                                <ul class="list-unstyled mb-1">
+
+                                    <li class="dropdown-item">
+                                        <a href="tel:+92 311 1122168" class="dropdown-link d-flex align-items-center" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex; border-bottom: 1px solid #96969666">
+                                            <i class="bi bi-telephone me-2"></i> <!-- Bootstrap Icons for a phone icon -->
+                                            +92 311 1122168
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item" style="margin-left:0px;  border-bottom: 1px solid #96969666 ">
+                                        <a class="dropdown-link d-flex align-items-center" href="mailto:info@maisonettefirhillmurree.com" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex;">
+                                            <i class="bi bi-envelope me-2"></i> <!-- Bootstrap Icons for envelope -->
+                                            info@maisonettefirhillmurree.com
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item" style="margin-left:0px;">
+                                        <a class="dropdown-link d-flex align-items-start" href="https://www.google.com/maps/place/Maisonette+Firhill+Villas+Murree/33.9158549,73.4036405,17z/data=!3m1!4b1!4m9!3m8!1s0x38dfd771d7df38f5:0x4fe61e6b429f0998!5m2!4m1!1i2!8m2!3d33.9158505!4d73.4062154!16s%2Fg%2F11_f0jch8?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D"
+                                           target="_blank" style="color: #3c3c3c; align-items: center; font-family: Montserrat; font-size: 14px; font-weight: 400; line-height: 21px; text-decoration: none; display: inline-flex; text-align: justify">
+                                            <i class="bi bi-map me-2"></i> <!-- Bootstrap Icons for map -->
+                                            <div>
+                                                <p class="mb-0">Governor House Road, Daultana</p>
+                                                <p class="mb-0">House Kashmir point, Murree, Punjab</p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                                <div>
+                                    <a href="#" class=""
+                                       style="color: #141414; letter-spacing: 1.2px; text-transform: uppercase; text-align: center; background: 0 0; border: 1px solid #727c74; justify-content: center; height: 42px; margin-bottom: 12px; padding: 12px 24px; font-family: Montserrat; display: flex; font-size: 12px; text-decoration: none; border-radius: 0px; "
+                                       data-bs-target="#modal_id456">
+                                        Contact Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li style="margin-left: 0px">
+                        <a href="#booking_section" class="btn_1 btn_scrollto obj-book"
+                           style="padding: 11px 11px 11px 11px; border-radius: 0px; background: 0 0; color: #141414; border: 1px solid #141414; ">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </nav>
+    </header>
+
+
+    @RenderBody()
+
+
+    <div class="container margin_120_95">
+        <h2 style="text-align:center">
+            Explore Popular Attractions in Murree
+        </h2>
+        <p style="text-align:center">
+            Nestled in the scenic hills of Murree, Maisonette Firhill Hotel & Resort places you near some of the
+            region's most iconic attractions. Experience the charm of Mall Road, where you’ll find a lively mix of
+            shopping, dining, and local culture. For a taste of Murree’s stunning natural beauty, take a serene stroll
+            through Pindi Point or enjoy panoramic mountain views from Kashmir Point. If you’re an adventure
+            enthusiast, don’t miss Patriata (New Murree), renowned for its cable car rides and mesmerizing vistas. These popular
+            spots, only moments from the hotel, make Maisonette Firhill your gateway to the best Murree has to offer.
+        </p>
+        <div class="isotope-wrapper">
+            <div class="row justify-content-center">
+                <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4">
+                    <div class="item-img" data-cue="slideInUp">
+                        <img src="~/Content/paradise/img/Governor_house.png" alt="Maisonette" />
+                        <div class="ling-section">
+                            <h3>
+                                <a href="https://maps.app.goo.gl/hTiPf2zriziJKHPT8" title="Places & Activities" style="color: #252422">Government House</a>
+                                <a href="https://maps.app.goo.gl/hTiPf2zriziJKHPT8" title="Places & Activities">
+                                    <span class="float-end">450 m Away</span>
+                                </a>
+                            </h3>
+                        </div>
+
+                        @*<div class="content">
+                                <a data-fslightbox="gallery_1" data-type="image" href="~/Content/paradise/img/murre_brewer.png"><i class="bi bi-arrows-angle-expand"></i></a>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4">
+                    <div class="item-img" data-cue="slideInUp">
+                        <img src="~/Content/paradise/img/Gpo_malRd.png" alt="Maisonette" />
+                        <div class="ling-section">
+                            <h3>
+                                <a title="Places & Activities" href="https://maps.app.goo.gl/ZiLR1wKraNFKjV8n9" style="color: #252422">GPO Murree</a>
+                                <a title="Places & Activities" href="https://maps.app.goo.gl/ZiLR1wKraNFKjV8n9">
+                                    <span class="float-end" style="color: #252422">2 Km Away</span>
+                                </a>
+                            </h3>
+                        </div>
+                        @*<div class="content">
+                                <a data-fslightbox="gallery_1" data-type="image" href="~/Content/paradise/img/mashkpuri_mu.png"><i class="bi bi-arrows-angle-expand"></i></a>
+                            </div>*@
+                    </div>
+                    <div class="item-img" style="margin-top:13px" data-cue="slideInUp">
+                        <img src="~/Content/paradise/img/kasmr_point.png" alt="Maisonette" />
+                        <div class="ling-section">
+                            <h3>
+                                <a title="Places & Activities" href="https://maps.app.goo.gl/LLUXG1PjkSTqfFep6" style="color: #252422">Kashmir Point</a>
+                                <a title="Places & Activities" href="https://maps.app.goo.gl/LLUXG1PjkSTqfFep6">
+                                    <span class="float-end" style="color: #252422">700 m Away</span>
+                                </a>
+                            </h3>
+                        </div>
+
+                        @*<div class="content">
+                                <a data-fslightbox="gallery_1" data-type="image" href="~/Content/paradise/img/mashkpuri_mu.png"><i class="bi bi-arrows-angle-expand"></i></a>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="item col-xl-4 col-lg-6 col-mb-6 mb-4">
+                    <div class="item-img" data-cue="slideInUp">
+                        <img src="~/Content/paradise/img/wildif_prk.png" alt="Maisonette" />
+                        <div class="ling-section">
+                            <h3>
+                                <a title="Places & Activities" href="https://maps.app.goo.gl/tCvm2arb2vDZR9wU8" style="color: #252422">Murree Wildlife Park</a>
+                                <a title="Places & Activities" href="https://maps.app.goo.gl/tCvm2arb2vDZR9wU8">
+                                    <span class="float-end" style="color: #252422">9 Km Away</span>
+                                </a>
+                            </h3>
+                        </div>
+                        @*<div class="content">
+                                <a data-fslightbox="gallery_1" data-type="image" href="~/Content/paradise/img/aubi_park.png"><i class="bi bi-arrows-angle-expand"></i></a>
+                            </div>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <!--/row -->
+        </div>
+        <!--/isotope-wrapper -->
+        <!-- /pagination -->
+
+    </div>
+
+    <div style="background-color:#fff">
+        <div class="container margin_120_95" style="padding-top:60px">
+
+            <!-- /row-->
+
+            <div class="title text-center mb-5">
+                @*<small data-cue="slideInUp">Maisonette Firhill Hotels & Resort</small>*@
+                <h2 data-cue="slideInUp" data-delay="100">Why Choose Maisonette Firhill Murree for Your Next Stay?</h2>
+                @*<hr/>*@
+            </div>
+            <div class="row mt-4">
+                <div class="col-xl-4 col-md-6">
+                    <div class="box_facilities no-border" data-cue="slideInUp">
+                        <i class="customicon-private-parking"></i>
+                        <h3>Perfect for Family Getaways & Group Travel</h3>
+                        <p>Spacious rooms, thoughtful amenities, and a family-friendly environment make Maisonette Firhill a top choice for family travelers and group tourists. With nearby access to popular spots in Murree, families and friends can explore the local attractions together and return to a warm, welcoming atmosphere at the end of each day.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="box_facilities" data-cue="slideInUp">
+                        <i class="customicon-cocktail"></i>
+                        <h3>Ideal Accommodations for Business Travellers</h3>
+                        <p>For business travelers, Maisonette Firhill offers a seamless blend of productivity and relaxation. Equipped with high-speed Wi-Fi, meeting rooms, and quiet spaces, our hotel allows you to work comfortably while surrounded by the peaceful ambiance of the mountains. Our attentive staff is also available to help with any business needs, making us the preferred hotel in Murree for professional travelers.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="box_facilities" data-cue="slideInUp">
+                        <i class="customicon-swimming-pool"></i>
+                        <h3>Unmatched Comfort with a View</h3>
+                        <p>Maisonette Firhill takes pride in being the best view hotel in Murree, offering guests panoramic views of the surrounding hills and lush green landscapes. From private balconies and windows in each room, you’ll have a front-row seat to the natural beauty of Murree, creating the perfect backdrop for a relaxing and rejuvenating experience.</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Row -->
+
+
+        </div>
+    </div>
+
+    <div class="bg_white">
+
+
+        <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
+            <img class="jarallax-img" src="~/content/paradise/img/masionette_about1.png" alt="best hotel in murree">
+
+            <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgb(0 0 0 / 18%)">
+                <div class="container">
+
+                    <h2 class="slide-animated two" style="font-size:29px; text-align:center"><a href="" style="color: #fff">Relax, Explore, and Unwind at Maisonette Firhill Hotel & Resort Murree</a></h2>
+                    <p class="lead" style=" text-align:center; font-size:18px">
+                        Step into a world where comfort meets the charm of the mountains at Maisonette Firhill Hotel & Resort Murree. Our guests not only enjoy premium amenities and spacious accommodations in Murree but also receive warm, personalized service that makes every stay memorable. Maisonette Firhill is more than a place to stay – it’s a gateway to experiencing Murree at its finest. Whether you’re relaxing at the hotel, savoring the flavors at Spice Waadi, or enjoying the scenic views at The Cloud Walk Café, every moment here is crafted to offer the ultimate luxury hotel in Murree experience.
+                        <br />
+                        Book your stay today and discover why Maisonette Firhill Hotel & Resort is the premier hotel in Murree – where luxury, comfort, and natural beauty come together to create memories that last a lifetime.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- /container-->
+    </div>
+
+
+
+
+
+    <div class="container margin_120_95" id="reviews">
+        <div class="row justify-content-between">
+            <div class="col-lg-4 order-lg-2 fixed_title reviews_sum_details">
+                <div class="title">
+                    <small>
+                        Maisonette Firhill Hotel Murree Reviews
+                    </small>
+                    <h2>What Our Guests Say!</h2>
+                </div>
+                <p>
+                    Our guests’ experiences speak volumes about the
+                    exceptional stay we aim to provide. Maisonette
+                    Firhill Hotel Murree consistently receives glowing
+                    reviews for our breathtaking views, warm hospitality,
+                    and luxurious yet cozy ambiance. Travelers praise us for
+                    the relaxing environment, high standards of cleanliness,
+                    and attentive staff that go
+                    above and beyond to make each visit memorable.
+                </p>
+                <h6>Comfort</h6>
+                <div class="row mb-2">
+                    <div class="col-xl-10 col-lg-9 col-11">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-1"><strong>9.0</strong></div>
+                </div>
+                <!-- /row -->
+                <h6>Food</h6>
+                <div class="row mb-2">
+                    <div class="col-xl-10 col-lg-9 col-11">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 95%;" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-1"><strong>9.5</strong></div>
+                </div>
+                <!-- /row -->
+                <h6>Location</h6>
+                <div class="row mb-2">
+                    <div class="col-xl-10 col-lg-9 col-11">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-1"><strong>9.0</strong></div>
+                </div>
+                <!-- /row -->
+                <h6>Price</h6>
+                <div class="row mb-2">
+                    <div class="col-xl-10 col-lg-9 col-11">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%;" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-1"><strong>7.0</strong></div>
+                </div>
+                <!-- /row -->
+            </div>
+            <div class="col-lg-7 order-lg-1">
+                <a href="https://www.google.com/maps/place/Maisonette+Firhill+Villas+Murree@33.9158549,73.4036405,17z/data=!4m11!3m10!1s0x38dfd771d7df38f5:0x4fe61e6b429f0998!5m2!4m1!1i2!8m2!3d33.9158505!4d73.4062154!9m1!1b1!16s%2Fg%2F11_f0jch8?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    <div class="review_card">
+                        <div class="row">
+                            <div class="col-md-2 user_info">
+                                <figure><img src="~/content/paradise/img/Reviews/review_1.png" alt="hotel in Murree"></figure>
+                                <h5>Ammar Ghaznavi</h5>
+                            </div>
+                            <div class="col-md-10 review_content">
+                                <div class="clearfix mb-3">
+                                    <span class="rating">5<small>/5</small> <strong>Rating average</strong></span>
+
+                                </div>
+                                <h4>"Best place!!"</h4>
+                                <p style="color: #252422;">
+                                    Best place to dine with family in murre. Food quality is very good.
+                                    Staff is very friendly and cooperative.
+                                    They play outdoor movie on projector and the selection of movie is too good.
+                                    Visited in November last week. Due to off season they provided limited
+                                    option but quality and quantity is very good.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </a>
+                <!-- /review_card -->
+                <a href="https://www.google.com/maps/place/Maisonette+Firhill+Villas+Murree@33.9158549,73.4036405,17z/data=!4m11!3m10!1s0x38dfd771d7df38f5:0x4fe61e6b429f0998!5m2!4m1!1i2!8m2!3d33.9158505!4d73.4062154!9m1!1b1!16s%2Fg%2F11_f0jch8?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    <div class="review_card">
+                        <div class="row">
+                            <div class="col-md-2 user_info">
+                                <figure><img src="~/content/paradise/img/Reviews/review_2.png" alt="hotel in murree"></figure>
+                                <h5>
+                                    Khurram Sultan
+                                </h5>
+                            </div>
+                            <div class="col-md-10 review_content">
+                                <div class="clearfix mb-3">
+                                    <span class="rating">5<small>/5</small> <strong>Rating average</strong></span>
+
+                                </div>
+                                <h4>"Awesome Experience"</h4>
+                                <p style="color: #252422;">
+                                    Have been going to this place regularly for over 25 years now.
+                                    It's a great place with a nice roof top restaurant with both
+                                    indoor and outdoor seating. The location provide nice views of
+                                    lush green pine trees and is just a small walk from the government
+                                    house. Their pizzas are great and also have a Hotspot outlet for
+                                    ice-cream and deserts.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </a>
+                <!-- /review_card -->
+                <a href="https://www.google.com/maps/place/Maisonette+Firhill+Villas+Murree@33.9158549,73.4036405,17z/data=!4m11!3m10!1s0x38dfd771d7df38f5:0x4fe61e6b429f0998!5m2!4m1!1i2!8m2!3d33.9158505!4d73.4062154!9m1!1b1!16s%2Fg%2F11_f0jch8?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    <div class="review_card">
+                        <div class="row">
+                            <div class="col-md-2 user_info">
+                                <figure><img src="~/content/paradise/img/Reviews/review_3.png" alt="hotel in Murree"></figure>
+                                <h5>Rubina Hafeez</h5>
+                            </div>
+                            <div class="col-md-10 review_content">
+                                <div class="clearfix mb-3">
+                                    <span class="rating">5<small>/5</small> <strong>Rating average</strong></span>
+
+                                </div>
+                                <h4>"Excellent location"</h4>
+                                <p style="color: #252422;"> Excellent location. Perfect for Honeymoon couples and also for families. The screen which displays movies at dinner time is an added attraction. The food is good, the ambience is great and the service is superb.</p>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                        <!-- /reply -->
+                    </div>
+                </a>
+                <!-- /review_card -->
+                <p class="text-end"><a href="https://www.google.com/maps/place/Maisonette+Firhill+Villas+Murree@33.9158549,73.4036405,17z/data=!4m11!3m10!1s0x38dfd771d7df38f5:0x4fe61e6b429f0998!5m2!4m1!1i2!8m2!3d33.9158505!4d73.4062154!9m1!1b1!16s%2Fg%2F11_f0jch8?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn_1">Leave a review</a></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div style="background-color:#fff">
+        <div class="container " style="padding-top:70px">
+            <div class="isotope-wrapper">
+                <h2 style="text-align:center">Latest Murree Updates & News</h2>
+                <p style="text-align:center">
+                    Stay connected with the latest from Maisonette Firhill Hotel & Resort and
+                    Murree’s thriving hospitality scene. We’re excited to share updates on our recent upgrades, including
+                    enhanced room amenities, revamped dining options, and exclusive seasonal packages tailored to make your
+                    stay unforgettable. Keep an eye out for our news on upcoming local events, travel tips, and insider
+                    guides, ensuring your trip to Murree is filled with memorable experiences. Explore our blog for real-time updates on special offers,
+                    giving you even more reason to explore Murree’s beautiful landscape from the luxury of Maisonette Firhill.
+                </p>
+                <div class="row justify-content-center">
+                    @{
+                        int count = 0;
+                        foreach (var ro in blogs)
+                        {
+                            if (count >= 3)
+                            {
+                                break;
+                            }
+
+                            string detailUrl = Url.RouteUrl("postDetailRoute", new { postId = ro.PostId, slug = ro.Slug });
+
+                            <div class="item col-xl-4 col-lg-6">
+
+                                <a href="@detailUrl" class="box_contents" data-cue="slideInUp">
+                                    <figure>
+                                        <img src="../uploads/blog/@ro.DefaultImage" alt="murree" class="img-fluid">
+                                        <em>@(ro.PublishedDate?.ToString("dd MMM") ?? "N/A")</em>
+                                    </figure>
+                                    <div class="wrapper">
+                                        <small>@ro.Author<span></span></small>
+                                        <h2>@ro.Title</h2>
+                                        <em href="@detailUrl">Read more</em>
+                                    </div>
+                                </a>
+                            </div>
+
+                            count++;
+                        }
+                    }
+                </div>
+                <!--/row -->
+            </div>
+        </div>
+    </div>
+
+    <div class="bg_white">
+        <div class="container">
+
+
+            <div class="row book_row d-flex flex-nowrap" style="overflow-x: auto;">
+                <div class="item book_item col-auto text-center">
+                    <a href="https://www.booking.com/Share-BkESCAA">
+                        <img src="~/content/paradise/img/booking/bokking.jpg"
+                             alt="Maisonette"
+                             class="img-fluid"
+                             style="width: 260px; height: auto;">
+                    </a>
+                </div>
+                <div class="item  book_item col-auto text-center">
+                    <a>
+                        <img src="~/content/paradise/img/booking/expedia.jpg"
+                             alt="Maisonette"
+                             class="img-fluid"
+                             style="width: 260px; height: auto;">
+                    </a>
+                </div>
+                <div class="item book_item col-auto text-center">
+                    <a>
+                        <img src="~/content/paradise/img/booking/tripadvisor.jpg"
+                             alt="Maisonette"
+                             class="img-fluid"
+                             style="width: 260px; height: auto;">
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer_bg">
+      
+        </div>
+        <div class="container">
+            <div class="row move_content">
+                <div class="col-lg-4 col-md-12">
+                    <h5>
+                        Maisonette Firhill Hotel & Resort Murree
+                    </h5>
+                    <p>
+                        Discover the perfect blend of comfort and luxury at Maisonette Firhill Hotel & Resort, Murree. Nestled in the heart of the mountains, Maisonette Murree offers unforgettable experiences, exceptional hospitality, and breathtaking views. Book your stay today for an escape like no other!
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <h5>Contacts</h5>
+                    <ul>
+                        <li>
+                            <a href="https://maps.app.goo.gl/T91ur4FVMLbS7pb47" target="_blank">
+                                Governor House Road, Daultana House Kashmir point, Murree, Rawalpindi, Punjab
+                            </a>
+                        </li>
+
+                        <li><strong><a href="mailto:info@maisonettefirhillmurree.com">info@maisonettefirhillmurree.com</a></strong></li>
+
+
+                        <li><strong><a href="tel:+92 311 1122168"> +92 311 1122168 </a></strong></li>
+                    </ul>
+                    <div class="social">
+                        <ul>
+                            <li><a href="https://www.instagram.com/maisonette_firhill_murree" target="_blank"><i class="bi bi-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/MaisonetteFirhillHotelMurree" target="_blank"><i class="bi bi-youtube"></i></a></li>
+                            <li><a href="https://www.facebook.com/FirhillVillasMurree/" target="_blank"><i class="bi bi-facebook"></i></a></li>
+
+                            <li><a href="https://www.tiktok.com/maisonettefirhilmurree" target="_blank"><i class="bi bi-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 ms-lg-auto">
+                    <h5>Explore</h5>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                            <li><a href="@Url.Action("Index","AboutUs")">About Us</a></li>
+                            <li><a href="@Url.Action("Index", "Gallery")">Gallery</a></li>
+                            <li><a href="@Url.Action("Index", "Activities")">Places</a></li>
+                            <li><a href="@Url.Action("Index", "Contact")">Contact Us</a></li>
+                            <li><a href="@Url.Action("Index", "TermsandConditions")">Terms and Conditions</a></li>
+                            <li><a href="@Url.Action("Index", "PrivacyPolicy")">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div id="newsletter">
+                        <h5>Newsletter</h5>
+                        <div id="message-newsletter"></div>
+                        <form method="post" action="phpmailer/newsletter_template_email.php" name="newsletter_form" id="newsletter_form">
+                            <div class="form-group">
+                                <input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Your email">
+                                <button type="submit" id="submit-newsletter"><i class="bi bi-send"></i></button>
+                            </div>
+                        </form>
+                        <p>Receive latest offers and promos without spam. You can cancel anytime.</p>
+
+                        <img src="~/content/paradise/img/mastercard.svg" alt="Visa Card" style="width: 30px; height: 35px;">
+                        <img src="~/content/paradise/img/visa.svg" alt="Visa Card" style="width: 30px; height: 35px;">
+                        <img src="~/content/paradise/img/easypaisa.svg" alt="Visa Card" style="width: 30px;height: 35px;">
+                        <img src="~/content/paradise/img/jazzcash.svg" alt="Visa Card" style="width: 50px;height: 35px;">
+                        <img src="~/content/paradise/img/upasia.svg" alt="Visa Card" style="width: 50px;height: 35px;">
+
+
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+        </div>
+        <!--/container-->
+        <div class="copy">
+            <div class="container">
+                © 2025. All Rights Reserved. <a href="https://growbiztech.com/" target="_blank">Growbiz Technology & Marketing.</a>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <!-- Modal Advertise 1 -->
+    <div class="popup_wrapper">
+        <div class="popup_content newsletter_c">
+            <span class="popup_close"><i class="bi bi-x"></i></span>
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="content">
+                        <div class="wrapper">
+                            <img src="~/Content/paradise/img/maisonRed.png" height="80" alt="Murree hotel">
+                            <h3>Help us improve our website!</h3>
+                            <form id="feedbackForm">
+                                <table class="table table-bordered feedback-table" style="font-size: 13px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Question</th>
+                                            <th class="feedbck_opt">Agree</th>
+                                            <th class="feedbck_opt">Disagree</th>
+                                            <th class="feedbck_opt">Neutral</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-size:12px">
+                                        <tr>
+                                            <td>Was your stay comfortable and pleasant?</td>
+                                            <td><input type="radio" name="q1" value="Agree"></td>
+                                            <td><input type="radio" name="q1" value="Disagree"></td>
+                                            <td><input type="radio" name="q1" value="Neutral"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Did the dining options meet your expectations?</td>
+                                            <td><input type="radio" name="q2" value="Agree"></td>
+                                            <td><input type="radio" name="q2" value="Disagree"></td>
+                                            <td><input type="radio" name="q2" value="Neutral"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Was the check-in/check-out process smooth?</td>
+                                            <td><input type="radio" name="q3" value="Agree"></td>
+                                            <td><input type="radio" name="q3" value="Disagree"></td>
+                                            <td><input type="radio" name="q3" value="Neutral"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Were the facilities suitable for your needs?</td>
+                                            <td><input type="radio" name="q4" value="Agree"></td>
+                                            <td><input type="radio" name="q4" value="Disagree"></td>
+                                            <td><input type="radio" name="q4" value="Neutral"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Would you visit Maisonette Firhill Hotel again?</td>
+                                            <td><input type="radio" name="q5" value="Agree"></td>
+                                            <td><input type="radio" name="q5" value="Disagree"></td>
+                                            <td><input type="radio" name="q5" value="Neutral"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button type="submit" class="btn_1 outline" id="submit-Feedback">Submit Feedback</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="popup_wrapper">
+            <div class="popup_content newsletter_c">
+                <span class="popup_close"><i class="bi bi-x"></i></span>
+                <div class="row g-0">
+
+                    <div class="col-md-12">
+                        <div class="content">
+                            <div class="wrapper">
+
+                                <img src="~/Content/paradise/img/maisonRed.png" height="80" alt="Murree hotel">
+                                <h3> Help us improve our website!</h3>
+
+                                <table class="table table-bordered feedback-table" style="font-size: 13px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Question</th>
+                                            <th class="feedbck_opt">Agree</th>
+                                            <th class="feedbck_opt">Disagree</th>
+                                            <th class="feedbck_opt">Neutral</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-size:12px">
+                                        <tr>
+                                            <td class="feedbck_data">Was your stay comfortable and pleasant?</td>
+                                            <td class="feedbck_opt"><input type="radio" name="q1" value="1"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q1" value="2"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q1" value="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feedbck_data">Did the dining options meet your expectations?</td>
+                                            <td class="feedbck_opt"><input type="radio" name="q4" value="1"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q4" value="2"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q4" value="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feedbck_data">Was the check-in/check-out process smooth?</td>
+                                            <td class="feedbck_opt"><input type="radio" name="q5" value="1"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q5" value="2"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q5" value="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feedbck_data">Were the facilities suitable for your needs?</td>
+                                            <td class="feedbck_opt"><input type="radio" name="q6" value="1"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q6" value="2"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q6" value="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feedbck_data">Would you visit Maisonette Firhill Hotel again?</td>
+                                            <td class="feedbck_opt"><input type="radio" name="q7" value="1"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q7" value="2"></td>
+                                            <td class="feedbck_opt"><input type="radio" name="q7" value="3"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin-bottom: 0px; margin-top:-1%">
+                                <input style="padding: 8px 14px 8px 14px; font-size:13px;" type="submit" value="Submit Feedback" class="btn_1 outline" id="submit-Feedback"></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>*@
+    <!-- /Modal Advertise 1 -->
+
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- /back to top -->
+    <!-- COMMON SCRIPTS -->
+    <script src="~/content/paradise/js/common_scripts.js"></script>
+    <script src="~/content/paradise/js/common_functions.js"></script>
+    <script src="~/content/paradise/js/datepicker_inline.js"></script>
+    <script src="~/content/paradise/phpmailer/validate.js"></script>
+    <script src="~/content/paradise/js/slider.js"></script>
+    <script src="~/content/paradise/js/jquery.flexslider.min.js"></script>
+    <script src="~/content/paradise/js/slider_func.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById("myBtn");
+            const modal = document.querySelector(".popup_wrapper");
+            const closeBtn = document.querySelector(".popup_close");
+
+            // Show modal on button click
+            btn.addEventListener("click", function () {
+                modal.classList.add("active");
+            });
+
+            // Close modal on close button click
+            closeBtn.addEventListener("click", function () {
+                modal.classList.remove("active");
+            });
+
+            // Optional: Close modal when clicking outside the modal content
+            window.addEventListener("click", function (e) {
+                if (e.target === modal) {
+                    modal.classList.remove("active");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Get the desktop header
+        window.addEventListener('scroll', function () {
+            const headerInitial = document.getElementById('header-initial');
+            const headerScroll = document.getElementById('header-scroll');
+
+            // Check if the scroll position is greater than 50 pixels
+            if (window.scrollY > 50) {
+                // Add class to hide the initial header and show the scroll header
+                headerInitial.classList.add('scrolled');
+                headerScroll.style.display = 'block'; // Show scroll header
+            } else {
+                // Reset to initial state
+                headerInitial.classList.remove('scrolled');
+                headerScroll.style.display = 'none'; // Hide scroll header
+            }
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const initialHeader = document.getElementById('header-initial');
+            const scrollHeader = document.getElementById('header-scroll');
+
+            // Function to show the appropriate header based on scroll position
+            function handleHeaderDisplay() {
+                const isLargeScreen = window.innerWidth > 768; // Adjust width as needed
+
+                if (isLargeScreen && window.scrollY > 0) {
+                    initialHeader.style.display = 'none'; // Hide initial header on large screens when scrolled
+                    scrollHeader.style.display = 'block'; // Show scroll header on large screens
+                } else {
+                    initialHeader.style.display = 'block'; // Always show initial header on mobile
+                    scrollHeader.style.display = 'none'; // Hide scroll header on mobile
+                }
+            }
+
+            // Check initial scroll position when the page loads
+            handleHeaderDisplay();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', handleHeaderDisplay);
+
+            // Add resize event listener to re-check screen size on resize
+            window.addEventListener('resize', handleHeaderDisplay);
+        });
+
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPath = window.location.pathname.toLowerCase();
+
+            // Select all menu items
+            const menuItems = document.querySelectorAll(".items_olist");
+
+            menuItems.forEach(item => {
+                const link = item.querySelector("a");
+
+                if (link) {
+                    const itemPath = new URL(link.href, window.location.origin).pathname.toLowerCase();
+
+                    // Check if the href exactly matches the current path
+                    if (currentPath === itemPath) {
+                        // Remove active class from all items
+                        menuItems.forEach(el => el.classList.remove("active"));
+
+                        // Add active class to the matched item
+                        item.classList.add("active");
+                    }
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        function toggleDropdown() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.classList.toggle('active');
+        }
+
+    </script>
+
+
+    <script>
+        // code for Feedback
+        document.getElementById("feedbackForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const feedbackData = {};
+
+            // Only collect checked radio button values
+            formData.forEach((value, key) => {
+                if (!feedbackData[key]) {
+                    feedbackData[key] = value;
+                }
+            });
+
+            try {
+                const response = await fetch("/Feedback/SendFeedbackEmail", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(feedbackData),
+                });
+
+                if (response.ok) {
+                    alert("Feedback submitted successfully!");
+                } else {
+                    alert("Error sending feedback.");
+                }
+            } catch (error) {
+                alert("Error: " + error.message);
+            }
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿# Build / deps (local files kept on disk; not uploaded)
+bin/
+obj/
+packages/
+.vs/
+node_modules/
+dist/
+build/
+out/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+.env
+.env.*
+**/appsettings.*.local.json
+_ReSharper*/
+*.nupkg
+TestResults/
+publish/

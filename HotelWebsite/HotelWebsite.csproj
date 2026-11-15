@@ -1,0 +1,2330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55E49ECF-9257-4E05-AD39-5CC82C844263}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotelWebsite</RootNamespace>
+    <AssemblyName>HotelWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Syndication, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.6.0.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BlogsController.cs" />
+    <Compile Include="Controllers\Bookings\BookingController.cs" />
+    <Compile Include="Controllers\Calander\CalanderController.cs" />
+    <Compile Include="Controllers\ChannelManager\ChannelManagerController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\Dashboard\DashboardController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\Hall\HallController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JazzcashController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PlacesandActivitiesController.cs" />
+    <Compile Include="Controllers\Policies\PolicyController.cs" />
+    <Compile Include="Controllers\Post\PostController.cs" />
+    <Compile Include="Controllers\PrivacyPolicyController.cs" />
+    <Compile Include="Controllers\Property\PropertyController.cs" />
+    <Compile Include="Controllers\Reports\ReportController.cs" />
+    <Compile Include="Controllers\ReservationReport\ReservationReportController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\Reviews\GoogleReviewsController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\SearchResultController.cs" />
+    <Compile Include="Controllers\Supplier\SupplierController.cs" />
+    <Compile Include="Controllers\TermsandConditionsController.cs" />
+    <Compile Include="Controllers\User\UserController.cs" />
+    <Compile Include="Controllers\Voucher\VoucherController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlockedRoom.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogImage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Booking.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CancellationPolicy.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Coutnry.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailTemplate.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EncryptionManager.cs" />
+    <Compile Include="Models\Enums\Enum.cs" />
+    <Compile Include="Models\fn_Split_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GeneralSetting.cs" />
+    <Compile Include="Models\Hall.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helper\CacheHelper.cs" />
+    <Compile Include="Models\Helper\CommonLogic.cs" />
+    <Compile Include="Models\Helper\CustomActionResult.cs" />
+    <Compile Include="Models\Helper\FileTypeAttribute.cs" />
+    <Compile Include="Models\Helper\IO.cs" />
+    <Compile Include="Models\Helper\Log.cs" />
+    <Compile Include="Models\Helper\Mail.cs" />
+    <Compile Include="Models\Helper\MaxFileSizeAttribute.cs" />
+    <Compile Include="Models\Helper\ModelStateExtensions.cs" />
+    <Compile Include="Models\Helper\RandomPassword.cs" />
+    <Compile Include="Models\Helper\Security.cs" />
+    <Compile Include="Models\Helper\WebConstant.cs" />
+    <Compile Include="Models\HotelAmenity.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JQDTParams.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostTag.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostView.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\PostViewViewModel.cs" />
+    <Compile Include="Models\Property.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PropertySearch.cs" />
+    <Compile Include="Models\RatePlan.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RateSlab.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Room.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomDetails.cs" />
+    <Compile Include="Models\RoomNumber.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomPicture.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Setting.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SettingViewModel.cs" />
+    <Compile Include="Models\SocialProfile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SocialProfileViewModel.cs" />
+    <Compile Include="Models\split_string_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetSearchResults_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subscribe.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubscribeViewModel.cs" />
+    <Compile Include="Models\Tag.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tax.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_Dashboard_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_EmailTemplateById_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_EmailTemplateByKey_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_EmailTemplateList_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_PostByIdAndSlug_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_PostById_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_PostList_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_PostPopular_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_PostRecent_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_PostRelated_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_SettingById_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_SocialProfileList_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_SubscribeById_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_SubscribeList_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TagsList_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_WidgetList_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Voucher.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Widget.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admin\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Admin\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\bootstrap\js\npm.js" />
+    <Content Include="Content\Admin\dist\css\AdminLTE.css" />
+    <Content Include="Content\Admin\dist\css\AdminLTE.min.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-bootstrap-social.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-bootstrap-social.min.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-fullcalendar.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-fullcalendar.min.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-select2.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-select2.min.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-without-plugins.css" />
+    <Content Include="Content\Admin\dist\css\alt\AdminLTE-without-plugins.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-black-light.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-black-light.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-black.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-black.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-blue-light.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-blue-light.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-blue.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-blue.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-green-light.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-green-light.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-green.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-green.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-purple-light.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-purple-light.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-purple.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-purple.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-red-light.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-red-light.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-red.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-red.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-yellow-light.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-yellow-light.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-yellow.css" />
+    <Content Include="Content\Admin\dist\css\skins\skin-yellow.min.css" />
+    <Content Include="Content\Admin\dist\css\skins\_all-skins.css" />
+    <Content Include="Content\Admin\dist\css\skins\_all-skins.min.css" />
+    <Content Include="Content\Admin\dist\img\avatar.png" />
+    <Content Include="Content\Admin\dist\img\avatar04.png" />
+    <Content Include="Content\Admin\dist\img\avatar2.png" />
+    <Content Include="Content\Admin\dist\img\avatar3.png" />
+    <Content Include="Content\Admin\dist\img\avatar5.png" />
+    <Content Include="Content\Admin\dist\img\boxed-bg.jpg" />
+    <Content Include="Content\Admin\dist\img\boxed-bg.png" />
+    <Content Include="Content\Admin\dist\img\credit\american-express.png" />
+    <Content Include="Content\Admin\dist\img\credit\cirrus.png" />
+    <Content Include="Content\Admin\dist\img\credit\mastercard.png" />
+    <Content Include="Content\Admin\dist\img\credit\mestro.png" />
+    <Content Include="Content\Admin\dist\img\credit\paypal.png" />
+    <Content Include="Content\Admin\dist\img\credit\paypal2.png" />
+    <Content Include="Content\Admin\dist\img\credit\visa.png" />
+    <Content Include="Content\Admin\dist\img\default-50x50.gif" />
+    <Content Include="Content\Admin\dist\img\icons.png" />
+    <Content Include="Content\Admin\dist\img\photo1.png" />
+    <Content Include="Content\Admin\dist\img\photo2.png" />
+    <Content Include="Content\Admin\dist\img\photo3.jpg" />
+    <Content Include="Content\Admin\dist\img\photo4.jpg" />
+    <Content Include="Content\Admin\dist\img\user1-128x128.jpg" />
+    <Content Include="Content\Admin\dist\img\user2-160x160.jpg" />
+    <Content Include="Content\Admin\dist\img\user3-128x128.jpg" />
+    <Content Include="Content\Admin\dist\img\user4-128x128.jpg" />
+    <Content Include="Content\Admin\dist\img\user5-128x128.jpg" />
+    <Content Include="Content\Admin\dist\img\user6-128x128.jpg" />
+    <Content Include="Content\Admin\dist\img\user7-128x128.jpg" />
+    <Content Include="Content\Admin\dist\img\user8-128x128.jpg" />
+    <Content Include="Content\Admin\dist\js\app.js" />
+    <Content Include="Content\Admin\dist\js\app.min.js" />
+    <Content Include="Content\Admin\dist\js\demo.js" />
+    <Content Include="Content\Admin\dist\js\pages\dashboard.js" />
+    <Content Include="Content\Admin\dist\js\pages\dashboard2.js" />
+    <Content Include="Content\Admin\gridImg\grd_alt.png" />
+    <Content Include="Content\Admin\gridImg\grd_head.png" />
+    <Content Include="Content\Admin\gridImg\grd_pgr.png" />
+    <Content Include="Content\Admin\gridImg\style.css" />
+    <Content Include="Content\Admin\Images\cropped-logo-32x32.png" />
+    <Content Include="Content\Admin\Images\favicon.ico" />
+    <Content Include="Content\Admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
+    <Content Include="Content\Admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="Content\Admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
+    <Content Include="Content\Admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
+    <Content Include="Content\Admin\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\Admin\plugins\datepicker\datepicker3.css" />
+    <Content Include="Content\Admin\plugins\fastclick\fastclick.js" />
+    <Content Include="Content\Admin\plugins\jQuery\jquery-2.2.3.min.js" />
+    <Content Include="Content\Admin\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\Admin\Scripts\Checks.js" />
+    <Content Include="Content\Admin\Scripts\compressed.js" />
+    <Content Include="Content\Admin\Scripts\fullcalendar.js" />
+    <Content Include="Content\Admin\Scripts\fullcalendar.min.js" />
+    <Content Include="Content\Admin\Scripts\gcal.js" />
+    <Content Include="Content\Admin\Scripts\gcal.min.js" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\Admin\Scripts\images\ui-icons_fcd113_256x240.png" />
+    <None Include="Content\Admin\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Content\Admin\Scripts\jquery-1.4.1.js" />
+    <Content Include="Content\Admin\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Content\Admin\Scripts\jquery-1.8.2.js" />
+    <Content Include="Content\Admin\Scripts\jquery-1.9.1.js" />
+    <Content Include="Content\Admin\Scripts\jQuery-2.1.4.min.js" />
+    <Content Include="Content\Admin\Scripts\jquery-ui.css" />
+    <Content Include="Content\Admin\Scripts\jquery-ui.js" />
+    <Content Include="Content\Admin\Scripts\jquery-ui.min.js" />
+    <Content Include="Content\Admin\Scripts\jquery-ui.theme.css" />
+    <Content Include="Content\Admin\Scripts\jquery-uicalander.js" />
+    <Content Include="Content\Admin\Scripts\jquery.min.js" />
+    <Content Include="Content\Admin\Scripts\jquery.numeric.js" />
+    <Content Include="Content\Admin\Scripts\libraries.all.min.js" />
+    <Content Include="Content\Admin\Scripts\moment.min.js" />
+    <Content Include="Content\Admin\Scripts\PrintAreaJS.js" />
+    <Content Include="Content\Admin\Scripts\scheduler.js" />
+    <Content Include="Content\Admin\Scripts\scheduler.min.js" />
+    <Content Include="Content\Admin\Scripts\showhidescript.js" />
+    <Content Include="Content\Admin\Scripts\slides.jquery.js" />
+    <Content Include="Content\Admin\Scripts\theme-chooser.js" />
+    <Content Include="Content\Admin\startmin-master\.gitignore" />
+    <Content Include="Content\Admin\startmin-master\css\bootstrap-social.css" />
+    <Content Include="Content\Admin\startmin-master\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Admin\startmin-master\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\startmin-master\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Content\Admin\startmin-master\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Content\Admin\startmin-master\css\dataTables\font-awesome.min.css" />
+    <Content Include="Content\Admin\startmin-master\css\font-awesome.min.css" />
+    <Content Include="Content\Admin\startmin-master\css\metisMenu.min.css" />
+    <Content Include="Content\Admin\startmin-master\css\morris.css" />
+    <Content Include="Content\Admin\startmin-master\css\startmin.css" />
+    <Content Include="Content\Admin\startmin-master\css\timeline.css" />
+    <Content Include="Content\Admin\startmin-master\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Admin\startmin-master\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admin\startmin-master\index.html" />
+    <Content Include="Content\Admin\startmin-master\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot-data.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\excanvas.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.categories.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.image.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.selection.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.stack.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.time.js" />
+    <Content Include="Content\Admin\startmin-master\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\jquery.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\metisMenu.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\morris-data.js" />
+    <Content Include="Content\Admin\startmin-master\js\morris.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\raphael.min.js" />
+    <Content Include="Content\Admin\startmin-master\js\startmin.js" />
+    <Content Include="Content\Admin\startmin-master\pages\blank.html" />
+    <Content Include="Content\Admin\startmin-master\pages\buttons.html" />
+    <Content Include="Content\Admin\startmin-master\pages\flot.html" />
+    <Content Include="Content\Admin\startmin-master\pages\forms.html" />
+    <Content Include="Content\Admin\startmin-master\pages\grid.html" />
+    <Content Include="Content\Admin\startmin-master\pages\icons.html" />
+    <Content Include="Content\Admin\startmin-master\pages\index.html" />
+    <Content Include="Content\Admin\startmin-master\pages\login.html" />
+    <Content Include="Content\Admin\startmin-master\pages\morris.html" />
+    <Content Include="Content\Admin\startmin-master\pages\notifications.html" />
+    <Content Include="Content\Admin\startmin-master\pages\panels-wells.html" />
+    <Content Include="Content\Admin\startmin-master\pages\tables.html" />
+    <Content Include="Content\Admin\startmin-master\pages\typography.html" />
+    <Content Include="Content\Admin\startmin-master\TEMPLATE.html" />
+    <Content Include="Content\Admin\Styles\bootstrap.min.css" />
+    <Content Include="Content\Admin\Styles\bootstrapForCalender.min.css" />
+    <Content Include="Content\Admin\Styles\cssMain.css" />
+    <Content Include="Content\Admin\Styles\DataTable\jquery-ui.css" />
+    <Content Include="Content\Admin\Styles\DataTable\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\Admin\Styles\fstdropdown.css" />
+    <Content Include="Content\Admin\Styles\fstdropdown.js" />
+    <Content Include="Content\Admin\Styles\fullcalendar.css" />
+    <Content Include="Content\Admin\Styles\fullcalendar.min.css" />
+    <Content Include="Content\Admin\Styles\fullcalendar.print.css" />
+    <Content Include="Content\Admin\Styles\fullcalendar.print.min.css" />
+    <Content Include="Content\Admin\Styles\jquery-ui.css" />
+    <Content Include="Content\Admin\Styles\login.css" />
+    <Content Include="Content\Admin\Styles\pci-bp-print.css" />
+    <Content Include="Content\Admin\Styles\pci-bp-screen.css" />
+    <Content Include="Content\Admin\Styles\pci-dropdown.css" />
+    <Content Include="Content\Admin\Styles\pci-styles.css" />
+    <Content Include="Content\Admin\Styles\registration.css" />
+    <Content Include="Content\Admin\Styles\scheduler.css" />
+    <Content Include="Content\Admin\Styles\scheduler.min.css" />
+    <Content Include="Content\Admin\Styles\style-custom.css" />
+    <Content Include="Content\Admin\Styles\style-responsive.css" />
+    <Content Include="Content\Admin\Styles\style.css" />
+    <Content Include="Content\Admin\Styles\style.min.css" />
+    <Content Include="Content\Admin\Styles\styleHostel.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\LogInLayout\css\bootstrap.min.css" />
+    <Content Include="Content\LogInLayout\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="Content\LogInLayout\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="Content\LogInLayout\css\bootstrap\mixins\_transition.css" />
+    <Content Include="Content\LogInLayout\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="Content\LogInLayout\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="Content\LogInLayout\css\bootstrap\_media.css" />
+    <Content Include="Content\LogInLayout\css\style.css" />
+    <Content Include="Content\LogInLayout\js\bootstrap.min.js" />
+    <Content Include="Content\LogInLayout\js\jquery.min.js" />
+    <Content Include="Content\LogInLayout\js\main.js" />
+    <Content Include="Content\LogInLayout\js\popper.js" />
+    <Content Include="Content\paradise\coming_soon_assets\coming-soon.css" />
+    <Content Include="Content\paradise\coming_soon_assets\coming_soon_func.js" />
+    <Content Include="Content\paradise\coming_soon_assets\jquery.superslides.js" />
+    <Content Include="Content\paradise\coming_soon_assets\jquery.superslides.min.js" />
+    <Content Include="Content\paradise\coming_soon_assets\slide_1.jpg" />
+    <Content Include="Content\paradise\coming_soon_assets\slide_2.jpg" />
+    <Content Include="Content\paradise\coming_soon_assets\slide_3.jpg" />
+    <Content Include="Content\paradise\css\bootstrap.css" />
+    <Content Include="Content\paradise\css\bootstrap.min.css" />
+    <Content Include="Content\paradise\css\bs-icon-font\bootstrap-icons.css" />
+    <Content Include="Content\paradise\css\bs-icon-font\bootstrap-icons.json" />
+    <Content Include="Content\paradise\css\bs-icon-font\bootstrap-icons.scss" />
+    <Content Include="Content\paradise\css\bs-icon-font\bootstrap-icons.woff" />
+    <Content Include="Content\paradise\css\bs-icon-font\bootstrap-icons.woff2" />
+    <Content Include="Content\paradise\css\bs-icon-font\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\paradise\css\bs-icon-font\fonts\bootstrap-icons.woff2" />
+    <Content Include="Content\paradise\css\bs-icon-font\index.html" />
+    <Content Include="Content\paradise\css\carosa.css" />
+    <Content Include="Content\paradise\css\custom-icons\css\custom-icons.css" />
+    <Content Include="Content\paradise\css\custom-icons\demo_icon_set_1.html" />
+    <Content Include="Content\paradise\css\custom-icons\demo_icon_set_2.html" />
+    <Content Include="Content\paradise\css\custom-icons\demo_icon_set_3.html" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel-icons.eot" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel-icons.svg" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel-icons.ttf" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel-icons.woff" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel.eot" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel.svg" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel.ttf" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\hotel.woff" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\spa.eot" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\spa.svg" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\spa.ttf" />
+    <Content Include="Content\paradise\css\custom-icons\fonts\spa.woff" />
+    <Content Include="Content\paradise\css\custom.css" />
+    <Content Include="Content\paradise\css\daterangepicker.css" />
+    <Content Include="Content\paradise\css\day_menu.css" />
+    <Content Include="Content\paradise\css\flex_slider.css" />
+    <Content Include="Content\paradise\css\owl.carousel.css" />
+    <Content Include="Content\paradise\css\owl.theme.default.css" />
+    <Content Include="Content\paradise\css\owl.video.play.png" />
+    <Content Include="Content\paradise\css\style.css" />
+    <Content Include="Content\paradise\css\Thankyou.css" />
+    <Content Include="Content\paradise\css\vendors.css" />
+    <Content Include="Content\paradise\css\vendors.min.css" />
+    <Content Include="Content\paradise\images%281%29\user_icon.png" />
+    <Content Include="Content\paradise\img\1.png" />
+    <Content Include="Content\paradise\img\2.png" />
+    <Content Include="Content\paradise\img\3.png" />
+    <Content Include="Content\paradise\img\4.png" />
+    <Content Include="Content\paradise\img\5.png" />
+    <Content Include="Content\paradise\img\about_1.jpg" />
+    <Content Include="Content\paradise\img\assets\file.pdf" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\css\font-awesome.min.css" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Content\paradise\img\assets\font-awesome-old\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\paradise\img\assets\home.png" />
+    <Content Include="Content\paradise\img\assets\hotelhome.png" />
+    <Content Include="Content\paradise\img\assets\images\air-conditioner.svg" />
+    <Content Include="Content\paradise\img\assets\images\baby-car-seat.svg" />
+    <Content Include="Content\paradise\img\assets\images\bed.svg" />
+    <Content Include="Content\paradise\img\assets\images\bg-cover-1.png" />
+    <Content Include="Content\paradise\img\assets\images\bg-cover-2.png" />
+    <Content Include="Content\paradise\img\assets\images\bg-video-cover-1.png" />
+    <Content Include="Content\paradise\img\assets\images\bg-video-cover-2.png" />
+    <Content Include="Content\paradise\img\assets\images\book-car-image-0.jpg" />
+    <Content Include="Content\paradise\img\assets\images\btn-arrow.svg" />
+    <Content Include="Content\paradise\img\assets\images\calendar-outline.svg" />
+    <Content Include="Content\paradise\img\assets\images\call-outline.svg" />
+    <Content Include="Content\paradise\img\assets\images\car-1.jpg" />
+    <Content Include="Content\paradise\img\assets\images\car-2.jpg" />
+    <Content Include="Content\paradise\img\assets\images\car-3.jpg" />
+    <Content Include="Content\paradise\img\assets\images\easypaisa.svg" />
+    <Content Include="Content\paradise\img\assets\images\g-image-0.png" />
+    <Content Include="Content\paradise\img\assets\images\g-image-1.png" />
+    <Content Include="Content\paradise\img\assets\images\g-image-2.png" />
+    <Content Include="Content\paradise\img\assets\images\g-s-image-0.png" />
+    <Content Include="Content\paradise\img\assets\images\g-s-image-1.png" />
+    <Content Include="Content\paradise\img\assets\images\g-s-image-2.png" />
+    <Content Include="Content\paradise\img\assets\images\g-s-image-3.png" />
+    <Content Include="Content\paradise\img\assets\images\g-s-image-4.png" />
+    <Content Include="Content\paradise\img\assets\images\g-s-image-5.png" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-1.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-10.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-11.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-12.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-13.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-14.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-2.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-3.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-4.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-5.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-6.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-7.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-8.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\galery-9.jpg" />
+    <Content Include="Content\paradise\img\assets\images\gallery\superdelux.jpeg" />
+    <Content Include="Content\paradise\img\assets\images\hh_bg.png" />
+    <Content Include="Content\paradise\img\assets\images\hotelhomefront.jpeg" />
+    <Content Include="Content\paradise\img\assets\images\jazz.svg" />
+    <Content Include="Content\paradise\img\assets\images\locate-outline.svg" />
+    <Content Include="Content\paradise\img\assets\images\mail-outline.svg" />
+    <Content Include="Content\paradise\img\assets\images\person-outline.svg" />
+    <Content Include="Content\paradise\img\assets\images\premium.svg" />
+    <Content Include="Content\paradise\img\assets\images\reader-outline.svg" />
+    <Content Include="Content\paradise\img\assets\images\reviews-1.jpg" />
+    <Content Include="Content\paradise\img\assets\images\reviews-2.jpg" />
+    <Content Include="Content\paradise\img\assets\images\reviews.jpg" />
+    <Content Include="Content\paradise\img\assets\images\s-icon-0.svg" />
+    <Content Include="Content\paradise\img\assets\images\s-icon-1.svg" />
+    <Content Include="Content\paradise\img\assets\images\s-icon-2.svg" />
+    <Content Include="Content\paradise\img\assets\images\s-icon-3.svg" />
+    <Content Include="Content\paradise\img\assets\images\s-icon-4.svg" />
+    <Content Include="Content\paradise\img\assets\images\shower.svg" />
+    <Content Include="Content\paradise\img\assets\images\sun.svg" />
+    <Content Include="Content\paradise\img\assets\images\visa-card.jpg" />
+    <Content Include="Content\paradise\img\assets\images\visa-card.svg" />
+    <Content Include="Content\paradise\img\assets\images\WeOffer.png" />
+    <Content Include="Content\paradise\img\assets\logo.jpg" />
+    <Content Include="Content\paradise\img\assets\logo.svg" />
+    <Content Include="Content\paradise\img\assets\videos\video.mp4" />
+    <Content Include="Content\paradise\img\aubi_park.png" />
+    <Content Include="Content\paradise\img\avatar.jpg" />
+    <Content Include="Content\paradise\img\avatar1.jpg" />
+    <Content Include="Content\paradise\img\avatar4.jpg" />
+    <Content Include="Content\paradise\img\avatar6.jpg" />
+    <Content Include="Content\paradise\img\ayubia_park.png" />
+    <Content Include="Content\paradise\img\Banner.png" />
+    <Content Include="Content\paradise\img\bhurban_mur.png" />
+    <Content Include="Content\paradise\img\bhutban.png" />
+    <Content Include="Content\paradise\img\birthday.png" />
+    <Content Include="Content\paradise\img\blog-1.jpg" />
+    <Content Include="Content\paradise\img\blog-4.jpg" />
+    <Content Include="Content\paradise\img\blog-6.jpg" />
+    <Content Include="Content\paradise\img\Blog\1.png" />
+    <Content Include="Content\paradise\img\Blog\2.png" />
+    <Content Include="Content\paradise\img\Blog\3.png" />
+    <Content Include="Content\paradise\img\blog_1.png" />
+    <Content Include="Content\paradise\img\blog_2.png" />
+    <Content Include="Content\paradise\img\blog_3.png" />
+    <Content Include="Content\paradise\img\blog_in.jpg" />
+    <Content Include="Content\paradise\img\booking\bokking.jpg" />
+    <Content Include="Content\paradise\img\booking\expedia.jpg" />
+    <Content Include="Content\paradise\img\booking\tripadvisor.jpg" />
+    <Content Include="Content\paradise\img\cafe\1.png" />
+    <Content Include="Content\paradise\img\cafe\2.png" />
+    <Content Include="Content\paradise\img\cafe\3.png" />
+    <Content Include="Content\paradise\img\cafe\4.png" />
+    <Content Include="Content\paradise\img\cafe\5.png" />
+    <Content Include="Content\paradise\img\cafe\6.png" />
+    <Content Include="Content\paradise\img\cafe\7.png" />
+    <Content Include="Content\paradise\img\cafe\8.png" />
+    <Content Include="Content\paradise\img\cafe\9.png" />
+    <Content Include="Content\paradise\img\chair_lift.png" />
+    <Content Include="Content\paradise\img\chair_mure.png" />
+    <Content Include="Content\paradise\img\CloudWalk\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\COLDCOFFEES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\COLDCOFFEES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\COLDCOFFEES\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\COLDCOFFEES\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\COLDCOFFEES\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\DRINKS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\DRINKS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\DRINKS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\DRINKS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\FRAPPES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\FRAPPES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\FRAPPES\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\FRAPPES\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCHOCOLATE\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCHOCOLATE\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCHOCOLATE\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCHOCOLATE\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCHOCOLATE\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\10.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\8.png" />
+    <Content Include="Content\paradise\img\CloudWalk\HOTCOFFEES\9.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\10.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\8.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICECREAMSHAKES\9.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\10.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\11.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\12.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\13.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\14.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\8.png" />
+    <Content Include="Content\paradise\img\CloudWalk\IceCREAM_FLAVOURS\9.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICEDTEAS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICEDTEAS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICEDTEAS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\ICEDTEAS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\10.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\11.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\12.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\8.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MAINS\9.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\10.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\11.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\8.png" />
+    <Content Include="Content\paradise\img\CloudWalk\MOCKTAILS\9.png" />
+    <Content Include="Content\paradise\img\CloudWalk\OVERICEDDRINK\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\OVERICEDDRINK\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\OVERICEDDRINK\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\OVERICEDDRINK\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\PIZZAS\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SALADS&amp;SOUP\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SALADS&amp;SOUP\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SALADS&amp;SOUP\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SANDWICHE&amp;BURGERS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SANDWICHE&amp;BURGERS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SANDWICHE&amp;BURGERS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SANDWICHE&amp;BURGERS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SANDWICHE&amp;BURGERS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SIDEORDER\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SIDEORDER\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SIDEORDER\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SIDEORDER\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SIDEORDER\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SLUSHS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SLUSHS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SLUSHS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SLUSHS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SLUSHS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SMOOTHIES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SMOOTHIES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SMOOTHIES\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SMOOTHIES\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIALHOT_TEAS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIALHOT_TEAS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIALHOT_TEAS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIALHOT_TEAS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIALHOT_TEAS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\SPECIAL_DESSERTS\8.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\4.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\5.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\6.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STARTERS\7.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STEAKES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\STEAKES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\supereme1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\THEICECREAMSUNDAES\1.png" />
+    <Content Include="Content\paradise\img\CloudWalk\THEICECREAMSUNDAES\2.png" />
+    <Content Include="Content\paradise\img\CloudWalk\THEICECREAMSUNDAES\3.png" />
+    <Content Include="Content\paradise\img\CloudWalk\THEICECREAMSUNDAES\4.png" />
+    <Content Include="Content\paradise\img\daymenu\divider.svg" />
+    <Content Include="Content\paradise\img\daymenu\divider_2.svg" />
+    <Content Include="Content\paradise\img\daymenu\icon-arrow.svg" />
+    <Content Include="Content\paradise\img\daymenu\img-1.jpg" />
+    <Content Include="Content\paradise\img\daymenu\img-2.jpg" />
+    <Content Include="Content\paradise\img\daymenu\img-3.jpg" />
+    <Content Include="Content\paradise\img\daymenu\img-4.jpg" />
+    <Content Include="Content\paradise\img\daymenu\img-5.jpg" />
+    <Content Include="Content\paradise\img\daymenu\pattern_menu.jpg" />
+    <Content Include="Content\paradise\img\drag_icon.svg" />
+    <Content Include="Content\paradise\img\easypaisa.svg" />
+    <Content Include="Content\paradise\img\eminity_1.png" />
+    <Content Include="Content\paradise\img\eminity_2.png" />
+    <Content Include="Content\paradise\img\eminity_3.png" />
+    <Content Include="Content\paradise\img\Executiv\1.png" />
+    <Content Include="Content\paradise\img\Executiv\2.png" />
+    <Content Include="Content\paradise\img\Executiv\3.png" />
+    <Content Include="Content\paradise\img\Executiv\4.png" />
+    <Content Include="Content\paradise\img\Executiv\5.png" />
+    <Content Include="Content\paradise\img\Executiv\6.png" />
+    <Content Include="Content\paradise\img\Executiv\7.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\1.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\10.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\2.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\3.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\4.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\5.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\6.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\7.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\8.png" />
+    <Content Include="Content\paradise\img\Exucutiveee\9.png" />
+    <Content Include="Content\paradise\img\favicon.ico" />
+    <Content Include="Content\paradise\img\favicon.png" />
+    <Content Include="Content\paradise\img\feeback.png" />
+    <Content Include="Content\paradise\img\flex_slides\slide_1.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_1_thumb.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_2.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_2_thumb.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_3.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_3_thumb.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_4.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_4_thumb.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_5.jpg" />
+    <Content Include="Content\paradise\img\flex_slides\slide_5_thumb.jpg" />
+    <Content Include="Content\paradise\img\gallery\1.jpg" />
+    <Content Include="Content\paradise\img\gallery\2.jpg" />
+    <Content Include="Content\paradise\img\gallery\3.jpg" />
+    <Content Include="Content\paradise\img\gallery\4.jpg" />
+    <Content Include="Content\paradise\img\gallery\5.jpg" />
+    <Content Include="Content\paradise\img\gallery\6.jpg" />
+    <Content Include="Content\paradise\img\gallery\7.jpg" />
+    <Content Include="Content\paradise\img\gallery\room10_img.png" />
+    <Content Include="Content\paradise\img\gallery\room11_img.png" />
+    <Content Include="Content\paradise\img\gallery\room12_img.png" />
+    <Content Include="Content\paradise\img\gallery\room13_img.png" />
+    <Content Include="Content\paradise\img\gallery\room1_img.png" />
+    <Content Include="Content\paradise\img\gallery\room2_img.png" />
+    <Content Include="Content\paradise\img\gallery\room3_img.png" />
+    <Content Include="Content\paradise\img\gallery\room4_img.png" />
+    <Content Include="Content\paradise\img\gallery\room5_img.png" />
+    <Content Include="Content\paradise\img\gallery\room6_img.png" />
+    <Content Include="Content\paradise\img\gallery\room7_img.png" />
+    <Content Include="Content\paradise\img\gallery\room8_img.png" />
+    <Content Include="Content\paradise\img\gallery\room9_img.png" />
+    <Content Include="Content\paradise\img\google review.svg" />
+    <Content Include="Content\paradise\img\Governor_house.png" />
+    <Content Include="Content\paradise\img\Gpo_malRd.png" />
+    <Content Include="Content\paradise\img\hero_blog.jpg" />
+    <Content Include="Content\paradise\img\hero_home_1.jpg" />
+    <Content Include="Content\paradise\img\hero_home_2.jpg" />
+    <Content Include="Content\paradise\img\HomePage_room\1.png" />
+    <Content Include="Content\paradise\img\HomePage_room\2.png" />
+    <Content Include="Content\paradise\img\HomePage_room\3.png" />
+    <Content Include="Content\paradise\img\home_1.jpg" />
+    <Content Include="Content\paradise\img\home_2.jpg" />
+    <Content Include="Content\paradise\img\home_about_2.jpg" />
+    <Content Include="Content\paradise\img\home_about_3.jpg" />
+    <Content Include="Content\paradise\img\HoneyMoon\1.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\10.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\11.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\12.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\13.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\14.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\2.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\3.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\4.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\5.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\6.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\7.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\8.png" />
+    <Content Include="Content\paradise\img\HoneyMoon\9.png" />
+    <Content Include="Content\paradise\img\hotel_home_logo.png" />
+    <Content Include="Content\paradise\img\hotel_im.png" />
+    <Content Include="Content\paradise\img\hotel_ki.png" />
+    <Content Include="Content\paradise\img\imah.png" />
+    <Content Include="Content\paradise\img\IMG_4378.JPG" />
+    <Content Include="Content\paradise\img\Jazzcash.svg" />
+    <Content Include="Content\paradise\img\kashmir_point.png" />
+    <Content Include="Content\paradise\img\kashmr_point.png" />
+    <Content Include="Content\paradise\img\kasmr_point.png" />
+    <Content Include="Content\paradise\img\local_amenities_1.jpg" />
+    <Content Include="Content\paradise\img\maisonRed.png" />
+    <Content Include="Content\paradise\img\mall_rd.png" />
+    <Content Include="Content\paradise\img\mall_rd2.png" />
+    <Content Include="Content\paradise\img\mashkpuri_mu.png" />
+    <Content Include="Content\paradise\img\masion.png" />
+    <Content Include="Content\paradise\img\masionette_about.png" />
+    <Content Include="Content\paradise\img\masionette_about1.png" />
+    <Content Include="Content\paradise\img\masionette_about2.png" />
+    <Content Include="Content\paradise\img\masiontee_a.png.png" />
+    <Content Include="Content\paradise\img\masionte_a.png.png" />
+    <Content Include="Content\paradise\img\masion_hny.png" />
+    <Content Include="Content\paradise\img\masio_ab1.png" />
+    <Content Include="Content\paradise\img\masonte_ab2.png" />
+    <Content Include="Content\paradise\img\massionatewhite.png" />
+    <Content Include="Content\paradise\img\massionate_back.png" />
+    <Content Include="Content\paradise\img\mastercard.svg" />
+    <Content Include="Content\paradise\img\menu_burger.png" />
+    <Content Include="Content\paradise\img\minus.svg" />
+    <Content Include="Content\paradise\img\murre_brewer.png" />
+    <Content Include="Content\paradise\img\muskuri_top.png" />
+    <Content Include="Content\paradise\img\nashta\1.png" />
+    <Content Include="Content\paradise\img\nashta\2.png" />
+    <Content Include="Content\paradise\img\nathiagali_.png" />
+    <Content Include="Content\paradise\img\parallax_bg.jpg" />
+    <Content Include="Content\paradise\img\patt_img.png" />
+    <Content Include="Content\paradise\img\pindi_poin.png" />
+    <Content Include="Content\paradise\img\Places\AubiaPrk3_act4.png" />
+    <Content Include="Content\paradise\img\Places\AyubiaPark2_act4.png" />
+    <Content Include="Content\paradise\img\Places\AyubiaPark_act4.png" />
+    <Content Include="Content\paradise\img\Places\Bonfire2_act4.png" />
+    <Content Include="Content\paradise\img\Places\Bonfire_act4.png" />
+    <Content Include="Content\paradise\img\Places\horseRide2_act4.png" />
+    <Content Include="Content\paradise\img\Places\horseRide_act4.png" />
+    <Content Include="Content\paradise\img\Places\kshmrPoint2_act4.png" />
+    <Content Include="Content\paradise\img\Places\kshmrPoint3_act4.png" />
+    <Content Include="Content\paradise\img\Places\kshmrPoint_act4.png" />
+    <Content Include="Content\paradise\img\Places\mallrd.png" />
+    <Content Include="Content\paradise\img\Places\mallRd2_act3.png" />
+    <Content Include="Content\paradise\img\Places\patriata1_activities1.png" />
+    <Content Include="Content\paradise\img\Places\patriata_act1.png" />
+    <Content Include="Content\paradise\img\Places\pindiPoint_act1.png" />
+    <Content Include="Content\paradise\img\Places\pndpoint_act2.png" />
+    <Content Include="Content\paradise\img\Places\point_act2.png" />
+    <Content Include="Content\paradise\img\Places\wildLife2_act4.png" />
+    <Content Include="Content\paradise\img\Places\wildLife_act4.png" />
+    <Content Include="Content\paradise\img\plus.svg" />
+    <Content Include="Content\paradise\img\presedential\1.png" />
+    <Content Include="Content\paradise\img\presedential\2.png" />
+    <Content Include="Content\paradise\img\presedential\3.png" />
+    <Content Include="Content\paradise\img\presedential\4.png" />
+    <Content Include="Content\paradise\img\presedential\5.png" />
+    <Content Include="Content\paradise\img\presedential\6.png" />
+    <Content Include="Content\paradise\img\presedential\7.png" />
+    <Content Include="Content\paradise\img\presedential\8.png" />
+    <Content Include="Content\paradise\img\presedential\9.png" />
+    <Content Include="Content\paradise\img\Presedential_2\1.png" />
+    <Content Include="Content\paradise\img\Presedential_2\2.png" />
+    <Content Include="Content\paradise\img\Presedential_2\3.png" />
+    <Content Include="Content\paradise\img\Presedential_2\4.png" />
+    <Content Include="Content\paradise\img\Presedential_2\5.png" />
+    <Content Include="Content\paradise\img\Presedential_2\6.png" />
+    <Content Include="Content\paradise\img\queenOutside\1.png" />
+    <Content Include="Content\paradise\img\queenOutside\2.png" />
+    <Content Include="Content\paradise\img\queenOutside\3.png" />
+    <Content Include="Content\paradise\img\Queen\1.png" />
+    <Content Include="Content\paradise\img\Queen\2.png" />
+    <Content Include="Content\paradise\img\Queen\3.png" />
+    <Content Include="Content\paradise\img\Queen\4.png" />
+    <Content Include="Content\paradise\img\Queen\5.png" />
+    <Content Include="Content\paradise\img\raffle_icon.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\1.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\2.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\3.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\4.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\5.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\6.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\7.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\8.png" />
+    <Content Include="Content\paradise\img\RestaurantGallery\9.png" />
+    <Content Include="Content\paradise\img\restaurant\1.jpg" />
+    <Content Include="Content\paradise\img\restaurant\10.jpg" />
+    <Content Include="Content\paradise\img\restaurant\11.jpg" />
+    <Content Include="Content\paradise\img\restaurant\12.jpg" />
+    <Content Include="Content\paradise\img\restaurant\2.jpg" />
+    <Content Include="Content\paradise\img\restaurant\3.jpg" />
+    <Content Include="Content\paradise\img\restaurant\4.jpg" />
+    <Content Include="Content\paradise\img\restaurant\5.jpg" />
+    <Content Include="Content\paradise\img\restaurant\6.jpg" />
+    <Content Include="Content\paradise\img\restaurant\7.jpg" />
+    <Content Include="Content\paradise\img\restaurant\8.jpg" />
+    <Content Include="Content\paradise\img\restaurant\9.jpg" />
+    <Content Include="Content\paradise\img\restaurant\Appetizer\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Appetizer\2.png" />
+    <Content Include="Content\paradise\img\restaurant\Appetizer\3.png" />
+    <Content Include="Content\paradise\img\restaurant\Appetizer\4.png" />
+    <Content Include="Content\paradise\img\restaurant\Appetizer\5.png" />
+    <Content Include="Content\paradise\img\restaurant\banner.svg" />
+    <Content Include="Content\paradise\img\restaurant\banner_2.jpg" />
+    <Content Include="Content\paradise\img\restaurant\banner_bg.jpg" />
+    <Content Include="Content\paradise\img\restaurant\banner_bg_2.jpg" />
+    <Content Include="Content\paradise\img\restaurant\banner_bg_3.jpg" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\1.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\2.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\3.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\4.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\5.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\6.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\7.png" />
+    <Content Include="Content\paradise\img\restaurant\BBQ\8.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\10.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\11.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\2.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\3.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\4.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\5.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\6.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\7.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\8.png" />
+    <Content Include="Content\paradise\img\restaurant\Chinese\9.png" />
+    <Content Include="Content\paradise\img\restaurant\Deserts\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Deserts\2.png" />
+    <Content Include="Content\paradise\img\restaurant\hotel_restuarant1.png" />
+    <Content Include="Content\paradise\img\restaurant\hotel_restuarant2.png" />
+    <Content Include="Content\paradise\img\restaurant\hotel_restuarant3.png" />
+    <Content Include="Content\paradise\img\restaurant\large\1.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\10.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\11.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\12.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\2.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\3.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\4.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\5.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\6.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\7.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\8.jpg" />
+    <Content Include="Content\paradise\img\restaurant\large\9.jpg" />
+    <Content Include="Content\paradise\img\restaurant\Main\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Main\2.png" />
+    <Content Include="Content\paradise\img\restaurant\Main\3.png" />
+    <Content Include="Content\paradise\img\restaurant\Main\4.png" />
+    <Content Include="Content\paradise\img\restaurant\Main\5.png" />
+    <Content Include="Content\paradise\img\restaurant\Main\6.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles.zip" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\2.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\3.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\4.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\5.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\6.png" />
+    <Content Include="Content\paradise\img\restaurant\Noodles\7.png" />
+    <Content Include="Content\paradise\img\restaurant\pattern_menu.jpg" />
+    <Content Include="Content\paradise\img\restaurant\Rice.zip" />
+    <Content Include="Content\paradise\img\restaurant\Rice\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Rice\2.png" />
+    <Content Include="Content\paradise\img\restaurant\SaladRaita.zip" />
+    <Content Include="Content\paradise\img\restaurant\SaladRaita\1.png" />
+    <Content Include="Content\paradise\img\restaurant\SaladRaita\2.png" />
+    <Content Include="Content\paradise\img\restaurant\SaladRaita\3.png" />
+    <Content Include="Content\paradise\img\restaurant\SaladRaita\4.png" />
+    <Content Include="Content\paradise\img\restaurant\SeaFood\1.png" />
+    <Content Include="Content\paradise\img\restaurant\SeaFood\2.png" />
+    <Content Include="Content\paradise\img\restaurant\SeaFood\3.png" />
+    <Content Include="Content\paradise\img\restaurant\SeaFood\4.png" />
+    <Content Include="Content\paradise\img\restaurant\slides\slide_1.jpg" />
+    <Content Include="Content\paradise\img\restaurant\slides\slide_2.jpg" />
+    <Content Include="Content\paradise\img\restaurant\slides\slide_3.jpg" />
+    <Content Include="Content\paradise\img\restaurant\Soup\1.png" />
+    <Content Include="Content\paradise\img\restaurant\Soup\2.png" />
+    <Content Include="Content\paradise\img\restaurant\Soup\3.png" />
+    <Content Include="Content\paradise\img\restaurant\Soup\4.png" />
+    <Content Include="Content\paradise\img\restaurant\vegetable\1.png" />
+    <Content Include="Content\paradise\img\restaurant\vegetable\2.png" />
+    <Content Include="Content\paradise\img\restaurant\vegetable\3.png" />
+    <Content Include="Content\paradise\img\Reviews\imran.png" />
+    <Content Include="Content\paradise\img\Reviews\review_1.png" />
+    <Content Include="Content\paradise\img\Reviews\review_2.png" />
+    <Content Include="Content\paradise\img\Reviews\review_3.png" />
+    <Content Include="Content\paradise\img\Reviews\rizky.png" />
+    <Content Include="Content\paradise\img\Reviews\samia.png" />
+    <Content Include="Content\paradise\img\road_mal.png" />
+    <Content Include="Content\paradise\img\roomspic\Executive.png" />
+    <Content Include="Content\paradise\img\roomspic\honeymoon.png" />
+    <Content Include="Content\paradise\img\roomspic\presin.png" />
+    <Content Include="Content\paradise\img\roomspic\queen.png" />
+    <Content Include="Content\paradise\img\roomspic\Studio.png" />
+    <Content Include="Content\paradise\img\rooms\Business Suite\1.png" />
+    <Content Include="Content\paradise\img\rooms\Business Suite\2.png" />
+    <Content Include="Content\paradise\img\rooms\BusinessSuite.png" />
+    <Content Include="Content\paradise\img\rooms\Deluxe King\1.png" />
+    <Content Include="Content\paradise\img\rooms\Deluxe King\2.png" />
+    <Content Include="Content\paradise\img\rooms\Deluxe King\3.png" />
+    <Content Include="Content\paradise\img\rooms\DeluxePlus.png" />
+    <Content Include="Content\paradise\img\rooms\Executive Suite.png" />
+    <Content Include="Content\paradise\img\rooms\RoyalSuite.png" />
+    <Content Include="Content\paradise\img\rooms\Standard King\1.png" />
+    <Content Include="Content\paradise\img\rooms\Standard King\2.png" />
+    <Content Include="Content\paradise\img\rooms\Standard King\3.png" />
+    <Content Include="Content\paradise\img\rooms\Standard.png" />
+    <Content Include="Content\paradise\img\rooms\_Royal Suite\1.png" />
+    <Content Include="Content\paradise\img\rooms\_Royal Suite\2.png" />
+    <Content Include="Content\paradise\img\rooms\_Royal Suite\3.png" />
+    <Content Include="Content\paradise\img\rooms\_Royal Suite\4.png" />
+    <Content Include="Content\paradise\img\room_masionate.png" />
+    <Content Include="Content\paradise\img\second_ms.png" />
+    <Content Include="Content\paradise\img\sep.png" />
+    <Content Include="Content\paradise\img\sep1.png" />
+    <Content Include="Content\paradise\img\sep2.png" />
+    <Content Include="Content\paradise\img\sep3.png" />
+    <Content Include="Content\paradise\img\sep4.png" />
+    <Content Include="Content\paradise\img\sep5.png" />
+    <Content Include="Content\paradise\img\sep_8.png" />
+    <Content Include="Content\paradise\img\slides\slide_home_1.jpg" />
+    <Content Include="Content\paradise\img\slides\slide_home_2.jpg" />
+    <Content Include="Content\paradise\img\slides\slide_home_3.jpg" />
+    <Content Include="Content\paradise\img\slides_kenburns\slide_1.jpg" />
+    <Content Include="Content\paradise\img\slides_kenburns\slide_2.jpg" />
+    <Content Include="Content\paradise\img\slides_kenburns\slide_3.jpg" />
+    <Content Include="Content\paradise\img\sozo_park.png" />
+    <Content Include="Content\paradise\img\special.png" />
+    <Content Include="Content\paradise\img\super.jpg" />
+    <Content Include="Content\paradise\img\svg_icons\3-guests.svg" />
+    <Content Include="Content\paradise\img\svg_icons\4-guests.svg" />
+    <Content Include="Content\paradise\img\svg_icons\air-condition.svg" />
+    <Content Include="Content\paradise\img\svg_icons\bath-tub.svg" />
+    <Content Include="Content\paradise\img\svg_icons\breakfast.svg" />
+    <Content Include="Content\paradise\img\svg_icons\cocktail.svg" />
+    <Content Include="Content\paradise\img\svg_icons\double-bed.svg" />
+    <Content Include="Content\paradise\img\svg_icons\gym.svg" />
+    <Content Include="Content\paradise\img\svg_icons\hairdryer.svg" />
+    <Content Include="Content\paradise\img\svg_icons\laundry.svg" />
+    <Content Include="Content\paradise\img\svg_icons\luggage.svg" />
+    <Content Include="Content\paradise\img\svg_icons\private-parking.svg" />
+    <Content Include="Content\paradise\img\svg_icons\reception.svg" />
+    <Content Include="Content\paradise\img\svg_icons\shower.svg" />
+    <Content Include="Content\paradise\img\svg_icons\single-bed.svg" />
+    <Content Include="Content\paradise\img\svg_icons\swimming-pool.svg" />
+    <Content Include="Content\paradise\img\svg_icons\television.svg" />
+    <Content Include="Content\paradise\img\svg_icons\washing-machine.svg" />
+    <Content Include="Content\paradise\img\svg_icons\wifi.svg" />
+    <Content Include="Content\paradise\img\Sweets\1.png" />
+    <Content Include="Content\paradise\img\Sweets\2.png" />
+    <Content Include="Content\paradise\img\Sweets\3.png" />
+    <Content Include="Content\paradise\img\Sweets\4.png" />
+    <Content Include="Content\paradise\img\Sweets\5.png" />
+    <Content Include="Content\paradise\img\testimonial_1.jpg" />
+    <Content Include="Content\paradise\img\twinRoom\1.png" />
+    <Content Include="Content\paradise\img\twinRoom\2.png" />
+    <Content Include="Content\paradise\img\twinRoom\3.png" />
+    <Content Include="Content\paradise\img\upasia.svg" />
+    <Content Include="Content\paradise\img\valentine.png" />
+    <Content Include="Content\paradise\img\visa.svg" />
+    <Content Include="Content\paradise\img\whittelogo.png" />
+    <Content Include="Content\paradise\img\wildif_prk.png" />
+    <Content Include="Content\paradise\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\paradise\js\common_functions.js" />
+    <Content Include="Content\paradise\js\common_scripts.js" />
+    <Content Include="Content\paradise\js\datepicker_inline.js" />
+    <Content Include="Content\paradise\js\datepicker_inline_other_lang.js" />
+    <Content Include="Content\paradise\js\daterangepicker.js" />
+    <Content Include="Content\paradise\js\day_menu.js" />
+    <Content Include="Content\paradise\js\error.js" />
+    <Content Include="Content\paradise\js\footer-reveal.js" />
+    <Content Include="Content\paradise\js\footer-reveal.min.js" />
+    <Content Include="Content\paradise\js\fslightbox.js" />
+    <Content Include="Content\paradise\js\gsap.js" />
+    <Content Include="Content\paradise\js\gsap.min.js" />
+    <Content Include="Content\paradise\js\Headroom.js" />
+    <Content Include="Content\paradise\js\isotope.min.js" />
+    <Content Include="Content\paradise\js\jarallax-element.min.js" />
+    <Content Include="Content\paradise\js\jarallax-video.js" />
+    <Content Include="Content\paradise\js\jarallax-video.min.js" />
+    <Content Include="Content\paradise\js\jarallax.js" />
+    <Content Include="Content\paradise\js\jarallax.min.js" />
+    <Content Include="Content\paradise\js\jquery-3.6.0.min.js" />
+    <Content Include="Content\paradise\js\jquery.cookiebar.js" />
+    <Content Include="Content\paradise\js\jquery.flexslider.js" />
+    <Content Include="Content\paradise\js\jquery.flexslider.min.js" />
+    <Content Include="Content\paradise\js\jquery.nice-select.js" />
+    <Content Include="Content\paradise\js\jquery.nice-select.min.js" />
+    <Content Include="Content\paradise\js\modal_popup.js" />
+    <Content Include="Content\paradise\js\moment.min.js" />
+    <Content Include="Content\paradise\js\owl.carousel.js" />
+    <Content Include="Content\paradise\js\owl.carousel.min.js" />
+    <Content Include="Content\paradise\js\scrollCue.js" />
+    <Content Include="Content\paradise\js\scrollCue.min.js" />
+    <Content Include="Content\paradise\js\ScrollTrigger.js" />
+    <Content Include="Content\paradise\js\ScrollTrigger.min.js" />
+    <Content Include="Content\paradise\js\slider.js" />
+    <Content Include="Content\paradise\js\slider_func.js" />
+    <Content Include="Content\paradise\phpmailer\confirmation.html" />
+    <Content Include="Content\paradise\phpmailer\contact.php" />
+    <Content Include="Content\paradise\phpmailer\contact_template_email.php" />
+    <Content Include="Content\paradise\phpmailer\contact_template_email_smtp.php" />
+    <Content Include="Content\paradise\phpmailer\images\logo.png" />
+    <Content Include="Content\paradise\phpmailer\images\main.jpg" />
+    <Content Include="Content\paradise\phpmailer\newsletter.php" />
+    <Content Include="Content\paradise\phpmailer\newsletter_template_email.php" />
+    <Content Include="Content\paradise\phpmailer\newsletter_template_email_smtp.php" />
+    <Content Include="Content\paradise\phpmailer\reserve.php" />
+    <Content Include="Content\paradise\phpmailer\reserve_template_email.php" />
+    <Content Include="Content\paradise\phpmailer\reserve_template_email_smtp.php" />
+    <Content Include="Content\paradise\phpmailer\src\Exception.php" />
+    <Content Include="Content\paradise\phpmailer\src\OAuth.php" />
+    <Content Include="Content\paradise\phpmailer\src\PHPMailer.php" />
+    <Content Include="Content\paradise\phpmailer\src\POP3.php" />
+    <Content Include="Content\paradise\phpmailer\src\SMTP.php" />
+    <Content Include="Content\paradise\phpmailer\template-email.html" />
+    <Content Include="Content\paradise\phpmailer\validate.js" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\0d4d03800111853e838892459e23b4411ca6daca\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\13fc35c782c7fb0041252aff599dc3d0cc1e133c\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\13fc35c782c7fb0041252aff599dc3d0cc1e133c\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\13fc35c782c7fb0041252aff599dc3d0cc1e133c\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\13fc35c782c7fb0041252aff599dc3d0cc1e133c\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\158c82a8501d3ef3464858753612c5be1c372584\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\158c82a8501d3ef3464858753612c5be1c372584\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\158c82a8501d3ef3464858753612c5be1c372584\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\158c82a8501d3ef3464858753612c5be1c372584\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\198b5547c0f9ff074c487cec9b91684a928d3a50\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\198b5547c0f9ff074c487cec9b91684a928d3a50\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\198b5547c0f9ff074c487cec9b91684a928d3a50\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\198b5547c0f9ff074c487cec9b91684a928d3a50\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\1efa3dc74047bc6a4698a8569b58cc63196b8f36\day_menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\1efa3dc74047bc6a4698a8569b58cc63196b8f36\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\1efa3dc74047bc6a4698a8569b58cc63196b8f36\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\1efa3dc74047bc6a4698a8569b58cc63196b8f36\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\1efa3dc74047bc6a4698a8569b58cc63196b8f36\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\1efa3dc74047bc6a4698a8569b58cc63196b8f36\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\24a48ae518234290c93c4a6df14a25805365b001\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\24a48ae518234290c93c4a6df14a25805365b001\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\24a48ae518234290c93c4a6df14a25805365b001\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\24a48ae518234290c93c4a6df14a25805365b001\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\24a48ae518234290c93c4a6df14a25805365b001\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\24a48ae518234290c93c4a6df14a25805365b001\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\27bbc8e5bf9aef665c9ead790337d9dfc53db5bf\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\animated_catalogue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\checkout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\day_menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2894cd05618f9dad1b7608876b0278bf3bce6051\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-red.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2baf6905469c0dcf8d5a583d02e3bcff9626e1\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\blog copia.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\style copia.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\2d2f4d366ee9bf87ea6ded7d0b5acf10d8c4bca6\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3470353cdc56cf61f41e76efd0e25fc2c915d741\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3470353cdc56cf61f41e76efd0e25fc2c915d741\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3470353cdc56cf61f41e76efd0e25fc2c915d741\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3470353cdc56cf61f41e76efd0e25fc2c915d741\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3cbcf3f26272d5577b7e747b5f1863fe1f9f591a\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3cbcf3f26272d5577b7e747b5f1863fe1f9f591a\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3cbcf3f26272d5577b7e747b5f1863fe1f9f591a\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3cbcf3f26272d5577b7e747b5f1863fe1f9f591a\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-red.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\3d6ea095fe85d2869e79010998549e6be96ebf32\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-red.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\4a7d24c0e58119947a9e72b6789763c47eee36b1\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\517193ae1ef564b01341c90075eb4d6b61b5c71b\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\517193ae1ef564b01341c90075eb4d6b61b5c71b\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\517193ae1ef564b01341c90075eb4d6b61b5c71b\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\517193ae1ef564b01341c90075eb4d6b61b5c71b\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\517193ae1ef564b01341c90075eb4d6b61b5c71b\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-red.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e00a67b6694a692b23c128f01e7666003ecf324\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e88f5de34a3f9607a7ba1571dee4eb195ad0ac9\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e88f5de34a3f9607a7ba1571dee4eb195ad0ac9\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e88f5de34a3f9607a7ba1571dee4eb195ad0ac9\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e88f5de34a3f9607a7ba1571dee4eb195ad0ac9\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e88f5de34a3f9607a7ba1571dee4eb195ad0ac9\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\5e88f5de34a3f9607a7ba1571dee4eb195ad0ac9\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\62836d9f5a3acd8b5b5ee997a78ee9dea07a5f7f\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\65ee5446505641414e85bb6f0d29606d0cb85c5a\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\6955a97d398f413c5965637ba6d3e76989e1ae77\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\6955a97d398f413c5965637ba6d3e76989e1ae77\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\6955a97d398f413c5965637ba6d3e76989e1ae77\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\6955a97d398f413c5965637ba6d3e76989e1ae77\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\70b0d137d128f72895c5f3f51d71b8fe79fcf4d1\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\70b0d137d128f72895c5f3f51d71b8fe79fcf4d1\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\70b0d137d128f72895c5f3f51d71b8fe79fcf4d1\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\70b0d137d128f72895c5f3f51d71b8fe79fcf4d1\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\70b0d137d128f72895c5f3f51d71b8fe79fcf4d1\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\76a88fb832c56d468bb2dd09ce2eb6298459052a\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\771c3a46d6b8dd44055af47e01da0eb4e9ce8251\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\771c3a46d6b8dd44055af47e01da0eb4e9ce8251\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\771c3a46d6b8dd44055af47e01da0eb4e9ce8251\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\771c3a46d6b8dd44055af47e01da0eb4e9ce8251\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\775cc000ae97cb588e0398d6864af2a7ca7be6fd\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\775cc000ae97cb588e0398d6864af2a7ca7be6fd\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\775cc000ae97cb588e0398d6864af2a7ca7be6fd\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\775cc000ae97cb588e0398d6864af2a7ca7be6fd\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\7f2e08b28b8347b37921a1b04e10680e71fe94af\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\7f2e08b28b8347b37921a1b04e10680e71fe94af\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\7f2e08b28b8347b37921a1b04e10680e71fe94af\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\7f2e08b28b8347b37921a1b04e10680e71fe94af\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\7f2e08b28b8347b37921a1b04e10680e71fe94af\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\8af055c9b3449048f4ea35c0b3fe8e8740042dfc\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\91f2b75632542489bba4f792d507d9c7cc90a18c\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\91f2b75632542489bba4f792d507d9c7cc90a18c\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\91f2b75632542489bba4f792d507d9c7cc90a18c\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\91f2b75632542489bba4f792d507d9c7cc90a18c\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9dd09b488bbe9d42a2c96f3bbffaf544dc7f2d8e\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9dd09b488bbe9d42a2c96f3bbffaf544dc7f2d8e\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9dd09b488bbe9d42a2c96f3bbffaf544dc7f2d8e\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9e17f7e606cccbc3e2bf08a995298637ad11c356\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9e17f7e606cccbc3e2bf08a995298637ad11c356\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9e17f7e606cccbc3e2bf08a995298637ad11c356\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9e17f7e606cccbc3e2bf08a995298637ad11c356\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9e17f7e606cccbc3e2bf08a995298637ad11c356\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9f44d4451b26c452465f77144685588de429e555\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9f44d4451b26c452465f77144685588de429e555\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9f44d4451b26c452465f77144685588de429e555\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9f44d4451b26c452465f77144685588de429e555\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\9f44d4451b26c452465f77144685588de429e555\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a0a37a50449df4accc903ad2634bdbd1729ae5d0\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a0a37a50449df4accc903ad2634bdbd1729ae5d0\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a0a37a50449df4accc903ad2634bdbd1729ae5d0\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a0a37a50449df4accc903ad2634bdbd1729ae5d0\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a0a37a50449df4accc903ad2634bdbd1729ae5d0\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\a87bdb3e26b1330c7951e8ed2bd9061caa907180\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-red.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\custom.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa33f742f5487fa08e447d100aa77a17811afdd6\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aa9294eb44df9edee177b6cf6b74894a0369c68f\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\menu_2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\aef66e8477330fc681512a912f9bff4eb2ec5495\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\b4b61774a89c8a4629f491585b1e59f9a660ee96\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\b4b61774a89c8a4629f491585b1e59f9a660ee96\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\b4b61774a89c8a4629f491585b1e59f9a660ee96\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\b4b61774a89c8a4629f491585b1e59f9a660ee96\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\b4b61774a89c8a4629f491585b1e59f9a660ee96\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\bc73428becaf2fa5c0f37c26307711e2c0aca89e\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c5156fb45a0a41fb4befecab12e28ac0354e1670\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c5156fb45a0a41fb4befecab12e28ac0354e1670\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c5156fb45a0a41fb4befecab12e28ac0354e1670\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c5156fb45a0a41fb4befecab12e28ac0354e1670\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c5156fb45a0a41fb4befecab12e28ac0354e1670\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\c91c52e8e9a5a9fbcd0745bb28d177ebc7267e50\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da59190ba325589c70ad787f1d06c3a583746b68\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da6ea75918fbec2bd56bf887ed1ae373a6e1f9ee\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da6ea75918fbec2bd56bf887ed1ae373a6e1f9ee\style copia.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da6ea75918fbec2bd56bf887ed1ae373a6e1f9ee\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da6ea75918fbec2bd56bf887ed1ae373a6e1f9ee\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\da6ea75918fbec2bd56bf887ed1ae373a6e1f9ee\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e29ab15998973870ee998a1bed61919799884c72\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e59bb1b2abc21126b0d3fd6aee6e5ef5f7723f54\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\animated_catalogue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\checkout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\flex_slider.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\vendors.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\wizard.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\e661caff39b42283c82f037e1a87bd8343ebe678\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-beige.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-gray.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-green-2.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-navy.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-peach.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-purple.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-red.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\color-violet.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\f4a47e407ac93c145e9365214a10fb32ab27eb2c\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\blog copia.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faccf60d7720ec722afad2d83d2d4cc92aa55306\_variables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\blog.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\color-aqua.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\color-blue.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\color-green.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\color-orange.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\menu.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\style.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\tables.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\_layout.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\_mixin.scssc" />
+    <Content Include="Content\paradise\sass\.sass-cache\faf4a52f32a8440dfc13d43b45e3cda795daf095\_variables.scssc" />
+    <Content Include="Content\paradise\sass\config.rb" />
+    <Content Include="Content\paradise\sass\day_menu.scss" />
+    <Content Include="Content\paradise\sass\flex_slider.scss" />
+    <Content Include="Content\paradise\sass\style.scss" />
+    <Content Include="Content\paradise\sass\vendors.scss" />
+    <Content Include="Content\paradise\sass\_mixin.scss" />
+    <Content Include="Content\paradise\sass\_variables.scss" />
+    <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
+    <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
+    <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
+    <Content Include="Content\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\plugins\datepicker\datepicker3.css" />
+    <Content Include="Content\plugins\fastclick\fastclick.js" />
+    <Content Include="Content\plugins\jQuery\jquery-2.2.3.min.js" />
+    <Content Include="Content\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\bootstrapForCalender.min.css" />
+    <Content Include="Content\Styles\cssMain.css" />
+    <Content Include="Content\Styles\DataTable\jquery-ui.css" />
+    <Content Include="Content\Styles\DataTable\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\Styles\fstdropdown.css" />
+    <Content Include="Content\Styles\fstdropdown.js" />
+    <Content Include="Content\Styles\fullcalendar.css" />
+    <Content Include="Content\Styles\fullcalendar.min.css" />
+    <Content Include="Content\Styles\fullcalendar.print.css" />
+    <Content Include="Content\Styles\fullcalendar.print.min.css" />
+    <Content Include="Content\Styles\jquery-ui.css" />
+    <Content Include="Content\Styles\login.css" />
+    <Content Include="Content\Styles\pci-bp-print.css" />
+    <Content Include="Content\Styles\pci-bp-screen.css" />
+    <Content Include="Content\Styles\pci-dropdown.css" />
+    <Content Include="Content\Styles\pci-styles.css" />
+    <Content Include="Content\Styles\registration.css" />
+    <Content Include="Content\Styles\scheduler.css" />
+    <Content Include="Content\Styles\scheduler.min.css" />
+    <Content Include="Content\Styles\style-custom.css" />
+    <Content Include="Content\Styles\style-responsive.css" />
+    <Content Include="Content\Styles\style.css" />
+    <Content Include="Content\Styles\style.min.css" />
+    <Content Include="Content\Styles\styleHostel.css" />
+    <Content Include="Content\summernote.css" />
+    <Content Include="Content\summernote.min.css" />
+    <Content Include="Content\TemplateFiles\css\animate.min.css" />
+    <Content Include="Content\TemplateFiles\css\bootstrap-select.min.css" />
+    <Content Include="Content\TemplateFiles\css\bootstrap-submenu.css" />
+    <Content Include="Content\TemplateFiles\css\bootstrap.min.css" />
+    <Content Include="Content\TemplateFiles\css\dropzone.css" />
+    <Content Include="Content\TemplateFiles\css\External.css" />
+    <Content Include="Content\TemplateFiles\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="Content\TemplateFiles\css\jquery-ui.css" />
+    <Content Include="Content\TemplateFiles\css\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\TemplateFiles\css\leaflet.css" />
+    <Content Include="Content\TemplateFiles\css\map.css" />
+    <Content Include="Content\TemplateFiles\css\rangeslider.css" />
+    <Content Include="Content\TemplateFiles\css\skins\blue-light.css" />
+    <Content Include="Content\TemplateFiles\css\skins\blue.css" />
+    <Content Include="Content\TemplateFiles\css\skins\brown.css" />
+    <Content Include="Content\TemplateFiles\css\skins\default.css" />
+    <Content Include="Content\TemplateFiles\css\skins\green-light-2.css" />
+    <Content Include="Content\TemplateFiles\css\skins\green-light.css" />
+    <Content Include="Content\TemplateFiles\css\skins\olive.css" />
+    <Content Include="Content\TemplateFiles\css\skins\orange.css" />
+    <Content Include="Content\TemplateFiles\css\skins\purple.css" />
+    <Content Include="Content\TemplateFiles\css\skins\red.css" />
+    <Content Include="Content\TemplateFiles\css\skins\yellow-light.css" />
+    <Content Include="Content\TemplateFiles\css\skins\yellow.css" />
+    <Content Include="Content\TemplateFiles\css\style.css" />
+    <Content Include="Content\TemplateFiles\Faq\css\reset.css" />
+    <Content Include="Content\TemplateFiles\Faq\css\style.css" />
+    <Content Include="Content\TemplateFiles\Faq\js\jquery-2.1.1.js" />
+    <Content Include="Content\TemplateFiles\Faq\js\jquery.mobile.custom.min.js" />
+    <Content Include="Content\TemplateFiles\Faq\js\main.js" />
+    <Content Include="Content\TemplateFiles\Faq\js\modernizr.js" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\flaticon.css" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\flaticon.html" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\demo.html" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\font\flaticon.html" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\font\Flaticon.svg" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\License.txt" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\Read Me.txt" />
+    <Content Include="Content\TemplateFiles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\demo.html" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\License.txt" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\Read Me.txt" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\style.css" />
+    <Content Include="Content\TemplateFiles\img\building.png" />
+    <Content Include="Content\TemplateFiles\img\cube.gif" />
+    <Content Include="Content\TemplateFiles\img\favicon.ico" />
+    <Content Include="Content\TemplateFiles\img\ImageMainbanner3_1920x550.jpg" />
+    <Content Include="Content\TemplateFiles\img\loader.gif" />
+    <Content Include="Content\TemplateFiles\img\logos\blue-light-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\blue-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\brown-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\footer-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\green-light-2-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\green-light-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\logo-2.png" />
+    <Content Include="Content\TemplateFiles\img\logos\logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\olive-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\orange-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\purple-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\red-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\yellow-light-logo.png" />
+    <Content Include="Content\TemplateFiles\img\logos\yellow-logo.png" />
+    <Content Include="Content\TemplateFiles\index-5.html" />
+    <Content Include="Content\TemplateFiles\js\app.js" />
+    <Content Include="Content\TemplateFiles\js\bootstrap-select.min.js" />
+    <Content Include="Content\TemplateFiles\js\bootstrap-submenu.js" />
+    <Content Include="Content\TemplateFiles\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\TemplateFiles\js\bootstrap.min.js" />
+    <Content Include="Content\TemplateFiles\js\compressed.js" />
+    <Content Include="Content\TemplateFiles\js\dropzone.js" />
+    <Content Include="Content\TemplateFiles\js\element.js" />
+    <Content Include="Content\TemplateFiles\js\html5shiv.min.js" />
+    <Content Include="Content\TemplateFiles\js\ie-emulation-modes-warning.js" />
+    <Content Include="Content\TemplateFiles\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Content\TemplateFiles\js\ie8-responsive-file-warning.js" />
+    <Content Include="Content\TemplateFiles\js\jquery-2.1.4.js" />
+    <Content Include="Content\TemplateFiles\js\jquery-2.2.0.min.js" />
+    <Content Include="Content\TemplateFiles\js\jquery-uicalander.js" />
+    <Content Include="Content\TemplateFiles\js\jquery.easing.1.3.js" />
+    <Content Include="Content\TemplateFiles\js\jquery.filterizr.js" />
+    <Content Include="Content\TemplateFiles\js\jquery.mb.YTPlayer.js" />
+    <Content Include="Content\TemplateFiles\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\TemplateFiles\js\jquery.scrollUp.js" />
+    <Content Include="Content\TemplateFiles\js\LazyLoad.js" />
+    <Content Include="Content\TemplateFiles\js\leaflet-providers.js" />
+    <Content Include="Content\TemplateFiles\js\leaflet.js" />
+    <Content Include="Content\TemplateFiles\js\leaflet.markercluster.js" />
+    <Content Include="Content\TemplateFiles\js\maps.js" />
+    <Content Include="Content\TemplateFiles\js\rangeslider.js" />
+    <Content Include="Content\TemplateFiles\js\respond.min.js" />
+    <Content Include="Content\TemplateFiles\js\speed-index.js" />
+    <Content Include="Content\TemplateFiles\js\UA1105490711.js" />
+    <Content Include="Content\TemplateFiles\js\widget.js" />
+    <Content Include="Content\TemplateFiles\js\wow.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\Admin\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Admin\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\Admin\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admin\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admin\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Admin\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Admin\startmin-master\composer.json" />
+    <Content Include="Content\Admin\startmin-master\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admin\startmin-master\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admin\startmin-master\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admin\startmin-master\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Admin\startmin-master\fonts\FontAwesome.otf" />
+    <Content Include="Content\Admin\startmin-master\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admin\startmin-master\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admin\startmin-master\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Admin\startmin-master\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Admin\startmin-master\LICENSE" />
+    <Content Include="Content\Admin\startmin-master\README.md" />
+    <Content Include="Content\TemplateFiles\Faq\partials\_layout.scss" />
+    <Content Include="Content\TemplateFiles\Faq\partials\_mixins.scss" />
+    <Content Include="Content\TemplateFiles\Faq\partials\_variables.scss" />
+    <Content Include="Content\TemplateFiles\Faq\scss\style.scss" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="Content\TemplateFiles\fonts\flaticon\license\license.pdf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\fonts\Linearicons-Free.woff2" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\font\Flaticon.eot" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\font\Flaticon.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\font\Flaticon.woff" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\font\_flaticon.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\animated.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\core.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\icons.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\larger.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\list.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\mixins.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\path.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\stacked.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\less\variables.less" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\license\license.pdf" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_core.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_list.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_path.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\TemplateFiles\fonts\font-awesome\selection.json" />
+    <Content Include="Content\TemplateFiles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\TemplateFiles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\TemplateFiles\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\fonts\Linearicons-Free.woff2" />
+    <Content Include="Content\TemplateFiles\fonts\linearicons\selection.json" />
+    <Content Include="Scripts\EntityScript\summernote\font\summernote.eot" />
+    <Content Include="Scripts\EntityScript\summernote\font\summernote.ttf" />
+    <Content Include="Scripts\EntityScript\summernote\font\summernote.woff" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\EntityScript\BlockRoom.js" />
+    <Content Include="Scripts\EntityScript\BlogList.js" />
+    <Content Include="Scripts\EntityScript\Booking.js" />
+    <Content Include="Scripts\EntityScript\BookingList.js" />
+    <Content Include="Scripts\EntityScript\Calendar - Copy.js" />
+    <Content Include="Scripts\EntityScript\Calendar.js" />
+    <Content Include="Scripts\EntityScript\Cancellation.js" />
+    <Content Include="Scripts\EntityScript\Category.js" />
+    <Content Include="Scripts\EntityScript\CreateUser.js" />
+    <Content Include="Scripts\EntityScript\EditPost.js" />
+    <Content Include="Scripts\EntityScript\EditUser.js" />
+    <Content Include="Scripts\EntityScript\Features.js" />
+    <Content Include="Scripts\EntityScript\fullcalendar.js" />
+    <Content Include="Scripts\EntityScript\fullcalendar.min.js" />
+    <Content Include="Scripts\EntityScript\gcal.js" />
+    <Content Include="Scripts\EntityScript\gcal.min.js" />
+    <Content Include="Scripts\EntityScript\Hall.js" />
+    <Content Include="Scripts\EntityScript\moment.min.js" />
+    <Content Include="Scripts\EntityScript\Post.js" />
+    <Content Include="Scripts\EntityScript\Property.js" />
+    <Content Include="Scripts\EntityScript\RatePlan.js" />
+    <Content Include="Scripts\EntityScript\RateSlab.js" />
+    <Content Include="Scripts\EntityScript\Room.js" />
+    <Content Include="Scripts\EntityScript\RoomAmenities.js" />
+    <Content Include="Scripts\EntityScript\RoomCategories.js" />
+    <Content Include="Scripts\EntityScript\RoomImages.js" />
+    <Content Include="Scripts\EntityScript\scheduler.js" />
+    <Content Include="Scripts\EntityScript\scheduler.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ar-AR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ar-AR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-bg-BG.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-bg-BG.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ca-ES.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ca-ES.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-cs-CZ.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-cs-CZ.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-da-DK.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-da-DK.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-de-DE.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-de-DE.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-es-ES.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-es-ES.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-es-EU.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-es-EU.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-fa-IR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-fa-IR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-fi-FI.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-fi-FI.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-fr-FR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-fr-FR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-gl-ES.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-gl-ES.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-he-IL.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-he-IL.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-hr-HR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-hr-HR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-hu-HU.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-hu-HU.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-id-ID.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-id-ID.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-it-IT.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-it-IT.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ja-JP.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ja-JP.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ko-KR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ko-KR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-lt-LT.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-lt-LT.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-lt-LV.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-lt-LV.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-nb-NO.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-nb-NO.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-nl-NL.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-nl-NL.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-pl-PL.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-pl-PL.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-pt-BR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-pt-BR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-pt-PT.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-pt-PT.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ro-RO.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ro-RO.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ru-RU.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-ru-RU.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sk-SK.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sk-SK.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sl-SI.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sl-SI.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sr-RS-Latin.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sr-RS.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sr-RS.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sv-SE.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-sv-SE.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-th-TH.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-th-TH.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-tr-TR.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-tr-TR.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-uk-UA.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-uk-UA.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-vi-VN.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-vi-VN.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-zh-CN.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-zh-CN.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-zh-TW.js" />
+    <Content Include="Scripts\EntityScript\summernote\lang\summernote-zh-TW.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\databasic\summernote-ext-databasic.css" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\databasic\summernote-ext-databasic.js" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\databasic\summernote-ext-databasic.min.css" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\databasic\summernote-ext-databasic.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\hello\summernote-ext-hello.js" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\hello\summernote-ext-hello.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\specialchars\summernote-ext-specialchars.js" />
+    <Content Include="Scripts\EntityScript\summernote\plugin\specialchars\summernote-ext-specialchars.min.js" />
+    <Content Include="Scripts\EntityScript\summernote\summernote.js" />
+    <Content Include="Scripts\EntityScript\summernote\summernote.min.js" />
+    <Content Include="Scripts\EntityScript\Tax.js" />
+    <Content Include="Scripts\EntityScript\theme-chooser.js" />
+    <Content Include="Scripts\EntityScript\User.js" />
+    <Content Include="Scripts\EntityScript\Voucher.js" />
+    <Content Include="Scripts\generalscript.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\locales-all.js" />
+    <Content Include="Scripts\lib\locales-all.min.js" />
+    <Content Include="Scripts\lib\locales\af.js" />
+    <Content Include="Scripts\lib\locales\ar-dz.js" />
+    <Content Include="Scripts\lib\locales\ar-kw.js" />
+    <Content Include="Scripts\lib\locales\ar-ly.js" />
+    <Content Include="Scripts\lib\locales\ar-ma.js" />
+    <Content Include="Scripts\lib\locales\ar-sa.js" />
+    <Content Include="Scripts\lib\locales\ar-tn.js" />
+    <Content Include="Scripts\lib\locales\ar.js" />
+    <Content Include="Scripts\lib\locales\az.js" />
+    <Content Include="Scripts\lib\locales\bg.js" />
+    <Content Include="Scripts\lib\locales\bn.js" />
+    <Content Include="Scripts\lib\locales\bs.js" />
+    <Content Include="Scripts\lib\locales\ca.js" />
+    <Content Include="Scripts\lib\locales\cs.js" />
+    <Content Include="Scripts\lib\locales\cy.js" />
+    <Content Include="Scripts\lib\locales\da.js" />
+    <Content Include="Scripts\lib\locales\de-at.js" />
+    <Content Include="Scripts\lib\locales\de.js" />
+    <Content Include="Scripts\lib\locales\el.js" />
+    <Content Include="Scripts\lib\locales\en-au.js" />
+    <Content Include="Scripts\lib\locales\en-gb.js" />
+    <Content Include="Scripts\lib\locales\en-nz.js" />
+    <Content Include="Scripts\lib\locales\eo.js" />
+    <Content Include="Scripts\lib\locales\es-us.js" />
+    <Content Include="Scripts\lib\locales\es.js" />
+    <Content Include="Scripts\lib\locales\et.js" />
+    <Content Include="Scripts\lib\locales\eu.js" />
+    <Content Include="Scripts\lib\locales\fa.js" />
+    <Content Include="Scripts\lib\locales\fi.js" />
+    <Content Include="Scripts\lib\locales\fr-ca.js" />
+    <Content Include="Scripts\lib\locales\fr-ch.js" />
+    <Content Include="Scripts\lib\locales\fr.js" />
+    <Content Include="Scripts\lib\locales\gl.js" />
+    <Content Include="Scripts\lib\locales\he.js" />
+    <Content Include="Scripts\lib\locales\hi.js" />
+    <Content Include="Scripts\lib\locales\hr.js" />
+    <Content Include="Scripts\lib\locales\hu.js" />
+    <Content Include="Scripts\lib\locales\hy-am.js" />
+    <Content Include="Scripts\lib\locales\id.js" />
+    <Content Include="Scripts\lib\locales\is.js" />
+    <Content Include="Scripts\lib\locales\it.js" />
+    <Content Include="Scripts\lib\locales\ja.js" />
+    <Content Include="Scripts\lib\locales\ka.js" />
+    <Content Include="Scripts\lib\locales\kk.js" />
+    <Content Include="Scripts\lib\locales\km.js" />
+    <Content Include="Scripts\lib\locales\ko.js" />
+    <Content Include="Scripts\lib\locales\ku.js" />
+    <Content Include="Scripts\lib\locales\lb.js" />
+    <Content Include="Scripts\lib\locales\lt.js" />
+    <Content Include="Scripts\lib\locales\lv.js" />
+    <Content Include="Scripts\lib\locales\mk.js" />
+    <Content Include="Scripts\lib\locales\ms.js" />
+    <Content Include="Scripts\lib\locales\nb.js" />
+    <Content Include="Scripts\lib\locales\ne.js" />
+    <Content Include="Scripts\lib\locales\nl.js" />
+    <Content Include="Scripts\lib\locales\nn.js" />
+    <Content Include="Scripts\lib\locales\pl.js" />
+    <Content Include="Scripts\lib\locales\pt-br.js" />
+    <Content Include="Scripts\lib\locales\pt.js" />
+    <Content Include="Scripts\lib\locales\ro.js" />
+    <Content Include="Scripts\lib\locales\ru.js" />
+    <Content Include="Scripts\lib\locales\si-lk.js" />
+    <Content Include="Scripts\lib\locales\sk.js" />
+    <Content Include="Scripts\lib\locales\sl.js" />
+    <Content Include="Scripts\lib\locales\sm.js" />
+    <Content Include="Scripts\lib\locales\sq.js" />
+    <Content Include="Scripts\lib\locales\sr-cyrl.js" />
+    <Content Include="Scripts\lib\locales\sr.js" />
+    <Content Include="Scripts\lib\locales\sv.js" />
+    <Content Include="Scripts\lib\locales\ta-in.js" />
+    <Content Include="Scripts\lib\locales\th.js" />
+    <Content Include="Scripts\lib\locales\tr.js" />
+    <Content Include="Scripts\lib\locales\ug.js" />
+    <Content Include="Scripts\lib\locales\uk.js" />
+    <Content Include="Scripts\lib\locales\uz.js" />
+    <Content Include="Scripts\lib\locales\vi.js" />
+    <Content Include="Scripts\lib\locales\zh-cn.js" />
+    <Content Include="Scripts\lib\locales\zh-tw.js" />
+    <Content Include="Scripts\lib\main.css" />
+    <Content Include="Scripts\lib\main.js" />
+    <Content Include="Scripts\lib\main.min.css" />
+    <Content Include="Scripts\lib\main.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Uploads\5-1.png" />
+    <Content Include="Uploads\6-1.png" />
+    <Content Include="Uploads\6-2.png" />
+    <Content Include="Uploads\6-3.png" />
+    <Content Include="Uploads\7-1.png" />
+    <Content Include="Uploads\8-1.png" />
+    <Content Include="Uploads\9-1.png" />
+    <Content Include="Uploads\Amenities\6-6.jpg" />
+    <Content Include="Uploads\Amenities\8-2.jpg" />
+    <Content Include="Uploads\Amenities\8-3.jpg" />
+    <Content Include="Uploads\blog\3.png" />
+    <Content Include="Uploads\blog\Maisonette Hotel in Murree %281%29.png" />
+    <Content Include="Uploads\blog\maisonette.jpg" />
+    <Content Include="Uploads\blog\winter blog image.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Blogs\blog.cshtml" />
+    <Content Include="Views\Blogs\Index.cshtml" />
+    <Content Include="Views\Blogs\Post.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Home\NoPageFound.cshtml" />
+    <Content Include="Views\Jazzcash\Payment.cshtml" />
+    <Content Include="Views\PlacesandActivities\Index.cshtml" />
+    <Content Include="Views\PrivacyPolicy\Index.cshtml" />
+    <Content Include="Views\SearchResult\PaymentError.cshtml" />
+    <Content Include="Views\SearchResult\RoomDetails.cshtml" />
+    <Content Include="Views\SearchResult\SearchResults.cshtml" />
+    <Content Include="Views\SearchResult\Thankyou.cshtml" />
+    <Content Include="Views\TermsandConditions\Index.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Booking\BlockBooking.cshtml" />
+    <Content Include="Views\Booking\Booking.cshtml" />
+    <Content Include="Views\Booking\BookingPayment.cshtml" />
+    <Content Include="Views\Booking\CheckIn.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Calander\Index - Copy.cshtml" />
+    <Content Include="Views\Calander\Index.cshtml" />
+    <Content Include="Views\ChannelManager\AddChannel.cshtml" />
+    <Content Include="Views\ChannelManager\ChannelManagerList.cshtml" />
+    <Content Include="Views\ChannelManager\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Hall\AddMainHall.cshtml" />
+    <Content Include="Views\Hall\Index.cshtml" />
+    <Content Include="Views\Hall\UpdateHallImages.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Logout.cshtml" />
+    <Content Include="Views\Policy\Index.cshtml" />
+    <Content Include="Views\Policy\RatePlan.cshtml" />
+    <Content Include="Views\Property\DeletePropertyImages.cshtml" />
+    <Content Include="Views\Property\Features.cshtml" />
+    <Content Include="Views\Property\Halls.cshtml" />
+    <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\Property\NewRoomCategory.cshtml" />
+    <Content Include="Views\Property\RateSlab.cshtml" />
+    <Content Include="Views\Property\RoomImages.cshtml" />
+    <Content Include="Views\Property\RoomRates.cshtml" />
+    <Content Include="Views\Property\Rooms.cshtml" />
+    <Content Include="Views\Property\Taxes.cshtml" />
+    <Content Include="Views\Report\ArrivalReport.cshtml" />
+    <Content Include="Views\Report\DepartureReport.cshtml" />
+    <Content Include="Views\Rooms\DeluxeRoomPlus.cshtml" />
+    <Content Include="Views\Rooms\StandardRoom.cshtml" />
+    <Content Include="Views\Rooms\BusinessSuite.cshtml" />
+    <Content Include="Views\Rooms\ExecutiveSuite.cshtml" />
+    <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\User\AddNewUser.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\SearchResult\Reservation.cshtml" />
+    <Content Include="Views\Property\BlockRoom.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Restaurant\Index.cshtml" />
+    <Content Include="Views\Post\Draft.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Post\Manage.cshtml" />
+    <Content Include="Views\Post\Published.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\GoogleReviews\Index.cshtml" />
+    <Content Include="Views\Rooms\RoyalSuite.cshtml" />
+    <Content Include="Views\Property\Amenities.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\Voucher\Create.cshtml" />
+    <Content Include="Views\Voucher\Delete.cshtml" />
+    <Content Include="Views\Voucher\Details.cshtml" />
+    <Content Include="Views\Voucher\Edit.cshtml" />
+    <Content Include="Views\Voucher\Index.cshtml" />
+    <Content Include="Views\DecorRoom\Index.cshtml" />
+    <Content Include="Views\ReservationReport\Index.cshtml" />
+    <Content Include="Views\Restaurant\Cafe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\LogInLayout\fonts\" />
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55578</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44323</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

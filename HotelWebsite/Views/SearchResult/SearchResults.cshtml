@@ -1,0 +1,1210 @@
+@using HotelWebsite.Models;
+
+@{
+    ViewBag.Title = "Maisonette Murree Hotel | Available Rooms";
+    ViewBag.keywords = "Hotel at Muree";
+    ViewBag.Description = "Maisonette Hotel at Murree is the best place to stay. Our hotel in Murree Pakistan offers luxurious rooms, equipped with all the amenities. Book Online.";
+    var CancelPolicy = new List<CancellationPolicy>();
+    List<PropertySearch> results = new List<PropertySearch>();
+    int? roomPrice = 0;
+    string _CheckIn = Request.QueryString["CheckIn"] ?? ""; // Default to empty string
+    string _CheckOut = Request.QueryString["CheckOut"] ?? ""; // Default to empty string
+    int _adults = Convert.ToInt32(Request.QueryString["Adults"] ?? "1"); // Default to 1
+    int _children = Convert.ToInt32(Request.QueryString["Children"] ?? "0"); // Default to 0
+    int _NoOfRooms = Convert.ToInt32(Request.QueryString["NoOfRooms"] ?? "1"); // Default to 1
+
+    int _TotalPax = _adults + _children;
+    int NoOfDays = Convert.ToInt32(ViewBag.NoOfDays ?? 1);
+
+    if (_TotalPax == 0)
+    {
+        _TotalPax = 1;
+    }
+
+    if (Session["results"] != null)
+    {
+        results = (List<PropertySearch>)Session["results"];
+    }
+}
+
+
+<style>
+    /* Enhanced Professional Styling for Search Results */
+    .value-button {
+        display: inline-block;
+        border: 2px solid #e0e0e0;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .value-button:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+
+    .features li {
+        width: 180px;
+        margin-right: 10px;
+        float: left;
+        list-style: none;
+        font-size: 14px;
+        color: #666;
+        padding: 5px 0;
+    }
+
+    .features li i {
+        color: #667eea;
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    .roomm-price {
+        font-size: 28px !important;
+        font-family: 'Poppins', sans-serif;
+        color: #2c3e50;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Enhanced Professional Room Card Styling */
+    .row_list_version_2 {
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        margin-bottom: 40px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(255,255,255,0.8);
+        position: relative;
+    }
+    .row_list_version_2::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .row_list_version_2:active {
+        transform: translateY(-2px) scale(1.02);
+    }
+
+    /* Additional Professional Enhancements */
+    .room-card-enhancement {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .box_item_info h2 {
+        color: #1a202c;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .box_item_info h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 2px;
+    }
+
+    /* Professional Pricing Display */
+    .price-section {
+        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px 0;
+        box-shadow: 0 8px 25px rgba(26, 32, 44, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .price-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    }
+
+    .original-price {
+        color: #a0aec0;
+        text-decoration: line-through;
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .current-price {
+        color: #48bb78;
+        font-weight: 700;
+        font-size: 24px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .per-night-price {
+        color: #e2e8f0;
+        font-size: 12px;
+        opacity: 0.8;
+    }
+
+    .price-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    /* Professional Room Availability Badge */
+    .roomsleft {
+        background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 20px;
+        animation: pulse 2s infinite;
+        box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .roomsleft::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shimmer 2s infinite;
+    }
+
+    @@keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    @@keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* Professional Book Now Button - No Hover Effects */
+    .btn_4,
+    button.btn_4,
+    input.btn_4 {
+        background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%) !important;
+        border: none !important;
+        border-radius: 50px !important;
+        padding: 18px 35px !important;
+        color: white !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        transition: none !important;
+        box-shadow: 0 8px 30px rgba(26, 54, 93, 0.4) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.2px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+      
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+    }
+
+    .btn_4 * {
+        color: white !important;
+    }
+
+    .btn_4::before {
+        display: none !important;
+    }
+    .btn_4:hover::before {
+        display: none !important;
+    }
+
+    .row_list_version_2:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(44, 82, 130, 0.15);
+    }
+
+    /* COMPLETELY DISABLE ALL HOVER EFFECTS */
+    .btn_4:hover,
+    button.btn_4:hover,
+    .btn_4:hover:focus,
+    .btn_4:hover .circle,
+    .btn_4:hover .button-text,
+    .btn_4:focus,
+    .btn_4:active {
+        background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%) !important;
+        transform: none !important;
+        box-shadow: 0 8px 30px rgba(26, 54, 93, 0.4) !important;
+        border: none !important;
+        outline: none !important;
+        animation: none !important;
+        transition: none !important;
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+    }
+    
+    /* Override any conflicting animations */
+    .btn_4:hover .circle .icon.arrow {
+        animation: none !important;
+        transform: none !important;
+    }
+
+    /* Removed duplicate - covered above */
+
+    .property-img:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Professional Facilities Icons */
+    .facilities ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .facilities ul li {
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        padding: 10px 16px;
+        border-radius: 25px;
+        margin: 0;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        font-size: 13px;
+        font-weight: 500;
+        color: #4a5568;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .facilities ul li i {
+        font-size: 14px;
+        color: #2c5282;
+    }
+
+    .facilities ul li:hover {
+        background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+        color: white;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(44, 82, 130, 0.3);
+    }
+
+    .facilities ul li:hover i {
+        color: white;
+    }
+
+    /* Room Quantity Controls */
+    .btn-outline-secondary {
+        border: 2px solid #2c5282;
+        color: #2c5282;
+        border-radius: 50%;
+       
+        height: 35px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-secondary:hover {
+        background: #2c5282;
+        border-color: #2c5282;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    /* FINAL OVERRIDE - COMPLETELY STATIC BUTTON */
+    .row_list_version_2 .btn_4:hover,
+    .row_list_version_2 button.btn_4:hover,
+    .col-12 .btn_4:hover,
+    .col-12 button.btn_4:hover,
+    .row_list_version_2 .btn_4:focus,
+    .row_list_version_2 .btn_4:active,
+    .col-12 .btn_4:focus,
+    .col-12 .btn_4:active {
+        background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%) !important;
+        transform: none !important;
+        box-shadow: 0 8px 30px rgba(26, 54, 93, 0.4) !important;
+        border: none !important;
+        outline: none !important;
+        animation: none !important;
+        transition: none !important;
+        -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+    }
+
+    /* Policy Tooltip Enhancement */
+    .tooltip .tooltiptext {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    div.sticky {
+        position: fixed;
+        background-color: mintcream;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 10px;
+        z-index: 2147483647;
+        display: block;
+        width: 77%;
+        height: 100px;
+        border-style: inset;
+        text-align: center;
+    }
+
+    .lightbox .lb-nav a.lb-prev,
+    .lightbox .lb-nav a.lb-next {
+        opacity: 1 !important; /* Make the buttons fully visible */
+        display: block !important; /* Ensure buttons are displayed */
+    }
+
+    @@media (min-width: 768px) {
+        .lightbox .lb-close {
+            position: absolute;
+            top: -20px;
+            z-index: 1001;
+            cursor: pointer;
+            margin-left: 15px
+        }
+
+        .lightbox .lb-closeContainer {
+            float: right
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .lightbox .lb-close {
+            position: absolute; /* Place the icon relative to the image container */
+            top: 10px; /* Align with the top of the image */
+            right: 10px; /* Align with the right of the image */
+            font-size: 20px; /* Adjust the icon size */
+            color: #fff; /* White for better contrast */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for visibility */
+            padding: 5px; /* Add padding for clickability */
+            border-radius: 0 0 0 10px; /* Optional: Add a rounded corner for better design */
+            z-index: 1001; /* Ensure it appears above the image */
+            cursor: pointer; /* Change cursor to indicate it's clickable */
+        }
+    }
+</style>
+
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+      rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/RoomCarousel.js"></script>
+
+<script type="text/javascript">
+    var $j = jQuery.noConflict();
+    var value = 0;
+    var totalAmount = 0;
+    var DiscountedAmount = 0;
+
+    $j(function () {
+        // Handle Minus Button Click
+        $j("input[name='CalculateMinus']").on('click', function () {
+            var id = $j(this).data("value");
+            var quantityInput = $j('#txtQuatntity_' + id);
+            var currentQuantity = parseInt(quantityInput.val());
+
+            if (currentQuantity > 1) {
+                var newQuantity = currentQuantity - 1;
+                quantityInput.val(newQuantity);
+                updateAmounts(id, newQuantity, false); // Update amounts for desktop
+                Calculate(id);
+            }
+        });
+
+        // Handle Plus Button Click
+        $j("input[name='CalculatePlus']").on('click', function () {
+            var id = $j(this).data("value");
+            var quantityInput = $j('#txtQuatntity_' + id);
+            var currentQuantity = parseInt(quantityInput.val());
+            var maxQuantity = parseInt($j('#NoOfRoomsLeft_' + id).val()) || Infinity;
+
+            if (currentQuantity < maxQuantity) {
+                var newQuantity = currentQuantity + 1;
+                quantityInput.val(newQuantity);
+                updateAmounts(id, newQuantity, false); // Update amounts for desktop
+                Calculate(id);
+            }
+        });
+
+
+        $j("input[name='CalculateMobMinus']").on('click', function (e) {
+            var id = $j(this).data("value");
+            var quantityInput = $j('#txtMobQuatntity_' + id);
+            var currentQuantity = parseInt(quantityInput.val());
+
+            if (currentQuantity > 1) {
+                var newQuantity = currentQuantity - 1;
+                quantityInput.val(newQuantity);
+
+                // Update the prices based on the new quantity
+                var normalPricePerUnit = parseInt($j('#hdNormalMobPrice_' + id).val());
+                var discountedPricePerUnit = parseInt($j('#hdDiscountedMobPrice_' + id).val());
+
+                var totalAmount = normalPricePerUnit * newQuantity;
+                var discountedAmount = discountedPricePerUnit * newQuantity;
+
+                var noOfNights = @ViewBag.NoOfDays || @Html.Raw(ViewBag.NoOfDays ?? 1);
+                var nightsText = noOfNights == 1 ? "Night" : "Nights";
+
+                // Update the displayed prices
+                $("#spNormalMobPrice_" + id).html('Rs. ' + totalAmount + ' for ' + noOfNights + ' ' + nightsText);
+                $("#spDiscountedMobPRice_" + id).html('Rs. ' + discountedAmount + ' for ' + noOfNights + ' ' + nightsText + (noOfNights > 1 ? '<br><small style="color: #666; font-size: 12px;">(Rs.' + Math.round(discountedAmount / noOfNights) + ' per night)</small>' : ''));
+            }
+
+            Calculate(id);
+        });
+
+        $j("input[name='CalculateMobPlus']").on('click', function (e) {
+            var id = $j(this).data("value");
+            var quantityInput = $j('#txtMobQuatntity_' + id);
+            var currentQuantity = parseInt(quantityInput.val());
+            var maxQuantity = parseInt($j('#NoOfRoomsLeft_' + id).val());
+
+            if (currentQuantity < maxQuantity) {
+                var newQuantity = currentQuantity + 1;
+                quantityInput.val(newQuantity);
+
+                // Update the prices based on the new quantity
+                var normalPricePerUnit = parseInt($j('#hdNormalMobPrice_' + id).val());
+                var discountedPricePerUnit = parseInt($j('#hdDiscountedMobPrice_' + id).val());
+
+                var totalAmount = normalPricePerUnit * newQuantity;
+                var discountedAmount = discountedPricePerUnit * newQuantity;
+
+                var noOfNights = @ViewBag.NoOfDays || @Html.Raw(ViewBag.NoOfDays ?? 1);
+                var nightsText = noOfNights == 1 ? "Night" : "Nights";
+
+                // Update the displayed prices
+                $("#spNormalMobPrice_" + id).html('Rs. ' + totalAmount + ' for ' + noOfNights + ' ' + nightsText);
+                $("#spDiscountedMobPRice_" + id).html('Rs. ' + discountedAmount + ' for ' + noOfNights + ' ' + nightsText + (noOfNights > 1 ? '<br><small style="color: #666; font-size: 12px;">(Rs.' + Math.round(discountedAmount / noOfNights) + ' per night)</small>' : ''));
+            }
+
+            Calculate(id);
+        });
+
+        // Function to update displayed amounts based on room quantity and version (desktop/mobile)
+        function updateAmounts(id, quantity, isMobile) {
+            var normalPricePerUnit = parseInt($j(isMobile ? '#hdNormalMobPrice_' + id : '#hdNormalPrice_' + id).val());
+            var discountedPricePerUnit = parseInt($j(isMobile ? '#hdDiscountedMobPrice_' + id : '#hdDiscountedPrice_' + id).val());
+
+            var totalAmount = normalPricePerUnit * quantity;
+            var discountedAmount = discountedPricePerUnit * quantity;
+
+            // Get the number of nights from ViewBag instead of parsing HTML
+            var noOfNights = @ViewBag.NoOfDays || @Html.Raw(ViewBag.NoOfDays ?? 1);
+            var nightsText = noOfNights == 1 ? "Night" : "Nights";
+
+            $j(isMobile ? "#spNormalMobPrice_" + id : "#spNormalPrice_" + id).html('Rs. ' + totalAmount + ' (' + quantity + ' rooms, ' + noOfNights + ' ' + nightsText.toLowerCase() + ')');
+            $j(isMobile ? "#spDiscountedMobPRice_" + id : "#spDiscountedPRice_" + id).html('Rs. ' + discountedAmount + ' (' + quantity + ' rooms, ' + noOfNights + ' ' + nightsText.toLowerCase() + ')');
+        }
+
+        function Calculate(_Id) {
+            var TotalRooms = 0;
+            var GrandTotal = 0;
+            var RoomCate = "";
+            var _RoomCateRoomNums = '';
+            var _RatePlanID = '';
+            var _RoomRates = '';
+            var _RoomRatesN = '';
+            var flag = 0;
+            var isMobile = $j(window).width() <= 768; // Check if it's a mobile screen
+
+            // Room category
+            var _roomCate = $j('#hdRoomCate_' + _Id).val();
+            var roomCateRoomNums = $j('#txtQuatntity_' + _Id).val();
+            
+            // Debug: Log the values being calculated
+            console.log('Calculate called for ID:', _Id, 'Room quantity:', roomCateRoomNums);
+
+            // Set RoomRates and RatePlanID for mobile or PC
+            var roomQuantity = parseInt($j("#txtQuatntity_" + _Id).val());
+            var discountedPricePerUnit, normalPricePerUnit;
+            
+            if (isMobile) {
+                discountedPricePerUnit = parseInt($j('#hdDiscountedMobPrice_' + _Id).val());
+                normalPricePerUnit = parseInt($j('#hdNormalMobPrice_' + _Id).val());
+                // Price already includes nights, just multiply by room quantity
+                _RoomRates = (discountedPricePerUnit * roomQuantity);
+                _RoomRatesN = (normalPricePerUnit * roomQuantity);
+            } else {
+                discountedPricePerUnit = parseInt($j('#hdDiscountedPrice_' + _Id).val());
+                normalPricePerUnit = parseInt($j('#hdNormalPrice_' + _Id).val());
+                // Price already includes nights, just multiply by room quantity
+                _RoomRates = (discountedPricePerUnit * roomQuantity);
+                _RoomRatesN = (normalPricePerUnit * roomQuantity);
+            }
+
+            // Extract RatePlanID
+            var _ratePlanID = $j('#RatePlanID_' + _Id).attr('id');
+            _ratePlanID = _ratePlanID.split('_');
+            _ratePlanID = _ratePlanID[1];
+            _RatePlanID = _ratePlanID;
+
+            // For single room type selection, set values directly (not accumulate)
+            TotalRooms = roomQuantity;
+            
+            if (isMobile) {
+                // GrandTotal calculation for mobile version - price already includes nights
+                GrandTotal = (discountedPricePerUnit * roomQuantity);
+            } else {
+                // GrandTotal calculation for PC version - price already includes nights
+                GrandTotal = (discountedPricePerUnit * roomQuantity);
+            }
+
+            // Update values for single room type
+            RoomCate = _roomCate;
+            _RoomCateRoomNums = roomCateRoomNums;
+
+            // Set hidden fields for submission
+            $j('#RatePlanIDs').val(_RatePlanID);
+            $j('#hdTotalRooms').val(TotalRooms);
+            $j('#hdTotalAmount').val(GrandTotal);
+            $j('#_TotalRooms').html(TotalRooms);
+            $j('#_TotalAmount').html(GrandTotal);
+            $j('#_TotalRooms1').html(TotalRooms);
+            $j('#_TotalAmount1').html(GrandTotal);
+            $j('#RoomCatCode').val(RoomCate);
+            $j('#RoomCateRoomNums').val(_RoomCateRoomNums);
+            $j('#RoomRates').val(_RoomRates);
+            
+            // Debug: Log the final values being set
+            console.log('Final values - TotalRooms:', TotalRooms, 'GrandTotal:', GrandTotal, 'RoomCateRoomNums:', _RoomCateRoomNums);
+
+            flag = 1;
+
+            // Show an alert if no rooms are selected
+            if (GrandTotal == 0) {
+                alert("Please select at least one room.");
+            }
+        }
+
+        $j("input[name='ShowDetails']").click(function () {
+            var _id = $j(this).attr('id');
+            _id = _id.split('_');
+            _id = _id[1];
+
+            $j("#SelectRoom_" + _id).prop("checked", true);
+            // $j("#RemoveRooms_" + _id).show();
+            Calculate(_id);
+        });
+
+        $j("input[name='RemoveRooms']").click(function () {
+            var _id = $j(this).attr('id');
+            _id = _id.split('_');
+            _id = _id[1];
+
+            $j("#SelectRoom_" + _id).prop("checked", false);
+
+            Calculate(_id);
+            $j("#RemoveRooms_" + _id).hide();
+        });
+
+
+        $('#OpenModal').click(function () {
+            $('#myModal').modal('show');
+            $("#sticky").hide();
+        });
+
+        $('#closemodal').click(function () {
+            $('#myModal').modal('hide');
+            $("#sticky").show();
+        });
+
+        $('#closepicmodal').click(function () {
+            $('#carouselModal').modal('hide');
+        });
+
+        $('#closepolicymodal').click(function () {
+            $('#policyModal').hide();
+        });
+
+        $j("#dvPolicy a").click(function () {
+
+            var _id = $j(this).attr('id');
+            _id = _id.split('_');
+            _id = _id[1];
+
+            try {
+                $.ajax({
+                    url: '/SearchResult/RoomPolicy',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: '&CancellationPolicy=' + _id,
+                    success: function (data) {
+                        $("#policyName").empty();
+                        $("#Breakfst").empty();
+                        $("#CancellationPolicy").empty();
+                        $("#FreeCancelBefore").empty();
+                        $("#GuestChargedForCancellation").empty();
+                        $("#ChargedForNoShow").empty();
+                        // alert(_id)
+                        // console.log(data);
+                        if (data.length > 0) {
+                            $.each(data, function (i, item) {
+                                if (i == 0) {
+                                    $("#policyName").append(item.RatePlanName);
+
+                                    if (item.Breakfst == 1) {
+                                        $("#Breakfst").append("Included");
+                                    }
+                                    else {
+                                        $("#Breakfst").append("Not Included");
+                                    }
+
+                                    $("#CancellationPolicy").append(item.CancellationPolicy);
+
+                                    if (item.ChargedForNoShow == 1) {
+                                        $("#ChargedForNoShow").append("Same as the cancellation fee");
+                                    }
+                                    else {
+                                        $("#ChargedForNoShow").append("100% of the total price");
+                                    }
+
+                                    if (item.FreeCancelBefore == 1) {
+                                        $("#FreeCancelBefore").append("The cost of the first night");
+                                    }
+                                    else if (item.FreeCancelBefore == 2) {
+                                        $("#FreeCancelBefore").append("50% of the total price");
+                                    }
+                                    else {
+                                        $("#FreeCancelBefore").append("100% of the total price");
+                                    }
+
+
+                                    if (item.HowlongFreeOfCharge == 1) {
+                                        $("#GuestChargedForCancellation").append("until 6:00PM on the day of arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 2) {
+                                        $("#GuestChargedForCancellation").append("until 2:00PM on the day of arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 3) {
+                                        $("#GuestChargedForCancellation").append("until 1 day before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 4) {
+                                        $("#GuestChargedForCancellation").append("until 2 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 5) {
+                                        $("#GuestChargedForCancellation").append("until 3 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 6) {
+                                        $("#GuestChargedForCancellation").append("until 5 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 7) {
+                                        $("#GuestChargedForCancellation").append("until 7 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 8) {
+                                        $("#GuestChargedForCancellation").append("until 14 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 9) {
+                                        $("#GuestChargedForCancellation").append("until 21 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 10) {
+                                        $("#GuestChargedForCancellation").append("until 28 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 11) {
+                                        $("#GuestChargedForCancellation").append("until 30 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 12) {
+                                        $("#GuestChargedForCancellation").append("until 42 days before arrival");
+                                    }
+                                    else if (item.HowlongFreeOfCharge == 13) {
+                                        $("#GuestChargedForCancellation").append("until 60 days before arrival");
+                                    }
+                                    else {
+                                        $("#FreeCancelBefore").append("No Free Cancellation");
+                                    }
+
+                                    $j("#policyModal").show();
+                                }
+                            });
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.status + " : " + err.statusText);
+                    }
+
+                });
+            } catch (e) {
+                alert(e.status + " : " + e.statusText);
+                // window.location.href = '/Booking/BookingList';
+            }
+        });
+    });
+</script>
+<main>
+    <div class="hero medium-height jarallax" data-jarallax data-speed="0.2" style="position: relative;">
+        <img class="jarallax-img" src="../content/paradise/img/masionette_about.png" alt="best hotel in Murree">
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+            <div class="container" style="margin-top:120px">
+                <div class="hero-content-enhanced">
+                    <small class="slide-animated one" style="color: #667eea; font-weight: 600; font-size: 16px; letter-spacing: 2px;">LUXURY HOTEL EXPERIENCE</small>
+                    <h1 class="slide-animated two" style="color: white; font-size: 48px; font-weight: 700; margin: 20px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Available Rooms & Suites</h1>
+                    <div class="search-summary" style="background: rgba(255,255,255,0.95); padding: 20px; border-radius: 15px; margin-top: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                        <div class="row text-dark">
+                            <div class="col-md-3">
+                                <i class="fa fa-calendar" style="color: #667eea; margin-right: 8px;"></i>
+                                <strong>Check-in:</strong> @_CheckIn
+                            </div>
+                            <div class="col-md-3">
+                                <i class="fa fa-calendar-o" style="color: #667eea; margin-right: 8px;"></i>
+                                <strong>Check-out:</strong> @_CheckOut
+                            </div>
+                            <div class="col-md-3">
+                                <i class="fa fa-users" style="color: #667eea; margin-right: 8px;"></i>
+                                <strong>Guests:</strong> @_adults Adults, @_children Children
+                            </div>
+                            <div class="col-md-3">
+                                <i class="fa fa-bed" style="color: #667eea; margin-right: 8px;"></i>
+                                <strong>Duration:</strong> @NoOfDays @(NoOfDays == 1 ? "Night" : "Nights")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Background Img Parallax -->
+
+    <div class="container margin_120_0">
+        @if (results.Count == 0)
+        {
+            <div class="txt7">
+                <p>No room available. Please try other dates.</p>
+            </div>
+        }
+        else
+        {
+            foreach (var item in results)
+            {
+                HotelDBEntities2 HDE = new HotelDBEntities2();
+
+                var rp = (from a in HDE.RoomPictures
+                          where (a.RoomCode == item.RoomCateCode && a.Active == true)
+                          select new
+                          {
+                              ImageName = a.Picture
+                          }).ToList();
+
+                if (item.NoOfRooms > 0)
+                {
+                    string[] features = null;
+                    using (Html.BeginForm("ReservationPost2", "SearchResult", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row_list_version_2 mb-4">
+                            <div class="row g-0 align-items-center">
+                                <!-- Image Section -->
+                                <div class="col-lg-8 col-md-7 col-sm-12 mb-3">
+                                    <div class="roomsleft mb-2">
+                                        <span>Hurry! @item.NoOfRooms Rooms Available</span>
+                                    </div>
+                                    <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                                        <div class="property-img position-relative">
+                                            <img src="../uploads/@item.imgURL" alt="hotel in murree" class="img-fluid rounded">
+                                            <div class="property-overlay">
+                                                <div class="vid-area">
+                                                    <a href="@item.VideoLink"
+                                                       class="overlay-link property-video"
+                                                       name="vidLink"
+                                                       id="vidLink_@item.Id"
+                                                       title="@item.RoomCategory"
+                                                       data-room-category="@item.RoomCategory"
+                                                       data-room-description="@item.RoomDescription"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#propertyModal">
+                                                        <i class="fa fa-video-camera"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="property-magnify-gallery">
+                                                    @{ var displayedImages = new HashSet<string>(); }
+
+                                                    <!-- Main Image -->
+                                                    @if (displayedImages.Add(item.imgURL))
+                                                    {
+                                                        <a href="@Url.Content($"~/uploads/{item.imgURL}")"
+                                                           class="overlay-link"
+                                                           alt="@item.RoomCategory"
+                                                           title="@item.RoomCategory"
+                                                           data-lightbox="gallery-@item.Id">
+                                                            <i class="fa fa-expand"></i>
+                                                        </a>
+                                                    }
+
+                                                    <!-- Additional Images -->
+                                                    @{ int uniqueIndex = 1; }
+                                                    @foreach (var itms in rp)
+                                                    {
+                                                        if (displayedImages.Add(itms.ImageName))
+                                                        {
+                                                            uniqueIndex++;
+                                                            <a href="@Url.Content($"~/uploads/{itms.ImageName}")"
+                                                               class="hidden"
+                                                               alt="@item.RoomCategory"
+                                                               title="@item.RoomCategory"
+                                                               data-lightbox="gallery-@item.Id">
+                                                            </a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Info Section -->
+                                <div class="col-lg-4 col-md-5 col-sm-12">
+                                    <div class="room-row box_item_info p-3 rounded shadow-sm" data-policy-id="2">
+                                        <h2>@item.RoomCategory</h2>
+                                    
+                                        Policy:
+                                        <span class="tooltip">
+                                            Standard <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            <div class="tooltiptext color-2 mt-2" id="policyTooltip-@item.Id">
+                                                <p><b>Policy: </b> <span id="policyName">@item.Name</span></p>
+                                                <p><b>Breakfast: </b> <span class="Breakfast">Loading...</span></p>
+                                                <p><b>Cancellation Policy: </b> <span id="CancellationPolicy">@item.Name</span></p>
+                                                <p><b>Free Cancel Before: </b> <span class="HowlongFreeOfCharge">Loading...</span></p>
+                                                <p><b>Guest Charged For Cancellation: </b> <span class="guestChargedForCancellation">Loading...</span></p>
+                                                <p><b>Charged For No-Show: </b> <span class="chargedForNoShow">Loading...</span></p>
+                                            </div>
+                                        </span>
+
+
+                                        @*@<u><a role="button" name="policy" id="policy_@item.CancellationPolicy"><b>@item.Name</b></a></u>@*@
+
+                                        <input type="hidden" data-value="@item.Id" id="hdRoomCate_@item.Id" value="@item.RoomCateCode" />
+                                        <input type="hidden" name="NoOfRoomsLeft" id="NoOfRoomsLeft_@item.Id" value="@item.NoOfRooms" />
+                                        <input type="hidden" id="hdNormalPrice_@item.Id" value="@item.TotalAmount" />
+                                        <input type="hidden" id="hdDiscountedPrice_@item.Id" value="@item.discountedprice" />
+                                        <input type="hidden" name="RatePlanID" id="RatePlanID_@item.Id" value="@item.rateplanId" />
+
+                                        <div class="row mt-2">
+                                            <div class="col-12">
+                                                Add Rooms:
+                                                <div class="d-inline-block mx-2">
+                                                    <input type="button" ID="CalculateMinus_@item.Id" name="CalculateMinus" data-value="@item.Id" value="-" class="btn btn-outline-secondary btn-sm" />
+                                                    <input type="text" value="1" style="width:30px" name="txtQuatntity" ID="txtQuatntity_@item.Id" class="text-center" />
+                                                    <input type="button" data-value="@item.Id" ID="CalculatePlus_@item.Id" name="CalculatePlus" value="+" class="btn btn-outline-secondary btn-sm" />
+                                                    <input type="checkbox" style="display:none" name="SelectRoom" id="SelectRoom_@item.Id" value="@item.Id" />
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="facilities clearfix mt-3">
+                                            <ul class="list-unstyled d-flex flex-wrap gap-2">
+                                                <li><i class="customicon-air-condition"></i> Heating/Cooling</li>
+                                                <li><i class="customicon-television"></i> TV</li>
+                                                <li><i class="customicon-wifi"></i> Wifi</li>
+                                                <li><i class="customicon-private-parking"></i> Parking</li>
+                                                <li><i class="customicon-hairdryer"></i> Hairdryer</li>
+                                                <li><i class="customicon-shower"></i> Shower</li>
+                                            </ul>
+                                        </div>
+                                        <input type="hidden" data-value="@item.Id" id="hdRoomCate_@item.Id" value="@item.RoomCateCode" />
+                                        <input type="hidden" name="NoOfRoomsLeft" id="NoOfRoomsLeft_@item.Id" value="@item.NoOfRooms" />
+                                        <div class="facilities clearfix">
+                                            @if (item.Amenities != null)
+                                            {
+                                                <ul>
+                                                    @foreach (var amenity in item.Amenities)
+                                                    {
+                                                        <li>
+                                                            <i class="@amenity.Icon"></i> @amenity.AmenityText
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <span><img style="width:12px;height:12px;margin-bottom:4px" src="~/Content/paradise/images(1)/user_icon.png" /> @item.AdultAllowed Adults, @item.NoOfChildAllowed Children</span>
+                                        </div>
+
+                                        <div class="box_item_footer d-flex align-items-center justify-content-between mt-3">
+                                            <input type="hidden" id="hdVid_@item.Id" value="https://www.youtube.com/embed/g30e6Hi35Jg" />
+                                            <input type="hidden" id="hdTotalRooms" name="hdTotalRooms" value="1" />
+                                            <input type="hidden" id="hdTotalAmount" name="hdTotalAmount" value="@item.discountedprice" />
+                                            <input type="hidden" name="CheckIn" value="@_CheckIn" />
+                                            <input type="hidden" name="CheckOut" value="@_CheckOut" />
+                                            <input type="hidden" name="RoomCatCode" id="RoomCatCode" />
+                                            <input type="hidden" name="Adults" value="@_adults" />
+                                            <input type="hidden" name="Children" value="@_children" />
+                                            <input type="hidden" name="NoOfRooms" value="@_NoOfRooms" />
+                                            <input type="hidden" name="RoomRate" value="@roomPrice" />
+                                            <input type="hidden" name="RoomCate" value="@item.RoomCateCode" />
+                                            <input type="hidden" name="RoomCateRoomNums" id="RoomCateRoomNums" />
+                                            <input type="hidden" name="RatePlanIDs" value="@item.rateplanId" />
+                                            <input type="hidden" name="RoomRates" value="@item.discountedprice" />
+                                            <input type="hidden" id="hdTotalAmount_@item.Id" name="TotalAmountPerRoom" value="@item.discountedprice" />
+                                            @*<button type="submit" class="btn btn-primary btn-sm">
+                <span>Book Now</span>
+            </button>*@
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <button type="submit" class="btn_4">
+                                                        <span class="circle">
+                                                            <span class="icon arrow"></span>
+                                                        </span>
+                                                        <span class="button-text">&nbsp;&nbsp; Book Now</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <small style="font-size: 14px;color: #F20008 " class="price-info col-sm ">
+
+                                                        <span style="text-decoration: line-through;" id="spNormalPrice_@item.Id">Rs.@item.TotalAmount for @NoOfDays @(NoOfDays == 1 ? "Night" : "Nights")</span>
+
+
+                                                        <input type="hidden" id="hdNormalPrice_@item.Id" value="@item.TotalAmount" />
+
+                                                        <input type="hidden" name="RatePlanID" id="RatePlanID_@item.Id" value="@item.rateplanId" />
+                                                    </small>
+
+                                                    <small style="font-size: 16px;" class="price-info col-sm ">
+
+                                                        <span id="spDiscountedPRice_@item.Id">Rs.@item.discountedprice for @NoOfDays @(NoOfDays == 1 ? "Night" : "Nights")</span>
+                                                        @if (NoOfDays > 1)
+                                                        {
+                                                            <br><small style="color: #666; font-size: 12px;">(Rs.@((int)Math.Round((double)item.discountedprice / NoOfDays)) per night)</small>
+                                                        }
+
+                                                        <input type="hidden" id="hdDiscountedPrice_@item.Id" value="@item.discountedprice" />
+                                                        <input type="hidden" name="RatePlanID" id="RatePlanID_@item.Id" value="@item.rateplanId" />
+                                                    </small>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+    </div>
+
+
+
+
+
+
+
+</main>
+
+
+<div class="modal property-modal fade" id="propertyModal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row modal-raw g-0">
+                    <div class="col-lg-5 modal-left">
+                        <div class="modal-left-content">
+                            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <iframe id="vidFrame" class="modalIframe w-100" src="https://www.youtube.com/embed/Z4CtRiWM_SU" allowfullscreen style="height: 299.97px;"></iframe>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 modal-right">
+                        <div class="modal-right-content bg-white">
+                            <div class="heading comon-section">
+                                <h2>Maisonette Firhill muree</h2>
+                                <a href="https://maps.app.goo.gl/audH4t4McQ9hJN7W6" class="location">Governor House Road, Daultana House Kashmir point, Murree</a>
+                            </div>
+                            <div class="features comon-section">
+
+                                <section>
+                                    <h2>Features</h2>
+                                </section>
+                                <ul class="bullets">
+
+                                    <li>
+                                        <i class="customicon-television"></i> TV
+                                    </li>
+                                    <li>
+                                        <i class="customicon-wifi"></i> Wifi
+                                    </li>
+                                    <li>
+                                        <i class="customicon-private-parking"></i> Parking
+                                    </li>
+
+                                    <li>
+                                        <i class="customicon-shower"></i> Hot Water
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="0verview comon-section cs-none">
+                                <section>
+                                    <h2 id="modalRoomCategory"></h2>
+                                    <p id="modalRoomDescription"></p>
+                                </section>
+
+                                <div class="btn_1"> <a><span>Show Detail</span></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+      // Iterate over each room-row to fetch and display policy data
+      $('.room-row').each(function () {
+          var $roomRow = $(this); // Current room-row element
+          var cancellationPolicyId = $roomRow.data('policy-id'); // Fetch dynamic CancellationPolicyId
+
+          // Make the AJAX call to fetch the policy details
+          $.ajax({
+              url: '@Url.Action("RoomPolicy", "SearchResult")', // Update with your actual controller name
+              type: 'GET',
+              data: { CancellationPolicy: cancellationPolicyId },
+              success: function (response) {
+                  console.log(`Response for policy ID ${cancellationPolicyId}:`, response); // Debugging
+
+                  if (response && response.length > 0) {
+                      var policy = response[0];
+
+                      // Update the relevant tooltip fields dynamically
+                      $roomRow.find('.HowlongFreeOfCharge').text(policy.HowlongFreeOfCharge || 'N/A');
+                      $roomRow.find('.guestChargedForCancellation').text(policy.GuestChargedForCancellation || 'N/A');
+                      $roomRow.find('.chargedForNoShow').text(policy.ChargedForNoShow || 'N/A');
+                      $roomRow.find('.Breakfast').text(policy.Breakfast || 'N/A');
+
+                  } else {
+                      console.warn(`No policy data found for policy ID ${cancellationPolicyId}`);
+                      $roomRow.find('.HowlongFreeOfCharge').text('N/A');
+                      $roomRow.find('.guestChargedForCancellation').text('N/A');
+                      $roomRow.find('.chargedForNoShow').text('N/A');
+                      $roomRow.find('.breakfast').text('N/A'); // Default value for breakfast
+                  }
+              },
+              error: function (error) {
+                  console.error(`Error fetching policy data for policy ID ${cancellationPolicyId}:`, error);
+
+                  // Handle error case (e.g., display default values)
+                  $roomRow.find('.HowlongFreeOfCharge').text('N/A');
+                  $roomRow.find('.guestChargedForCancellation').text('N/A');
+                  $roomRow.find('.chargedForNoShow').text('N/A');
+                  $roomRow.find('.breakfast').text('N/A'); // Default value for breakfast
+              }
+          });
+      });
+  });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Add event listeners to each modal trigger
+        const modalTriggers = document.querySelectorAll(".property-video");
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener("click", function () {
+                // Get room data from attributes or hidden fields
+                const roomCategory = this.getAttribute("data-room-category");
+                const roomDescription = this.getAttribute("data-room-description");
+                const videoLink = this.getAttribute("href");
+                const image1 = this.getAttribute("data-image1");
+                const image2 = this.getAttribute("data-image2");
+
+                // Update modal content
+                document.getElementById("modalRoomCategory").textContent = roomCategory;
+                document.getElementById("modalRoomDescription").textContent = roomDescription;
+                document.getElementById("vidFrame").src = videoLink;
+                document.getElementById("carouselImage1").src = image1;
+                document.getElementById("carouselImage2").src = image2;
+
+
+            });
+        });
+    });
+</script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+

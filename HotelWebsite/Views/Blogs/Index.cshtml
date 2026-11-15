@@ -1,0 +1,81 @@
+﻿@using HotelWebsite.Models;
+
+@{
+    ViewBag.Title = "Latest Murree Updates | Travel Tips & News by Maisonette ";
+    ViewBag.canonical = "https://maisonettefirhillmurree.com/latest-murree-updates";
+    ViewBag.keywords = "murree weather update, murree roads update, hotel blog, hotel booking tips, maisonette murree, hotel murree, murree hotel, hotel at murree, murree hotels, ";
+
+    ViewBag.Description = "Stay informed with the latest Murree updates, travel tips, hotel booking insights, and safe travel advice with Maisonette Firhill Hotel Blog. Book Online now. ";
+
+
+
+    var blogs = (List<Post>)ViewBag.blogs;
+
+}
+
+<main>
+
+    <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
+        <img class="jarallax-img" src="../content/paradise/img/masionette_about.png" alt="Murree hotel">
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+            <div class="container" style="margin-top:12%">
+                <small class="slide-animated one">Your Guide to Safe and Enjoyable Traveling in Murree</small>
+                <h1 class="slide-animated two">Explore the Latest Murree Updates, Travel Tips, and Insights</h1>
+               
+            </div>
+        </div>
+    </div>
+    <!-- /Background Img Parallax -->
+    <div style="background-color:#fff">
+        <div class="container margin_120_95" style="padding-top:70px">
+            <div class="isotope-wrapper">
+                <h2 style="text-align:center">Stay Informed with the Latest Murree Updates</h2>
+                <p style="text-align:center">
+                    Welcome to the blog page of Maisonette Firhill Hotel Murree, your go-to source for latest Murree updates and insights! Whether you’re planning a serene getaway or a family adventure, our blog keeps you updated on the latest happenings, weather forecasts, and must-visit attractions in Murree. Discover expert tips for seamless hotel bookings and learn the secrets to safe and hassle-free travel in this enchanting hill station. Stay tuned for insider advice and practical guides to make your Murree experience truly unforgettable.
+                </p>
+                <div class="row justify-content-center">
+                    @{
+                        foreach (var ro in blogs)
+                        {
+
+                            string detailUrl = Url.RouteUrl("postDetailRoute", new { postId = ro.PostId, slug = ro.Slug });
+
+                            <div class="item col-xl-4 col-lg-6">
+                                <a href="@detailUrl" class="box_contents" data-cue="slideInUp">
+                                    <figure><img src="../uploads/blog/@ro.DefaultImage" alt="Murree hotel" class="img-fluid"><em>@ro.PublishedDate</em></figure>
+                                    <div class="wrapper">
+                                        <small>@ro.Author<span></span></small>
+                                        <h2>
+                                            @ro.Title
+                                        </h2>
+                                        <em href="@detailUrl">Read more</em>
+                                    </div>
+                                </a>
+                            </div>
+
+                        }
+                    }
+
+                </div>
+                <!--/row -->
+            </div>
+        </div>
+    </div>
+    <!--/container -->
+</main>
+
+
+
+
+
+<script>
+    !(function (d, s, id) {
+        var js,
+            fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://weatherwidget.io/js/widget.min.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    })(document, "script", "weatherwidget-io-js");</script>

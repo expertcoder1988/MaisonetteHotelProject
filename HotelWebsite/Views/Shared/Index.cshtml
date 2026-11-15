@@ -1,0 +1,616 @@
+﻿@{
+    ViewBag.Title = "Maisonette Firhill Hotel & Resort| Best Hotel in Murree";
+    ViewBag.keywords = "Hotel in Murree";
+    ViewBag.canonical = "https://maisonettefirhillmurree.com";
+
+    ViewBag.Description = "Experience unmatched comfort at Maisonette Firhill Hotel in Murree. Enjoy luxury rooms with a view & dining at Spice Waadi & The Cloud Walk Café. Book online!";
+
+    List<HotelWebsite.Models.PropertySearch> results = new List<HotelWebsite.Models.PropertySearch>();
+
+
+    if (TempData.ContainsKey("roomList"))
+    {
+        results = (List<HotelWebsite.Models.PropertySearch>)TempData["roomList"];
+    }
+}
+
+<style>
+    .modal-open .ui-datepicker {
+        z-index: 2000 !important
+    }
+
+    .modal-button {
+        float: left;
+    }
+</style>
+
+<!-- Moment.js (Required for Date Range Picker) -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>-->
+<!-- jQuery (Required) -->
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!-- Date Range Picker CSS and JS -->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.1/daterangepicker.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.1/daterangepicker.min.js"></script>-->
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    var $j = jQuery.noConflict();
+    var value = 0;
+
+    $j(function () {
+        $j("input[name='adultminus']").on('click', function (e) {
+            var id = ($j(this).data("value"));
+            //alert(id);
+            if ($j('#adults').val() > 1) {
+                value = parseInt($j('#adults').val() - 1);
+                $j('#adults').val(value);
+            }
+        });
+
+        $j("input[name='adultplus']").on('click', function (e) {
+            var id = ($j(this).data("value"));
+            if ($j('#adults').val() < 13) {
+                value = parseInt($j('#adults').val()) + 1;
+                $j('#adults').val(value);
+            }
+        });
+
+        $j("input[name='childminus']").on('click', function (e) {
+            var id = ($j(this).data("value"));
+            //alert(id);
+            if ($j('#childs').val() > 1) {
+                value = parseInt($j('#childs').val() - 1);
+                $j('#childs').val(value);
+            }
+        });
+
+        $j("input[name='childplus']").on('click', function (e) {
+            var id = ($j(this).data("value"));
+            if ($j('#childs').val() < 5) {
+                value = parseInt($j('#childs').val()) + 1;
+                $j('#childs').val(value);
+            }
+        });
+    });
+</script>
+
+
+<input type="hidden" id="AvoidReload" value="false" />
+
+<main>
+
+    <div class="slider">
+        <div id="slider" class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="~/Content/paradise/img/sep5.png" alt="">
+                    <div class="meta">
+                        <h1>Welcome to Maisonette Firhill Hotel & Resort Murree</h1>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/paradise/img/sep4.png" alt="">
+                    <div class="meta">
+                        <h2>Welcome to Maisonette Firhill Hotel & Resort Murree</h2>
+
+
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/paradise/img/sep_8.png" alt="">
+                    <div class="meta">
+                        <h2>Welcome to Maisonette Firhill Hotel & Resort Murree</h2>
+
+                    </div>
+                </li>
+
+            </ul>
+            <div id="icon_drag_mobile"></div>
+        </div>
+        <div id="carousel_slider_wp">
+            <div id="carousel_slider" class="flexslider">
+                <ul class="slides">
+                    <!-- Updated to use <ul> and <li> instead of <div> -->
+                    <li>
+                        <div class="col-lg-10">
+                            @using (Html.BeginForm("PropertySearch", "Home", FormMethod.Post, new { @class = "form1" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row g-0 booking_form">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" id="DesktopDaterangePicker" name="daterange" placeholder="Check in > Check out" readonly="readonly">
+                                            <input type="hidden" name="CheckIn" id="CheckIn" />
+                                            <input type="hidden" name="CheckOut" id="CheckOut" />
+                                            <i class="bi bi-calendar2"></i>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 pe-lg-0 pe-sm-1">
+                                        <div class="qty-buttons">
+                                            <label>Adults</label>
+                                            <input type="button" value="+" class="qtyplus" name="adultplus">
+                                            <input type="text" name="adults" id="adults" value="1" class="qty form-control" style="padding-left: 100px;">
+                                            <input type="button" value="-" class="qtyminus" name="adultminus">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 ps-lg-0 ps-sm-1">
+                                        <div class="qty-buttons">
+                                            <label>Children</label>
+                                            <input type="button" value="+" class="qtyplus" name="childplus">
+                                            <input type="text" name="childs" id="childs" value="0" class="qty form-control" style="padding-left: 100px;">
+                                            <input type="button" value="-" class="qtyminus" name="childminus">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <input type="submit" class="btn_search" value="Search">
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="slider">
+        <div id="slider" class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="~/Content/paradise/img/sep5.png" alt="">
+                    <div class="meta">
+                        <h1>Welcome to Maisonette Firhill Hotel & Resort Murree</h1>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/paradise/img/sep4.png" alt="">
+                    <div class="meta">
+                        <h2>Welcome to Maisonette Firhill Hotel & Resort Murree</h2>
+
+
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/paradise/img/sep_8.png" alt="">
+                    <div class="meta">
+                        <h2>Welcome to Maisonette Firhill Hotel & Resort Murree</h2>
+
+                    </div>
+                </li>
+
+            </ul>
+            <div id="icon_drag_mobile"></div>
+        </div>
+        <div id="carousel_slider_wp">
+            <div id="carousel_slider" class="flexslider">
+                <ul class="slides">-->
+    <!-- Updated to use <ul> and <li> instead of <div> -->
+    <!--<li>
+                        <div class="col-lg-10">
+                            @using (Html.BeginForm("PropertySearch", "Home", FormMethod.Post, new { @class = "form1" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row g-0 booking_form">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" name="dates" placeholder="Check in / Check out" readonly="readonly">
+                                            <input type="hidden" name="CheckIn" />
+                                            <input type="hidden" name="CheckOut" />
+                                            <i class="bi bi-calendar2"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 pe-lg-0 pe-sm-1">
+                                        <div class="qty-buttons">
+                                            <label>Adults</label>
+                                            <input type="button" value="+" class="qtyplus" name="adultplus">
+                                            <input type="text" name="adults" id="adults" value="1" class="qty form-control" style="padding-left: 100px;">
+                                            <input type="button" value="-" class="qtyminus" name="adultminus">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 ps-lg-0 ps-sm-1">
+                                        <div class="qty-buttons">
+                                            <label>Children</label>
+                                            <input type="button" value="+" class="qtyplus" name="childplus">
+                                            <input type="text" name="childs" id="childs" value="0" class="qty form-control" style="padding-left: 100px;">
+                                            <input type="button" value="-" class="qtyminus" name="childminus">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <input type="submit" class="btn_search" value="Search">
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="pattern_2">
+        <div class="container margin_120_95" id="first_section">
+            <div class="row justify-content-between flex-lg-row-reverse align-items-center">
+                <div class="col-lg-5">
+                    <div class="parallax_wrapper">
+                        <img src="../content/paradise/img/masionte_a.png.png" alt="hotel in murree" class="img-fluid rounded-img">
+                        <div data-cue="slideInUp" class="img_over"><span data-jarallax-element="-30"><img src="../content/paradise/img/patt_img.png" alt="hotel in murree" class="rounded-img"></span></div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="intro">
+                        <div class="title">
+
+                            <h2>Your Ideal Hotel in Murree</h2>
+                        </div>
+                        <p class="lead">Discover Luxury & Comfort at Maisonette Murree Hotel </p>
+                        <p>
+                            At Maisonette Firhill Murree, every corner of our resort has been crafted
+                            with you in mind, from beautifully designed rooms to the stunning natural
+                            views visible right from your balcony. Each room at our Murree Hotel
+                            features top-tier amenities including high-speed internet, premium bedding,
+                            and modern bath facilities, blending convenience with luxury for an ideal
+                            stay. Our prime location makes us one of the most desirable hotels in Murree,
+                            giving guests easy access to the most sought-after attractions in the area.
+                            Revel in the beauty of Murree with us and enjoy a luxurious experience that
+                            takes you closer to nature.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+
+    </div>
+    <!-- /Pattern  -->
+
+    <div style="background:#fff">
+        <div class="container margin_120_95" style="padding-top:110px; padding-bottom:0px;">
+            <div class="title mb-3">
+                <small data-cue="slideInUp">Maisonette Murree Hotel</small>
+                <h2 data-cue="slideInUp" data-delay="200">Rooms & Suites</h2>
+            </div>
+            <div class="row justify-content-center add_bottom_90" data-cues="slideInUp" data-delay="300">
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <a href="" class="box_cat_rooms">
+                        <figure>
+                            <div class="background-image" data-background="url(../content/paradise/img/HomePage_room/1.png)"></div>
+                            <div class="info">
+                                <small>Maisonette Firhill Murree</small>
+                                <h3>Honeymoon Suite</h3>
+                                <span>Read more</span>
+                            </div>
+                        </figure>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <a href="" class="box_cat_rooms">
+                        <figure>
+                            <div class="background-image" data-background="url(../content/paradise/img/HomePage_room/2.png)"></div>
+                            <div class="info">
+                                <small>Maisonette Firhill Murree</small>
+                                <h3>Studio Room</h3>
+                                <span>Read more</span>
+                            </div>
+                        </figure>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <a href="" class="box_cat_rooms">
+                        <figure>
+                            <div class="background-image" data-background="url(../content/paradise/img/HomePage_room/3.png)"></div>
+                            <div class="info">
+                                <small>Maisonette Firhill Murree</small>
+                                <h3>Presedential Room</h3>
+                                <span>Read more</span>
+                            </div>
+                        </figure>
+                    </a>
+                </div>
+                <p class="text-end"><a href="" class="btn_1 outline mt-2">View all Rooms</a></p>
+            </div>
+            <!-- /row-->
+            <!-- /Row -->
+        </div>
+    </div>
+
+
+    <div class="pattern_2">
+       
+
+            <div class="col-12">
+                <div class="hover-menu-b">
+                    <div class="hover-menu-container hover-menu-container--dark " style="width: 100%; position: relative;">
+
+                        <!-- Image Section -->
+                        <div class="hover-menu-container__media" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+                            <img src="~/Content/paradise/img/menu_burger.png" class="hover-menu-container__media-img shadow-darken" alt="Dining">
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="hover-menu-container__content top" style="z-index: 2; justify-content: space-between; width: 100%; max-width: 1440px; height: 100%; margin: 0 auto; padding: 0 24px; display: flex; position: relative;">
+
+                            <!-- Left Side Content -->
+                            <div class="hover-menu-container__leftside">
+                                <div class="hover-menu-container__tag d-none d-lg-block c-appeared c-appeared--done">
+                                    Dining
+                                </div>
+                                <h2 class="hover-menu-container__title c-appeared c-appeared--done">
+                                    <p> <span style="font-family: CanelaThin, serif;">Indulge in Exquisite </span><i style="font-family: CanelaThinItalic, serif;">Dining </i> <span class="text-uppercase" style=" font-family: CanelaThin, serif;">at Maisonette Firhill Hotel & Resort Murree </span></p>
+                                </h2>
+                                <div class="hover-menu-container__link c-appeared c-appeared--done">
+                                    <a href="@Url.Action("Index","Restaurant")">Discover All</a>
+                                </div>
+                            </div>
+
+                            <!-- Right Side Navigation -->
+                            <div class="hover-menu-container__rightside">
+
+
+                                <!-- Navigation List -->
+                                <div class="hover-menu-container__list">
+                                    <div class="hover-menu-container__item">
+                                        <a>
+                                            <h5 class="hover-menu-container__theme">French</h5>
+                                            <p class="hover-menu-container__theme-desc text-muted">
+                                                Experience the elegance of French cuisine with gourmet flavors crafted to perfection.
+                                            </p>
+                                        </a>
+                                    </div>
+
+                                    <div class="hover-menu-container__item ">
+                                        <a>
+                                            <h5 class="hover-menu-container__theme">Italian</h5>
+                                            <p class="hover-menu-container__theme-desc text-muted">
+                                                Savor authentic Italian classics, from creamy pastas to wood-fired pizzas.
+                                            </p>
+                                        </a>
+                                    </div>
+
+                                    <div class="hover-menu-container__item ">
+                                        <a class="text-decoration-none">
+                                            <h5 class="hover-menu-container__theme">Chinese</h5>
+                                            <p class="hover-menu-container__theme-desc text-muted">
+                                                Indulge in the bold and savory tastes of Chinese culinary mastery.
+                                            </p>
+                                        </a>
+                                    </div>
+
+                                    <div class="hover-menu-container__item">
+                                        <a class="text-decoration-none">
+                                            <h5 class="hover-menu-container__theme">Continental</h5>
+                                            <p class="hover-menu-container__theme-desc text-muted">
+                                                Delight in a diverse range of Continental dishes, blending global tastes.
+
+
+                                            </p>
+                                        </a>
+                                    </div>
+
+                                    <div class="hover-menu-container__item">
+                                        <a class="text-decoration-none">
+                                            <h5 class="hover-menu-container__theme">Pakistani</h5>
+                                            <p class="hover-menu-container__theme-desc text-muted">
+                                                Relish the rich, aromatic spices of traditional Pakistani cuisine.
+                                            </p>
+                                        </a>
+                                    </div>
+
+                                    <div class="hover-menu-container__item">
+                                        <a class="text-decoration-none">
+                                            <h5 class="hover-menu-container__theme">Ice creams</h5>
+                                            <p class="hover-menu-container__theme-desc text-muted">
+                                                Treat yourself to creamy, dreamy ice creams in a variety of tempting flavors.
+                                            </p>
+                                        </a>
+                                    </div>
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div> <!-- End of content section -->
+                    </div> <!-- End of hover-menu-container -->
+                </div> <!-- End of hover-menu-b -->
+            </div> <!-- End of col-12 -->
+        
+        <!-- /pinned content -->
+    </div>
+    <!-- /Pattern  -->
+
+
+
+
+
+
+    <div class="bg_white">
+        <div class="container margin_120_95">
+            <h2 style="text-align:center">Delight Your Palate at Spice Waadi Restaurant & The Cloud Walk Café</h2>
+            <hr style="border-color: #c2c2c29e;" />
+            <div class="row justify-content-between d-flex align-items-center add_bottom_90">
+
+                <div class="col-lg-6">
+                    <div class="pinned-image rounded_container pinned-image--small mb-4">
+                        <div class="pinned-image__container">
+                            <img src="~/Content/paradise/img/second_ms.png" alt="Maisonette">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="title">
+
+                        <h3>Indulge in an Authentic Dining Experience</h3>
+                        <p>At Maisonette Firhill Murree, we bring the flavors of the world to your table. Spice Waadi Restaurant at Murree Hotel offers a delightful mix of local and international cuisines prepared by skilled chefs, making each meal a culinary journey. Whether you’re in the mood for traditional Pakistani flavors or continental delights, our dishes are crafted with fresh, high-quality ingredients that promise to satisfy every palate</p>
+                        @*<p><a href="about.html" class="btn_1 mt-1 outline">Book Now</a></p>*@
+                    </div>
+                </div>
+            </div>
+            <!-- /row-->
+            <div class="row justify-content-between d-flex align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="pinned-image rounded_container pinned-image--small mb-4">
+                        <div class="pinned-image__container">
+
+                            <img src="~/Content/paradise/img/masion_hny.png" alt="Maisonette">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 order-lg-1">
+                    <div class="title">
+
+                        <h3>
+                            Relax with a View at The Cloud Walk Café
+                        </h3>
+                        <p>Take a coffee break or enjoy a light snack at The Cloud Walk Café, our open-air café with awe-inspiring views of the mountains. With a cozy ambiance perfect for conversation or quiet reflection, it’s the ideal spot to unwind and take in the sights and sounds of Murree. The Cloud Walk Café isn’t just a café – it’s an experience that connects you with nature and adds a special touch to your stay at our Murree hotel.</p>
+                        @*<p><a href="about.html" class="btn_1 mt-1 outline">Book Now</a></p>*@
+                    </div>
+                </div>
+            </div>
+
+            <!-- /row-->
+        </div>
+        <!-- /container-->
+    </div>
+
+
+    <div class="pinned-image pinned-image--medium">
+        <div class="pinned-image__container" id="section_video">
+            <img class="jarallax-img" src="../content/paradise/img/masionette_about2.png" alt="best hotel in murree">
+
+            <div class="pinned-image__container-overlay"></div>
+        </div>
+        <div class="pinned_over_content">
+            <div class="title white">
+
+                <h2 data-cue="slideInUp" data-delay="300" style=" color: #fff; text-align: center; font-size: 40px; font-weight: 100; line-height: 62px;">
+                    Easy and Secure Online Hotel Booking in Murree
+                </h2>
+                <p class=" c-appeared c-appeared--done" style="color: #fff; text-align: center; width: 100%; font-family: Montserrat, sans-serif; font-size: 20px; font-style: normal; font-weight: 300; line-height: 30px;">
+                    Our online booking system is designed with ease and security in mind, allowing you to reserve your stay in minutes. Through our Murree hotel booking online portal, you can select the room that best suits your needs, explore available packages, and receive instant confirmation. With competitive Murree hotel prices and various room options, Maisonette Firhill makes hotel booking in Murree convenient, so you can focus on planning the perfect itinerary.
+                </p>
+                <a href="#booking_section" class="btn_1 btn_scrollto obj-book"
+                   style="padding: 10px 10px 10px 10px; border-radius: 0px; background: 0 0; color: white; border: 1px solid white; letter-spacing: 1.2px; height: 42px; text-transform: uppercase;padding:12px 24px; ">Book Now</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /container-->
+
+
+</main>
+
+
+
+
+<script>
+    !(function (d, s, id) {
+        var js,
+            fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://weatherwidget.io/js/widget.min.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    })(document, "script", "weatherwidget-io-js");
+</script>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function () {
+        console.log("Close button clicked");
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function incrementQty(event) {
+        event.preventDefault();
+        console.log("Increment button clicked");
+        const inputField = this.parentNode.querySelector('.qty');
+        let currentValue = parseInt(inputField.value) || 0;
+        inputField.value = currentValue + 1;
+    }
+
+    function decrementQty(event) {
+        event.preventDefault();
+        console.log("Decrement button clicked");
+        const inputField = this.parentNode.querySelector('.qty');
+        let currentValue = parseInt(inputField.value) || 0;
+        if (currentValue > 0) {
+            inputField.value = currentValue - 1;
+        }
+    }
+
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        // Initialize the date range picker
+        $('#DesktopDaterangePicker').daterangepicker({
+            opens: 'left',
+            locale: {
+                format: 'YYYY MMM DD',
+                separator: " to"
+            },
+            autoApply: true,
+            autoUpdateInput: false,
+            minDate: new Date(),
+            endDate: new Date(),
+            singleDatePicker: false,
+            showCustomRangeLabel: false
+        });
+
+        // Event: When a date range is applied
+        $('#DesktopDaterangePicker').on('apply.daterangepicker', function (ev, picker) {
+            let selectedStartDate = picker.startDate.clone();
+            let selectedEndDate = picker.endDate.clone();
+
+            // Check if the start date and end date are the same
+            if (selectedStartDate.isSame(selectedEndDate, 'day')) {
+                selectedEndDate = selectedStartDate.clone().add(1, 'days'); // Add 1 day to the end date
+                picker.setEndDate(selectedEndDate); // Update the picker end date
+            }
+
+            // Update the input field with the selected date range
+            $(this).val(selectedStartDate.format('YYYY-MM-DD') + '  >  ' + selectedEndDate.format('YYYY-MM-DD'));
+
+            // Update hidden input fields for form submission
+            $('#CheckIn').val(selectedStartDate.format('YYYY-MM-DD'));
+            $('#CheckOut').val(selectedEndDate.format('YYYY-MM-DD'));
+        });
+
+        // Event: When the cancel button is clicked
+        $('#DesktopDaterangePicker').on('cancel.daterangepicker', function () {
+            // Clear the input and hidden fields
+            $(this).val('');
+            $('#CheckIn').val('');
+            $('#CheckOut').val('');
+        });
+    });
+
+
+</script>
+
+
